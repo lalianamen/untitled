@@ -1,25 +1,1885 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Armen Lalian</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Courgette&display=swap" rel="stylesheet">
-  <style>
-
-    ._background {
-      background: black url("img/maxresdefault_live.jpg") no-repeat top center;
-    }
-    h3{
-      font-family: Courgette, cursive;
-      font-size: 70px;
-      color: #FFF096;
-      text-align: center;
-          }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<meta name="supported-color-schemes" content="light">
+<title>CSLB Law & Business Practice Exam — Bilingual</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+html { color-scheme: light only; forced-color-adjust: none; }
+:root {
+  color-scheme: light;
+  --bg: #f5efe4;
+  --paper: #fbf6ed;
+  --ink: #1a1612;
+  --ink-soft: #4a3f33;
+  --muted: #8a7b68;
+  --rule: #c9b896;
+  --accent: #8b2e1f;
+  --gold: #b8862a;
+  --correct: #4a6741;
+  --correct-bg: #e4ead8;
+  --wrong: #8b2e1f;
+  --wrong-bg: #f0d9d3;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { background: #f5efe4 !important; color: #1a1612 !important; }
+body {
+  background: var(--bg);
+  background-image:
+    radial-gradient(at 10% 0%, rgba(184,134,42,0.06) 0%, transparent 50%),
+    radial-gradient(at 90% 100%, rgba(139,46,31,0.05) 0%, transparent 50%);
+  color: var(--ink);
+  font-family: 'Spectral', 'Georgia', serif;
+  font-size: 17px;
+  line-height: 1.55;
+  min-height: 100vh;
+  -webkit-text-fill-color: #1a1612;
+}
+.grain {
+  position: fixed; inset: 0; pointer-events: none; opacity: 0.4; z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.1 0 0 0 0 0.08 0 0 0 0 0.06 0 0 0 0.08 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.container { max-width: 780px; margin: 0 auto; padding: 32px 22px 60px; position: relative; z-index: 2; }
+header.masthead {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 16px 0 14px;
+  margin-bottom: 24px;
+}
+.masthead-top {
+  display: flex; justify-content: space-between; align-items: baseline;
+  margin-bottom: 10px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.15em; color: var(--muted);
+}
+.masthead-top .seal { color: var(--accent); font-weight: 600; }
+h1.title {
+  font-family: 'Fraunces', serif; font-weight: 600;
+  font-size: clamp(32px, 6vw, 50px);
+  line-height: 0.95; letter-spacing: -0.02em;
+  font-variation-settings: "opsz" 144;
+  margin-bottom: 6px;
+}
+h1.title em { font-style: italic; font-weight: 300; color: var(--accent); }
+.subtitle {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.2em;
+  color: var(--ink-soft);
+  margin-top: 10px; padding-top: 10px;
+  border-top: 1px solid var(--rule);
+}
+.toolbar {
+  display: flex; gap: 10px; flex-wrap: wrap;
+  margin-bottom: 18px;
+  padding: 14px 16px;
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  align-items: center;
+  font-size: 13px;
+}
+.toolbar-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.12em;
+  color: var(--muted); margin-right: 6px;
+}
+.lang-buttons { display: flex; gap: 4px; }
+.lang-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; padding: 6px 12px;
+  border: 1px solid var(--rule); background: white;
+  cursor: pointer; color: var(--ink-soft);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  transition: all 0.15s;
+}
+.lang-btn.active { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.lang-btn:hover:not(.active) { border-color: var(--accent); color: var(--accent); }
+.toolbar-spacer { flex: 1; }
+.shuffle-btn {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; padding: 6px 12px;
+  border: 1px solid var(--rule); background: white;
+  cursor: pointer; color: var(--ink-soft);
+  letter-spacing: 0.05em; text-transform: uppercase;
+  transition: all 0.15s;
+}
+.shuffle-btn:hover { background: var(--accent); color: white; border-color: var(--accent); }
+.status-bar {
+  position: sticky; top: 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  padding: 10px 0; margin: 0 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; text-transform: uppercase; letter-spacing: 0.1em;
+  z-index: 10;
+  backdrop-filter: blur(6px);
+}
+.progress-text { color: var(--ink-soft); }
+.progress-text span { color: var(--accent); font-weight: 600; }
+.progress-bar-wrap { flex: 1; margin: 0 14px; height: 2px; background: var(--rule); position: relative; }
+.progress-bar-fill { position: absolute; inset: 0; width: 0%; background: var(--accent); transition: width 0.3s ease; }
+.question {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed var(--rule);
+}
+.q-meta { display: flex; gap: 12px; margin-bottom: 8px; }
+.q-num {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--accent); letter-spacing: 0.2em; text-transform: uppercase;
+}
+.q-section {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase;
+}
+.q-text {
+  font-size: 16px; line-height: 1.5; margin-bottom: 6px;
+  color: #1a1612 !important; -webkit-text-fill-color: #1a1612;
+}
+.q-text.en { font-weight: 500; }
+.q-text.ru {
+  font-size: 14px; line-height: 1.55;
+  color: #4a3f33 !important; -webkit-text-fill-color: #4a3f33;
+  margin-bottom: 16px;
+  font-style: italic;
+}
+.choices { list-style: none; padding: 0; margin-top: 14px; }
+.choice {
+  display: block; padding: 10px 14px 10px 42px;
+  margin-bottom: 6px; cursor: pointer; position: relative;
+  border: 1px solid transparent; border-radius: 2px;
+  transition: all 0.15s; line-height: 1.4;
+  color: #4a3f33 !important; -webkit-text-fill-color: #4a3f33;
+}
+.choice:hover { background: var(--paper); border-color: var(--rule); }
+.choice input { position: absolute; opacity: 0; cursor: pointer; }
+.choice .letter {
+  position: absolute; left: 12px; top: 12px;
+  width: 22px; height: 22px;
+  border: 1px solid var(--muted); border-radius: 50%;
+  text-align: center; line-height: 20px;
+  font-family: 'JetBrains Mono', monospace; font-size: 11px;
+  color: var(--muted); transition: all 0.15s;
+}
+.choice input:checked ~ .letter { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.choice-text-en { display: block; }
+.choice-text-ru {
+  display: block; font-size: 13px; color: #6b6259; font-style: italic;
+  margin-top: 2px;
+}
+.question.graded .choice { cursor: default; pointer-events: none; }
+.question.graded .choice.correct-answer {
+  background: var(--correct-bg); border-color: var(--correct);
+}
+.question.graded .choice.correct-answer .letter {
+  background: var(--correct); border-color: var(--correct); color: white;
+}
+.question.graded .choice.user-wrong {
+  background: var(--wrong-bg); border-color: var(--wrong);
+  opacity: 0.7;
+}
+.question.graded .choice.user-wrong .letter {
+  background: var(--wrong); border-color: var(--wrong); color: white;
+}
+.question.graded .choice.user-wrong .choice-text-en,
+.question.graded .choice.user-wrong .choice-text-ru { text-decoration: line-through; }
+.explanation {
+  display: none; margin-top: 14px;
+  padding: 12px 16px;
+  background: var(--paper);
+  border-left: 3px solid var(--gold);
+  font-size: 14px; line-height: 1.55; color: var(--ink-soft);
+}
+.question.graded .explanation { display: block; }
+.exp-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; text-transform: uppercase; letter-spacing: 0.15em;
+  color: var(--gold); margin-bottom: 4px; font-weight: 600;
+}
+.exp-en { display: block; color: #1a1612; }
+.exp-ru {
+  display: block; margin-top: 8px; padding-top: 8px;
+  border-top: 1px dashed var(--rule);
+  font-size: 13px; color: var(--ink-soft); font-style: italic;
+}
+.exp-ru .exp-label { color: var(--accent); }
+/* LANGUAGE MODES */
+.lang-en .q-text.ru,
+.lang-en .choice-text-ru,
+.lang-en .exp-ru { display: none; }
+.lang-ru .q-text.en,
+.lang-ru .choice-text-en,
+.lang-ru .exp-en { display: none; }
+.lang-ru .q-text.ru,
+.lang-ru .choice-text-ru,
+.lang-ru .exp-ru { font-style: normal; color: var(--ink); }
+.actions {
+  margin-top: 36px; padding-top: 24px;
+  border-top: 3px double var(--ink);
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+button.action {
+  font-family: 'Fraunces', serif; font-weight: 500;
+  font-size: 13px; padding: 12px 22px;
+  border: 1px solid var(--ink); background: white;
+  color: var(--ink); cursor: pointer;
+  transition: all 0.2s;
+}
+button.action:hover { background: var(--ink); color: var(--bg); }
+button.action.primary { background: var(--ink); color: var(--bg); }
+button.action.primary:hover { background: var(--accent); border-color: var(--accent); }
+.results {
+  display: none;
+  background: var(--paper); border: 1px solid var(--ink);
+  padding: 30px 26px; margin-bottom: 32px;
+  text-align: center; position: relative;
+}
+.results.show { display: block; }
+.results::before {
+  content: ""; position: absolute; inset: 6px;
+  border: 1px solid var(--rule); pointer-events: none;
+}
+.results-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; text-transform: uppercase; letter-spacing: 0.25em;
+  color: var(--accent); margin-bottom: 14px;
+}
+.results-score {
+  font-family: 'Fraunces', serif; font-size: 60px;
+  font-weight: 300; line-height: 1; color: var(--ink);
+}
+.results-score .denom { color: var(--muted); font-size: 30px; }
+.results-percent {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px; color: var(--ink-soft); margin-top: 8px;
+}
+.results-verdict {
+  margin-top: 14px; font-family: 'Fraunces', serif;
+  font-style: italic; font-size: 17px; color: var(--accent);
+}
+.results-breakdown {
+  margin-top: 20px; padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 10px; text-align: left;
+}
+.breakdown-item .b-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; text-transform: uppercase; letter-spacing: 0.1em;
+  color: var(--muted); margin-bottom: 2px;
+}
+.breakdown-item .b-score {
+  font-family: 'Fraunces', serif; font-size: 16px; color: var(--ink);
+}
+footer {
+  margin-top: 50px; padding-top: 20px;
+  border-top: 1px solid var(--rule);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; color: var(--muted);
+  text-transform: uppercase; letter-spacing: 0.15em;
+  text-align: center; line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .container { padding: 22px 16px 50px; }
+  h1.title { font-size: 32px; }
+  .q-text { font-size: 15px; }
+  .q-text.ru { font-size: 13px; }
+  .toolbar { padding: 10px 12px; }
+  .actions { flex-direction: column; }
+  button.action { width: 100%; }
+}
+</style>
 </head>
-<body class="_background">
-  <h3>I live for my family!</h3>
+<body>
+<div class="grain"></div>
+<div class="container">
+  <header class="masthead">
+    <div class="masthead-top">
+      <span class="seal">★ State of California</span>
+      <span id="questionCount">— questions</span>
+      <span>Bilingual Edition</span>
+    </div>
+    <h1 class="title">Law &amp; Business <em>Practice Exam</em></h1>
+    <div class="subtitle">CSLB · Based on the 2026 Contractors License Law &amp; Reference Book</div>
+  </header>
+
+  <div class="toolbar">
+    <span class="toolbar-label">Language / Язык:</span>
+    <div class="lang-buttons">
+      <button class="lang-btn" data-lang="en">EN</button>
+      <button class="lang-btn active" data-lang="both">EN+RU</button>
+      <button class="lang-btn" data-lang="ru">RU</button>
+    </div>
+    <div class="toolbar-spacer"></div>
+    <button class="shuffle-btn" onclick="reshuffleAndReset()">↻ Shuffle</button>
+  </div>
+
+  <div class="status-bar">
+    <span class="progress-text"><span id="answered">0</span>/<span id="total">0</span></span>
+    <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progressFill"></div></div>
+    <span class="progress-text">Score: <span id="scoreLive">0</span></span>
+  </div>
+
+  <div class="results" id="results">
+    <div class="results-label">Final Tally</div>
+    <div class="results-score"><span id="scoreNum">0</span><span class="denom" id="scoreTotal">/0</span></div>
+    <div class="results-percent" id="scorePct">0%</div>
+    <div class="results-verdict" id="verdict">—</div>
+    <div class="results-breakdown" id="breakdown"></div>
+  </div>
+
+  <div id="examBody"></div>
+
+  <div class="actions">
+    <button class="action primary" onclick="reshuffleAndReset()">↻ New Random Set</button>
+    <button class="action" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+  </div>
+
+  <footer>
+    2026 CSLB Law Book · Bilingual EN/RU · Instant feedback · Randomized order each load<br>
+    Cap: $25,000 Contractor Bond · $16.90/hr Min Wage · BPC §7159 Down Payment $1,000 or 10%
+  </footer>
+</div>
+
+<script>
+// =============================
+// QUESTION BANK
+// =============================
+const QUESTIONS = [
+// ============================================================
+// SECTION I: BUSINESS ORGANIZATION & LICENSING (~13% of exam)
+// ============================================================
+{
+  section: "Licensing",
+  q: { en: "Which business entity provides the LEAST personal liability protection for its owner?",
+       ru: "Какая форма бизнеса даёт владельцу НАИМЕНЬШУЮ защиту от личной ответственности?" },
+  choices: [
+    { en: "Corporation", ru: "Корпорация" },
+    { en: "Limited Liability Company (LLC)", ru: "LLC (компания с ограниченной ответственностью)" },
+    { en: "Sole proprietorship", ru: "Sole proprietorship (ИП)" },
+    { en: "Limited partnership", ru: "Limited partnership (коммандитное товарищество)" }
+  ],
+  correct: 2,
+  exp: { en: "A sole proprietorship is not a separate legal entity from its owner. The owner is personally liable for ALL business debts and obligations.",
+         ru: "Sole proprietorship не является отдельным юридическим лицом от владельца. Владелец несёт ЛИЧНУЮ ответственность за все долги бизнеса." }
+},
+{
+  section: "Licensing",
+  q: { en: "How often must an active California contractor's license be renewed?",
+       ru: "Как часто должна продлеваться активная лицензия подрядчика в Калифорнии?" },
+  choices: [
+    { en: "Annually", ru: "Ежегодно" },
+    { en: "Every 2 years", ru: "Каждые 2 года" },
+    { en: "Every 3 years", ru: "Каждые 3 года" },
+    { en: "Every 4 years", ru: "Каждые 4 года" }
+  ],
+  correct: 1,
+  exp: { en: "Active licenses are renewed every 2 years. Inactive licenses are renewed every 4 years.",
+         ru: "Активная лицензия продлевается каждые 2 года. Inactive — каждые 4 года." }
+},
+{
+  section: "Licensing",
+  q: { en: "The required California contractor's surety bond is:",
+       ru: "Обязательный contractor's surety bond в Калифорнии составляет:" },
+  choices: [
+    { en: "$12,500", ru: "$12,500" },
+    { en: "$15,000", ru: "$15,000" },
+    { en: "$25,000", ru: "$25,000" },
+    { en: "$100,000", ru: "$100,000" }
+  ],
+  correct: 2,
+  exp: { en: "Since SB 607 effective January 1, 2023, the contractor's bond is $25,000. The Bond of Qualifying Individual is also $25,000.",
+         ru: "С 1 января 2023 (SB 607) contractor's bond — $25,000. Bond of Qualifying Individual тоже $25,000." }
+},
+{
+  section: "Licensing",
+  q: { en: "An LLC contractor must additionally carry an employee/worker bond of:",
+       ru: "LLC-подрядчик дополнительно обязан иметь employee/worker bond в размере:" },
+  choices: [
+    { en: "$25,000", ru: "$25,000" },
+    { en: "$50,000", ru: "$50,000" },
+    { en: "$100,000", ru: "$100,000" },
+    { en: "$250,000", ru: "$250,000" }
+  ],
+  correct: 2,
+  exp: { en: "Per BPC §7071.6.5, every LLC must file a $100,000 bond for the benefit of employees damaged by failure to pay wages, interest, or fringe benefits.",
+         ru: "По BPC §7071.6.5 каждая LLC должна иметь bond на $100,000 в пользу сотрудников на случай невыплаты зарплаты, процентов и компенсаций." }
+},
+{
+  section: "Licensing",
+  q: { en: "A Responsible Managing Employee (RME) must be employed by the licensed business for at least:",
+       ru: "Responsible Managing Employee (RME) должен работать в лицензированной компании минимум:" },
+  choices: [
+    { en: "16 hours per week", ru: "16 часов в неделю" },
+    { en: "24 hours per week", ru: "24 часа в неделю" },
+    { en: "32 hours per week or 80% of business operating hours", ru: "32 часа в неделю или 80% от рабочего времени компании" },
+    { en: "40 hours per week", ru: "40 часов в неделю" }
+  ],
+  correct: 2,
+  exp: { en: "An RME must work full-time — at least 32 hours per week OR 80% of total hours the business operates, whichever is less.",
+         ru: "RME работает полный день: минимум 32 часа в неделю ИЛИ 80% от времени работы компании — что меньше." }
+},
+{
+  section: "Licensing",
+  q: { en: "What is the threshold above which any construction work in California requires a contractor's license?",
+       ru: "С какой суммы строительных работ в Калифорнии требуется лицензия подрядчика?" },
+  choices: [
+    { en: "$200", ru: "$200" },
+    { en: "$500 (labor and materials combined)", ru: "$500 (труд и материалы вместе)" },
+    { en: "$1,000", ru: "$1,000" },
+    { en: "$2,500", ru: "$2,500" }
+  ],
+  correct: 1,
+  exp: { en: "Per BPC §7048, work valued at $500 or more in labor and materials combined requires a CSLB license. This is also the threshold for a written home improvement contract.",
+         ru: "По BPC §7048 работа на $500+ (труд + материалы вместе) требует CSLB-лицензии. Это же порог для письменного home improvement contract." }
+},
+{
+  section: "Licensing",
+  q: { en: "Where must a contractor's license number appear?",
+       ru: "Где обязан указываться номер лицензии подрядчика?" },
+  choices: [
+    { en: "Only on signed contracts", ru: "Только на подписанных контрактах" },
+    { en: "Only on advertisements", ru: "Только в рекламе" },
+    { en: "On contracts, subcontracts, bids, and all advertising", ru: "На контрактах, субконтрактах, бидах и во всей рекламе" },
+    { en: "Only on the contractor's business website", ru: "Только на сайте компании" }
+  ],
+  correct: 2,
+  exp: { en: "Per BPC §7030.5, the license number must appear on ALL forms of advertising, contracts, subcontracts, bids, business letterhead, and commercial vehicles bearing the company name.",
+         ru: "По BPC §7030.5 номер лицензии должен быть на ВСЕХ формах рекламы, контрактах, субконтрактах, бидах, бланках и коммерческом транспорте с названием компании." }
+},
+{
+  section: "Licensing",
+  q: { en: "Which of the following is NOT a CSLB license classification?",
+       ru: "Какая из этих классификаций НЕ существует в CSLB?" },
+  choices: [
+    { en: "A — General Engineering", ru: "A — General Engineering" },
+    { en: "B — General Building", ru: "B — General Building" },
+    { en: "C — Specialty", ru: "C — Специализированные" },
+    { en: "D — Demolition only", ru: "D — Только демонтаж" }
+  ],
+  correct: 3,
+  exp: { en: "CSLB has three main classifications: A (General Engineering), B (General Building), and C (Specialty trades). There is no separate 'D' class — demolition falls under specific C classifications or A/B.",
+         ru: "У CSLB три основных классификации: A (General Engineering), B (General Building) и C (специальные). Отдельного 'D' нет — демонтаж попадает под C-классы или A/B." }
+},
+{
+  section: "Licensing",
+  q: { en: "To qualify for a CSLB license, an applicant must have how many years of journey-level experience in the classification applied for?",
+       ru: "Сколько лет опыта на уровне journey-level требуется для получения CSLB-лицензии?" },
+  choices: [
+    { en: "1 year", ru: "1 год" },
+    { en: "2 years", ru: "2 года" },
+    { en: "4 years within the last 10 years", ru: "4 года за последние 10 лет" },
+    { en: "6 years", ru: "6 лет" }
+  ],
+  correct: 2,
+  exp: { en: "BPC §7068 requires at least 4 years of journey-level experience within the 10 years immediately preceding the application.",
+         ru: "BPC §7068 требует минимум 4 года journey-level опыта в течение 10 лет, предшествующих подаче заявления." }
+},
+{
+  section: "Licensing",
+  q: { en: "When a contractor uses a fictitious business name (DBA), the name must be:",
+       ru: "Если подрядчик использует fictitious business name (DBA), это имя должно быть:" },
+  choices: [
+    { en: "Registered with the IRS only", ru: "Зарегистрировано только в IRS" },
+    { en: "Filed with the county clerk and on file with CSLB", ru: "Зарегистрировано в county clerk и подано в CSLB" },
+    { en: "Approved by a private trademark service", ru: "Утверждено частной trademark-службой" },
+    { en: "Identical to the owner's legal name", ru: "Совпадать с юридическим именем владельца" }
+  ],
+  correct: 1,
+  exp: { en: "A DBA (fictitious business name) must be filed at the county level AND associated with the contractor's CSLB license. Failure causes confusion and violates BPC §7030.5.",
+         ru: "DBA должно быть оформлено в county clerk И привязано к лицензии в CSLB. Иначе — путаница и нарушение BPC §7030.5." }
+},
+{
+  section: "Licensing",
+  q: { en: "A licensed contractor must notify CSLB of any change in personnel (officers, RME, RMO) within:",
+       ru: "Подрядчик должен уведомить CSLB о смене персонала (officers, RME, RMO) в течение:" },
+  choices: [
+    { en: "10 days", ru: "10 дней" },
+    { en: "30 days", ru: "30 дней" },
+    { en: "60 days", ru: "60 дней" },
+    { en: "90 days", ru: "90 дней" }
+  ],
+  correct: 3,
+  exp: { en: "Per BPC §7083, the licensee must notify the Registrar in writing within 90 days of any change in personnel.",
+         ru: "По BPC §7083 лицензиат обязан письменно уведомить Registrar в течение 90 дней о любом изменении персонала." }
+},
+{
+  section: "Licensing",
+  q: { en: "Which of the following may operate WITHOUT a CSLB contractor's license?",
+       ru: "Кто может работать БЕЗ CSLB-лицензии?" },
+  choices: [
+    { en: "Anyone doing work under $1,000", ru: "Любой при работах до $1,000" },
+    { en: "An employee paid wages on a project where the employer holds the license", ru: "Сотрудник на зарплате, если работодатель имеет лицензию" },
+    { en: "An unlicensed person doing 'handyman' work over $500", ru: "Handyman без лицензии при работах свыше $500" },
+    { en: "A subcontractor working under a licensed prime, for $2,000 of HVAC work", ru: "Субподрядчик у лицензированного prime на $2,000 HVAC работ" }
+  ],
+  correct: 1,
+  exp: { en: "Per BPC §7053, an employee receiving wages from a licensed contractor is exempt. Work over $500 in labor+materials still requires the worker to be employed by a licensee or be licensed themselves.",
+         ru: "По BPC §7053 наёмный работник лицензированного подрядчика — освобождён. Работы свыше $500 всё равно требуют, чтобы исполнитель был сотрудником лицензиата или сам имел лицензию." }
+},
+{
+  section: "Licensing",
+  q: { en: "If a contractor's license is suspended, the contractor may:",
+       ru: "Если лицензия подрядчика приостановлена, он может:" },
+  choices: [
+    { en: "Continue to bid on new work", ru: "Продолжать подавать биды на новые работы" },
+    { en: "Continue work in progress only with written approval from the Registrar", ru: "Продолжать только текущие работы с письменного разрешения Registrar" },
+    { en: "Neither bid nor contract for any work until reinstated", ru: "Ни подавать биды, ни заключать контракты до восстановления" },
+    { en: "Subcontract all work to a licensed party", ru: "Передать все работы лицензированному субподрядчику" }
+  ],
+  correct: 2,
+  exp: { en: "A suspended licensee cannot contract for or perform work covered by the suspended classification. Operating under suspension is a separate violation under §7028.",
+         ru: "При приостановке нельзя ни заключать контракты, ни выполнять работы по классификации. Работа во время приостановки — отдельное нарушение §7028." }
+},
+{
+  section: "Licensing",
+  q: { en: "Advertising for a contractor with an expired or suspended license is:",
+       ru: "Реклама подрядчика с истёкшей или приостановленной лицензией:" },
+  choices: [
+    { en: "Allowed for 30 days after expiration", ru: "Разрешена 30 дней после истечения" },
+    { en: "Prohibited under BPC §7027.1 and §7027.2", ru: "Запрещена по BPC §7027.1 и §7027.2" },
+    { en: "Permitted online only", ru: "Разрешена только онлайн" },
+    { en: "Allowed only with a disclaimer", ru: "Разрешена с дисклеймером" }
+  ],
+  correct: 1,
+  exp: { en: "BPC §7027 makes it unlawful to advertise as a contractor without a current valid license. Includes Yelp, Google, vehicles, signs, business cards, all media.",
+         ru: "BPC §7027 запрещает рекламировать себя как подрядчика без действующей лицензии. Это Yelp, Google, машины, вывески, визитки — всё." }
+},
+{
+  section: "Licensing",
+  q: { en: "Which form qualifies a licensee for a CSLB license as an officer of a corporation?",
+       ru: "Кто квалифицирует CSLB-лицензию для корпорации как её officer?" },
+  choices: [
+    { en: "Responsible Managing Employee (RME)", ru: "RME (Responsible Managing Employee)" },
+    { en: "Responsible Managing Officer (RMO)", ru: "RMO (Responsible Managing Officer)" },
+    { en: "Responsible Managing Member (RMM)", ru: "RMM (Responsible Managing Member)" },
+    { en: "Sole proprietor", ru: "Sole proprietor" }
+  ],
+  correct: 1,
+  exp: { en: "RMO = officer of the corporation. RME = a non-owner employee. RMM = manager of an LLC. Sole proprietor qualifies their own license.",
+         ru: "RMO — officer корпорации. RME — наёмный сотрудник без долевого участия. RMM — менеджер LLC. Sole proprietor сам квалифицирует свою лицензию." }
+},
+{
+  section: "Licensing",
+  q: { en: "If a partnership of two contractors dissolves, the license:",
+       ru: "Если партнёрство двух подрядчиков распадается, лицензия:" },
+  choices: [
+    { en: "Automatically transfers to one partner", ru: "Автоматически переходит к одному партнёру" },
+    { en: "Becomes invalid and a new license must be obtained", ru: "Становится недействительной — нужна новая лицензия" },
+    { en: "Remains valid for 6 months", ru: "Действует ещё 6 месяцев" },
+    { en: "Is split into two separate licenses", ru: "Разделяется на две отдельные лицензии" }
+  ],
+  correct: 1,
+  exp: { en: "BPC §7075.1 — a partnership license is automatically cancelled on dissolution. Each former partner must apply for a new license if continuing operations.",
+         ru: "BPC §7075.1 — лицензия партнёрства автоматически аннулируется при распаде. Каждый бывший партнёр должен подать на новую лицензию, если продолжает работу." }
+},
+
+// =============================================================
+// SECTION II: BUSINESS FINANCES (~15% of exam)
+// =============================================================
+{
+  section: "Finances",
+  q: { en: "On a balance sheet, which of the following is classified as a LIABILITY?",
+       ru: "На балансе компании, что относится к ПАССИВАМ?" },
+  choices: [
+    { en: "Accounts receivable", ru: "Accounts receivable (дебиторская задолженность)" },
+    { en: "Equipment", ru: "Оборудование" },
+    { en: "Accounts payable", ru: "Accounts payable (кредиторская задолженность)" },
+    { en: "Retained earnings", ru: "Retained earnings (нераспределённая прибыль)" }
+  ],
+  correct: 2,
+  exp: { en: "Accounts payable (money the company owes others) is a liability. Receivables and equipment are assets; retained earnings is equity.",
+         ru: "Accounts payable (то, что компания должна) — это пассив. Receivable и оборудование — активы; retained earnings — капитал." }
+},
+{
+  section: "Finances",
+  q: { en: "A contractor's job revenue is $80,000, direct costs $55,000, and overhead $15,000. What is the NET profit?",
+       ru: "Выручка $80,000, прямые расходы $55,000, overhead $15,000. Чему равна ЧИСТАЯ прибыль (net)?" },
+  choices: [
+    { en: "$10,000", ru: "$10,000" },
+    { en: "$15,000", ru: "$15,000" },
+    { en: "$25,000", ru: "$25,000" },
+    { en: "$70,000", ru: "$70,000" }
+  ],
+  correct: 0,
+  exp: { en: "Gross profit = $80K − $55K = $25K. Net profit = Gross − Overhead = $25K − $15K = $10K.",
+         ru: "Gross = $80K − $55K = $25K. Net = Gross − Overhead = $25K − $15K = $10K." }
+},
+{
+  section: "Finances",
+  q: { en: "Working capital is calculated as:",
+       ru: "Working capital (оборотный капитал) рассчитывается как:" },
+  choices: [
+    { en: "Total assets − total liabilities", ru: "Все активы − все пассивы" },
+    { en: "Current assets − current liabilities", ru: "Текущие активы − текущие пассивы" },
+    { en: "Gross revenue − total expenses", ru: "Валовая выручка − все расходы" },
+    { en: "Cash on hand only", ru: "Только наличность" }
+  ],
+  correct: 1,
+  exp: { en: "Working capital = Current Assets − Current Liabilities. Measures short-term financial health and the ability to fund day-to-day operations.",
+         ru: "Working capital = Текущие активы − Текущие пассивы. Показывает краткосрочное финансовое здоровье и способность вести операции." }
+},
+{
+  section: "Finances",
+  q: { en: "Under the cash method of accounting, revenue is recorded when:",
+       ru: "При cash method учёта выручка фиксируется когда:" },
+  choices: [
+    { en: "The contract is signed", ru: "Подписан контракт" },
+    { en: "The work is performed", ru: "Работа выполнена" },
+    { en: "Cash is actually received", ru: "Деньги фактически получены" },
+    { en: "The invoice is issued", ru: "Выставлен счёт" }
+  ],
+  correct: 2,
+  exp: { en: "Cash method records income only when payment is received and expenses only when paid. Simpler than accrual; preferred by small contractors.",
+         ru: "Cash method фиксирует доход только при поступлении денег, расход — только при оплате. Проще, чем accrual; популярен у малого бизнеса." }
+},
+{
+  section: "Finances",
+  q: { en: "Markup of 25% on a $4,000 direct cost gives a final price of:",
+       ru: "Наценка 25% на прямые расходы $4,000 даёт итоговую цену:" },
+  choices: [
+    { en: "$4,250", ru: "$4,250" },
+    { en: "$4,500", ru: "$4,500" },
+    { en: "$5,000", ru: "$5,000" },
+    { en: "$5,333", ru: "$5,333" }
+  ],
+  correct: 2,
+  exp: { en: "Markup = cost × (1 + markup %). $4,000 × 1.25 = $5,000. Don't confuse markup with margin: a 25% markup ≠ 25% margin (margin would be 20% in this case).",
+         ru: "Markup = расходы × (1 + %). $4,000 × 1.25 = $5,000. Не путай markup и margin: 25% markup ≠ 25% margin (margin здесь 20%)." }
+},
+{
+  section: "Finances",
+  q: { en: "What is the MAIN difference between gross profit and net profit?",
+       ru: "В чём главная разница между gross и net profit?" },
+  choices: [
+    { en: "Gross is before taxes; net is after taxes", ru: "Gross — до налогов; net — после налогов" },
+    { en: "Gross = revenue − direct costs; net = gross − overhead and operating expenses", ru: "Gross = выручка − прямые расходы; net = gross − overhead и операционные расходы" },
+    { en: "Gross and net are the same thing", ru: "Это одно и то же" },
+    { en: "Gross includes loans; net does not", ru: "Gross включает кредиты; net — нет" }
+  ],
+  correct: 1,
+  exp: { en: "Gross profit subtracts only direct project costs. Net profit also subtracts overhead, G&A, depreciation, interest, and taxes — true bottom line.",
+         ru: "Gross — вычитаются только прямые расходы. Net — также вычитаются overhead, G&A, амортизация, проценты, налоги. Реальная итоговая прибыль." }
+},
+{
+  section: "Finances",
+  q: { en: "An employer's IRS Form 941 reports:",
+       ru: "IRS Form 941 (квартальная декларация работодателя) отчитывает:" },
+  choices: [
+    { en: "Annual wages paid to a contractor", ru: "Годовую выплату подрядчику" },
+    { en: "Quarterly federal income tax, Social Security, and Medicare withholdings", ru: "Квартальные федеральные удержания (income tax, Social Security, Medicare)" },
+    { en: "State unemployment insurance only", ru: "Только пособие по безработице штата" },
+    { en: "Workers' compensation premiums", ru: "Платежи по workers' comp" }
+  ],
+  correct: 1,
+  exp: { en: "Form 941 is filed quarterly with the IRS and reports federal income tax, Social Security, and Medicare withholdings from employee wages.",
+         ru: "Form 941 — квартальный отчёт в IRS по федеральным удержаниям с зарплат: подоходный, Social Security, Medicare." }
+},
+{
+  section: "Finances",
+  q: { en: "Which financial statement shows a company's financial position at a SPECIFIC POINT in time?",
+       ru: "Какой финансовый отчёт показывает положение компании на КОНКРЕТНУЮ дату?" },
+  choices: [
+    { en: "Income statement", ru: "Income statement (отчёт о прибылях)" },
+    { en: "Cash flow statement", ru: "Cash flow statement (движение денег)" },
+    { en: "Balance sheet", ru: "Balance sheet (баланс)" },
+    { en: "Aging report", ru: "Aging report (отчёт по дебиторке)" }
+  ],
+  correct: 2,
+  exp: { en: "Balance sheet = snapshot of Assets, Liabilities, and Equity AT a date. Income statement covers a period (month/year). Cash flow shows movement over a period.",
+         ru: "Balance sheet — снимок активов, пассивов и капитала НА дату. Income statement — за период. Cash flow — движение за период." }
+},
+{
+  section: "Finances",
+  q: { en: "A contractor sells a truck originally costing $40,000, fully depreciated, for $5,000. The $5,000 is recorded as:",
+       ru: "Подрядчик продаёт полностью самортизированный грузовик ($40K первоначально) за $5,000. $5,000 учитываются как:" },
+  choices: [
+    { en: "A liability", ru: "Пассив" },
+    { en: "A gain on sale of asset (income)", ru: "Gain on sale of asset (доход)" },
+    { en: "A direct project cost", ru: "Прямые расходы по проекту" },
+    { en: "Owner's equity withdrawal", ru: "Изъятие из капитала владельца" }
+  ],
+  correct: 1,
+  exp: { en: "When a fully depreciated asset is sold, the entire sales price is recorded as a gain on disposal of asset — taxable income.",
+         ru: "Если полностью самортизированное имущество продаётся, вся выручка от продажи — это gain on disposal, налогооблагаемый доход." }
+},
+{
+  section: "Finances",
+  q: { en: "An aging report categorizes accounts receivable by:",
+       ru: "Aging report группирует accounts receivable по:" },
+  choices: [
+    { en: "Customer name", ru: "Имени клиента" },
+    { en: "Project type", ru: "Типу проекта" },
+    { en: "How long invoices have been outstanding (30/60/90+ days)", ru: "Сроку давности (30/60/90+ дней)" },
+    { en: "Invoice amount", ru: "Сумме счёта" }
+  ],
+  correct: 2,
+  exp: { en: "Aging reports break receivables into 30-day buckets so the contractor can see which customers are late and prioritize collections.",
+         ru: "Aging-отчёт разбивает дебиторку по 30-дневным интервалам, чтобы видеть, какие клиенты опаздывают, и приоритизировать сбор долгов." }
+},
+{
+  section: "Finances",
+  q: { en: "The quick ratio (acid test) differs from the current ratio in that it:",
+       ru: "Quick ratio (acid test) отличается от current ratio тем, что:" },
+  choices: [
+    { en: "Includes long-term debt", ru: "Включает долгосрочный долг" },
+    { en: "Excludes inventory and prepaid expenses from current assets", ru: "Исключает inventory и prepaid expenses из текущих активов" },
+    { en: "Uses only total assets", ru: "Использует только total assets" },
+    { en: "Adds equipment to the numerator", ru: "Добавляет оборудование в числитель" }
+  ],
+  correct: 1,
+  exp: { en: "Quick ratio = (Current assets − inventory − prepaid) ÷ current liabilities. A more conservative test — uses only assets quickly convertible to cash.",
+         ru: "Quick ratio = (Текущие активы − inventory − prepaid) ÷ текущие пассивы. Более консервативный тест — только активы, быстро превращаемые в кэш." }
+},
+{
+  section: "Finances",
+  q: { en: "Job cost accounting helps a contractor:",
+       ru: "Job cost accounting (попроектный учёт) помогает подрядчику:" },
+  choices: [
+    { en: "File federal taxes only", ru: "Только подавать федеральные налоги" },
+    { en: "Track actual costs vs. estimates per project to evaluate profitability", ru: "Сравнивать фактические расходы с бидом по каждому проекту, оценивая прибыльность" },
+    { en: "Calculate workers' comp premiums", ru: "Считать workers' comp" },
+    { en: "Determine federal minimum wage", ru: "Определять федеральный min wage" }
+  ],
+  correct: 1,
+  exp: { en: "Job costing assigns labor, materials, equipment, and overhead to specific jobs so the contractor can see which jobs make money and which lose it.",
+         ru: "Job costing относит труд, материалы, оборудование и overhead к конкретным проектам — видно, какие приносят прибыль, а какие убытки." }
+},
+{
+  section: "Finances",
+  q: { en: "Which is an example of FIXED overhead?",
+       ru: "Что относится к ФИКСИРОВАННЫМ overhead?" },
+  choices: [
+    { en: "Job-site fuel costs", ru: "Топливо на объекте" },
+    { en: "Concrete delivered to a specific project", ru: "Бетон на конкретный проект" },
+    { en: "Office rent", ru: "Аренда офиса" },
+    { en: "Subcontractor wages for one project", ru: "Зарплата субподрядчику по одному проекту" }
+  ],
+  correct: 2,
+  exp: { en: "Fixed overhead does not change with project volume — rent, insurance, office salaries. Variable overhead fluctuates with activity.",
+         ru: "Фиксированный overhead не зависит от объёма работ: аренда, страхование, оклады офисных. Variable overhead меняется с объёмом." }
+},
+
+// =================================================================
+// SECTION III: EMPLOYMENT REQUIREMENTS (~20% of exam)
+// =================================================================
+{
+  section: "Employment",
+  q: { en: "California's statewide minimum wage as of January 1, 2026 is:",
+       ru: "Минимальная зарплата по штату Калифорния с 1 января 2026:" },
+  choices: [
+    { en: "$15.50/hour", ru: "$15.50/час" },
+    { en: "$16.00/hour", ru: "$16.00/час" },
+    { en: "$16.50/hour", ru: "$16.50/час" },
+    { en: "$16.90/hour", ru: "$16.90/час" }
+  ],
+  correct: 3,
+  exp: { en: "$16.90/hr statewide effective 1/1/2026. Fast-food: $20.00. Local minimums (LA, West Hollywood, etc.) may be higher — highest applicable rate controls.",
+         ru: "$16.90/час по штату с 1/1/2026. Fast-food: $20.00. Локальные минимумы (Лос-Анджелес и т.д.) могут быть выше — действует наибольший." }
+},
+{
+  section: "Employment",
+  q: { en: "An employee works 11 hours in a workday. The 9th, 10th, and 11th hours are paid at:",
+       ru: "Сотрудник работает 11 часов в день. 9, 10 и 11 часы оплачиваются по ставке:" },
+  choices: [
+    { en: "Regular rate (no daily OT in CA)", ru: "Обычная ставка (daily OT нет)" },
+    { en: "1.5x regular rate", ru: "1.5x обычной" },
+    { en: "2x regular rate", ru: "2x обычной" },
+    { en: "3x regular rate", ru: "3x обычной" }
+  ],
+  correct: 1,
+  exp: { en: "Cal. Labor Code §510 — hours 9 through 12 in a workday are paid at 1.5x. Hours 13+ are 2x.",
+         ru: "Cal. Labor Code §510: часы 9–12 — по 1.5x, часы 13+ — по 2x." }
+},
+{
+  section: "Employment",
+  q: { en: "An employee works 13 hours in a single workday. The 13th hour is paid at:",
+       ru: "Сотрудник работает 13 часов в день. 13-й час оплачивается:" },
+  choices: [
+    { en: "Regular", ru: "Обычная ставка" },
+    { en: "1.5x", ru: "1.5x" },
+    { en: "2x", ru: "2x" },
+    { en: "3x", ru: "3x" }
+  ],
+  correct: 2,
+  exp: { en: "Double-time (2x) kicks in after 12 hours in a workday in California.",
+         ru: "Double-time (2x) включается после 12 часов в одном рабочем дне." }
+},
+{
+  section: "Employment",
+  q: { en: "On the 7th consecutive workday in a workweek, the first 8 hours are paid at:",
+       ru: "В 7-й рабочий день подряд за неделю первые 8 часов оплачиваются:" },
+  choices: [
+    { en: "Regular rate", ru: "Обычная ставка" },
+    { en: "1.5x regular rate", ru: "1.5x обычной" },
+    { en: "2x regular rate", ru: "2x обычной" },
+    { en: "Triple-time", ru: "3x" }
+  ],
+  correct: 1,
+  exp: { en: "On the 7th consecutive workday: 1.5x for the first 8 hours, then 2x after 8 hours. California's '7th-day rule' has no federal equivalent.",
+         ru: "В 7-й рабочий день подряд: 1.5x за первые 8 часов, потом 2x после 8 часов. У федералов такого нет." }
+},
+{
+  section: "Employment",
+  q: { en: "Federal Form I-9 must be completed by all new employees within:",
+       ru: "Федеральная форма I-9 должна быть заполнена в течение:" },
+  choices: [
+    { en: "24 hours of hire", ru: "24 часов с момента найма" },
+    { en: "3 business days of hire", ru: "3 рабочих дней с момента найма" },
+    { en: "7 calendar days", ru: "7 календарных дней" },
+    { en: "30 calendar days", ru: "30 календарных дней" }
+  ],
+  correct: 1,
+  exp: { en: "Section 1 must be done by the employee's first day. Section 2 (employer verification of documents) must be done within 3 business days.",
+         ru: "Section 1 — в первый рабочий день. Section 2 (проверка документов работодателем) — в течение 3 рабочих дней." }
+},
+{
+  section: "Employment",
+  q: { en: "A new hire must be reported to the California EDD on Form DE 34 within:",
+       ru: "Нового сотрудника надо отчитать в California EDD по форме DE 34 в течение:" },
+  choices: [
+    { en: "5 days", ru: "5 дней" },
+    { en: "10 days", ru: "10 дней" },
+    { en: "20 days of the start-of-work date", ru: "20 дней с даты выхода на работу" },
+    { en: "30 days", ru: "30 дней" }
+  ],
+  correct: 2,
+  exp: { en: "DE 34 must be filed within 20 days of the start-of-work date. Same as federal new-hire reporting deadline.",
+         ru: "DE 34 — в течение 20 дней с даты выхода. Совпадает с федеральным сроком new-hire reporting." }
+},
+{
+  section: "Employment",
+  q: { en: "California's Wage Theft Prevention Act notice (Labor Code §2810.5) must be given:",
+       ru: "Wage Theft Prevention Act notice (Labor Code §2810.5) выдаётся:" },
+  choices: [
+    { en: "Once per year to all employees", ru: "Раз в год всем сотрудникам" },
+    { en: "To non-exempt employees at the time of hire, and within 7 days of any change", ru: "Не-exempt сотрудникам при найме и в течение 7 дней после изменений" },
+    { en: "Only to union employees", ru: "Только union-сотрудникам" },
+    { en: "Only after a wage complaint is filed", ru: "Только после жалобы" }
+  ],
+  correct: 1,
+  exp: { en: "Required at time of hire for all non-exempt private-sector employees. Must include rate, employer's name, paydays, allowances, workers' comp carrier, etc.",
+         ru: "Обязательно при найме для всех не-exempt в частном секторе. Содержит ставку, имя работодателя, дни зарплаты, allowances, страховщика workers' comp." }
+},
+{
+  section: "Employment",
+  q: { en: "Under the ABC test (AB-5), to classify a worker as an independent contractor, the hiring entity must prove ALL of the following EXCEPT:",
+       ru: "По ABC-тесту (AB-5) для классификации как independent contractor работодатель должен доказать ВСЁ, КРОМЕ:" },
+  choices: [
+    { en: "Worker is free from control and direction", ru: "Работник свободен от контроля и указаний" },
+    { en: "Work is outside the usual course of the hiring entity's business", ru: "Работа вне обычной деятельности нанимателя" },
+    { en: "Worker is engaged in an independently established trade or business", ru: "Работник занят в независимо учреждённом trade или бизнесе" },
+    { en: "Worker signed a written 1099 agreement", ru: "Подписан письменный 1099 договор" }
+  ],
+  correct: 3,
+  exp: { en: "Written 1099 alone does NOT make someone an IC. The hiring entity must prove all three of A, B, AND C — a common trap.",
+         ru: "Письменный 1099 сам по себе НЕ делает работника IC. Работодатель должен доказать все три (A, B и C) — частая ловушка." }
+},
+{
+  section: "Employment",
+  q: { en: "California Paid Sick Leave provides employees with a minimum of:",
+       ru: "California Paid Sick Leave даёт сотрудникам минимум:" },
+  choices: [
+    { en: "24 hours / 3 days per year", ru: "24 часа / 3 дня в год" },
+    { en: "40 hours / 5 days per year", ru: "40 часов / 5 дней в год" },
+    { en: "80 hours / 10 days per year", ru: "80 часов / 10 дней в год" },
+    { en: "No paid sick leave required", ru: "Не требуется оплачиваемый sick leave" }
+  ],
+  correct: 1,
+  exp: { en: "Effective Jan 1, 2024 (SB 616): minimum 40 hours or 5 days per year of paid sick leave for full and part-time employees who work 30+ days for the employer.",
+         ru: "С 1 января 2024 (SB 616): минимум 40 часов или 5 дней в год — для full и part-time сотрудников, работающих 30+ дней у работодателя." }
+},
+{
+  section: "Employment",
+  q: { en: "The Employment Development Department (EDD) administers all the following EXCEPT:",
+       ru: "EDD управляет всем перечисленным, КРОМЕ:" },
+  choices: [
+    { en: "Unemployment Insurance (UI)", ru: "Unemployment Insurance (UI)" },
+    { en: "State Disability Insurance (SDI)", ru: "State Disability Insurance (SDI)" },
+    { en: "Paid Family Leave (PFL)", ru: "Paid Family Leave (PFL)" },
+    { en: "Workers' compensation insurance", ru: "Workers' compensation страхование" }
+  ],
+  correct: 3,
+  exp: { en: "Workers' comp is regulated by the DIR Division of Workers' Compensation. EDD handles UI, SDI, PFL, and California Personal Income Tax withholding.",
+         ru: "Workers' comp ведёт DIR DWC. EDD занимается UI, SDI, PFL и удержанием подоходного налога Калифорнии." }
+},
+{
+  section: "Employment",
+  q: { en: "Employee meal period must START before the end of the:",
+       ru: "Meal period должен НАЧАТЬСЯ до окончания:" },
+  choices: [
+    { en: "3rd hour", ru: "3-го часа" },
+    { en: "4th hour", ru: "4-го часа" },
+    { en: "5th hour of work", ru: "5-го часа работы" },
+    { en: "6th hour", ru: "6-го часа" }
+  ],
+  correct: 2,
+  exp: { en: "30-minute unpaid meal period must start BEFORE the end of the 5th hour. If skipped or late, the employer owes 1 hour of premium pay per day.",
+         ru: "30-минутный неоплачиваемый meal-перерыв должен начаться ДО конца 5-го часа. Иначе работодатель должен 1 час premium pay за день." }
+},
+{
+  section: "Employment",
+  q: { en: "A 10-minute rest break is paid and required:",
+       ru: "10-минутный rest break оплачиваемый и обязательный:" },
+  choices: [
+    { en: "For every 2 hours worked", ru: "Каждые 2 часа работы" },
+    { en: "For every 4 hours worked (or major fraction)", ru: "Каждые 4 часа работы (или major fraction)" },
+    { en: "Only for shifts over 8 hours", ru: "Только при смене 8+ часов" },
+    { en: "Once per shift regardless of length", ru: "Один раз за смену независимо от длины" }
+  ],
+  correct: 1,
+  exp: { en: "Paid 10-minute rest break per 4 hours worked or major fraction (over 2 hours). No rest break required for shifts under 3.5 hours.",
+         ru: "Оплачиваемый rest break каждые 4 часа работы или major fraction (более 2 часов). При смене менее 3.5 часов не требуется." }
+},
+{
+  section: "Employment",
+  q: { en: "An employer must provide California's required Sexual Harassment Prevention training to non-supervisory employees every:",
+       ru: "California Sexual Harassment Prevention training не-supervisors должна проводиться каждые:" },
+  choices: [
+    { en: "1 year", ru: "1 год" },
+    { en: "2 years", ru: "2 года" },
+    { en: "3 years", ru: "3 года" },
+    { en: "5 years", ru: "5 лет" }
+  ],
+  correct: 1,
+  exp: { en: "SB 1343 — employers with 5+ employees must provide 1 hour to non-supervisors and 2 hours to supervisors every 2 years.",
+         ru: "SB 1343 — работодатели с 5+ сотрудниками: 1 час для не-supervisors и 2 часа для supervisors каждые 2 года." }
+},
+{
+  section: "Employment",
+  q: { en: "An employee voluntarily quits and provides 72+ hours notice. Final wages are due:",
+       ru: "Сотрудник увольняется добровольно с уведомлением 72+ часа. Финальная зарплата выплачивается:" },
+  choices: [
+    { en: "Immediately upon notice", ru: "Немедленно после уведомления" },
+    { en: "On the last day worked", ru: "В последний рабочий день" },
+    { en: "Within 72 hours after the last day", ru: "В течение 72 часов после последнего рабочего дня" },
+    { en: "On the next regular payday", ru: "В следующий обычный pay day" }
+  ],
+  correct: 1,
+  exp: { en: "If at least 72 hours notice — pay on last day. Without notice — 72 hours to pay. Involuntary termination — immediately.",
+         ru: "Уведомление 72+ часа — в последний рабочий день. Без уведомления — 72 часа на выплату. Принудительное увольнение — немедленно." }
+},
+{
+  section: "Employment",
+  q: { en: "If final wages are not paid on time, the employer owes a 'waiting time penalty' of:",
+       ru: "Если финальная зарплата не выплачена вовремя, работодатель должен 'waiting time penalty':" },
+  choices: [
+    { en: "$100 flat fee", ru: "$100 фиксированно" },
+    { en: "Up to 30 days of the employee's daily wages", ru: "До 30 дней дневной зарплаты сотрудника" },
+    { en: "10% of the unpaid amount", ru: "10% от невыплаченной суммы" },
+    { en: "Triple the amount owed", ru: "Тройная сумма долга" }
+  ],
+  correct: 1,
+  exp: { en: "Labor Code §203 — up to 30 days of the employee's daily wage rate as a penalty. Can add up to thousands of dollars on top of unpaid wages.",
+         ru: "Labor Code §203 — до 30 дней дневной зарплаты сотрудника как штраф. Часто это тысячи долларов сверх задолженности." }
+},
+{
+  section: "Employment",
+  q: { en: "Workers' compensation insurance in California is required:",
+       ru: "Workers' comp в Калифорнии обязателен:" },
+  choices: [
+    { en: "Only when an employer has 5+ employees", ru: "Только при 5+ сотрудниках" },
+    { en: "From the FIRST employee, including part-time", ru: "С ПЕРВОГО сотрудника, включая part-time" },
+    { en: "Only for full-time employees", ru: "Только для full-time" },
+    { en: "Optional in the construction trades", ru: "Опционально в строительстве" }
+  ],
+  correct: 1,
+  exp: { en: "From the very first employee, full-time or part-time. Failure is a misdemeanor with $10,000+ fines and CSLB license suspension.",
+         ru: "С первого сотрудника, full- или part-time. Отсутствие — misdemeanor со штрафом $10,000+ и приостановкой лицензии CSLB." }
+},
+{
+  section: "Employment",
+  q: { en: "All licensed contractors must either carry workers' compensation OR file with CSLB an Exemption Certificate stating they:",
+       ru: "Подрядчик либо имеет workers' comp, либо подаёт в CSLB Exemption Certificate, где заявляет, что:" },
+  choices: [
+    { en: "Have under $50,000 annual revenue", ru: "У него выручка менее $50,000 в год" },
+    { en: "Have no employees", ru: "У него нет сотрудников" },
+    { en: "Use only family members", ru: "Использует только членов семьи" },
+    { en: "Pay all workers in cash", ru: "Платит всем наличными" }
+  ],
+  correct: 1,
+  exp: { en: "BPC §7125 — exemption is only available when the licensee has NO employees. C-39 (Roofing) cannot claim exemption — must have workers' comp regardless.",
+         ru: "BPC §7125 — exemption только если у лицензиата НЕТ сотрудников. C-39 (Roofing) — не может claim exemption, обязан иметь workers' comp." }
+},
+{
+  section: "Employment",
+  q: { en: "Form DE 9 is used by California employers to report:",
+       ru: "Форма DE 9 используется работодателями Калифорнии для:" },
+  choices: [
+    { en: "Quarterly contribution and wage report", ru: "Квартального отчёта по взносам и зарплатам" },
+    { en: "Federal income tax", ru: "Федерального подоходного налога" },
+    { en: "Workers' compensation premiums", ru: "Workers' comp премий" },
+    { en: "New-hire reporting", ru: "Регистрации новых сотрудников" }
+  ],
+  correct: 0,
+  exp: { en: "DE 9 — Quarterly Contribution Return & Report of Wages. Filed each quarter to EDD with UI, ETT, SDI, and PIT info. DE 9C lists detail per employee.",
+         ru: "DE 9 — квартальный отчёт в EDD: UI, ETT, SDI и PIT. DE 9C — детализация по каждому сотруднику." }
+},
+{
+  section: "Employment",
+  q: { en: "California State Disability Insurance (SDI) provides:",
+       ru: "California SDI обеспечивает:" },
+  choices: [
+    { en: "Payment for work-related injuries", ru: "Выплаты при производственных травмах" },
+    { en: "Short-term partial wage replacement for non-work-related illness/injury", ru: "Краткосрочное частичное возмещение зарплаты при не-производственных болезни/травме" },
+    { en: "Retirement benefits", ru: "Пенсию" },
+    { en: "Unemployment benefits", ru: "Пособие по безработице" }
+  ],
+  correct: 1,
+  exp: { en: "SDI covers non-work-related disability — illness, injury, pregnancy. Work-related is covered by workers' comp. SDI funded by employee payroll deductions.",
+         ru: "SDI покрывает не-производственную нетрудоспособность: болезнь, травму, беременность. Производственные — workers' comp. SDI оплачивается удержаниями с зарплаты сотрудника." }
+},
+{
+  section: "Employment",
+  q: { en: "California employers with 5+ employees must offer their employees a workplace retirement plan or register them in:",
+       ru: "Работодатели Калифорнии с 5+ сотрудниками обязаны предложить пенсионный план или зарегистрировать их в:" },
+  choices: [
+    { en: "CalSavers", ru: "CalSavers" },
+    { en: "CalPERS", ru: "CalPERS" },
+    { en: "Federal IRA program", ru: "Федеральной IRA-программе" },
+    { en: "Social Security only", ru: "Только Social Security" }
+  ],
+  correct: 0,
+  exp: { en: "CalSavers — state-mandated retirement savings program. Employers must register or face penalties ($250 per eligible employee escalating to $750).",
+         ru: "CalSavers — обязательная пенсионная программа штата. Работодатели должны зарегистрироваться или платить штрафы ($250 за работника, до $750)." }
+},
+// =====================================================
+// SECTION IV: INSURANCE & LIENS (~12%)
+// =====================================================
+{
+  section: "Liens",
+  q: { en: "Before recording a mechanic's lien, a claimant who is NOT a direct contractor must serve a Preliminary Notice (20-Day Notice) on the owner, prime, and lender within:",
+       ru: "До подачи лиена не-прямой подрядчик должен подать Preliminary Notice (20-Day) владельцу, prime и lender в течение:" },
+  choices: [
+    { en: "10 days of first furnishing", ru: "10 дней с начала работ/поставок" },
+    { en: "15 days", ru: "15 дней" },
+    { en: "20 days of first furnishing labor or materials", ru: "20 дней с момента первого труда или материалов" },
+    { en: "30 days", ru: "30 дней" }
+  ],
+  correct: 2,
+  exp: { en: "20-Day Preliminary Notice is required from subs and material suppliers. Without it, lien rights are generally lost for work performed more than 20 days before late service.",
+         ru: "20-Day Preliminary Notice обязателен для субов и поставщиков. Без него теряются lien rights за работы старше 20 дней до отправки уведомления." }
+},
+{
+  section: "Liens",
+  q: { en: "A prime contractor without a recorded Notice of Completion must record a mechanic's lien within:",
+       ru: "Prime contractor без поданного Notice of Completion должен подать lien в течение:" },
+  choices: [
+    { en: "30 days after completion", ru: "30 дней после завершения" },
+    { en: "60 days after completion", ru: "60 дней после завершения" },
+    { en: "90 days after completion of work", ru: "90 дней после завершения работ" },
+    { en: "1 year after completion", ru: "1 год после завершения" }
+  ],
+  correct: 2,
+  exp: { en: "Without NOC: 90 days for prime. With NOC: 60 days for prime, 30 days for subs/suppliers.",
+         ru: "Без NOC: 90 дней для prime. С NOC: 60 дней для prime, 30 дней для субов/поставщиков." }
+},
+{
+  section: "Liens",
+  q: { en: "After recording a mechanic's lien, a foreclosure lawsuit must be filed within:",
+       ru: "После записи lien иск на foreclosure должен быть подан в течение:" },
+  choices: [
+    { en: "30 days", ru: "30 дней" },
+    { en: "60 days", ru: "60 дней" },
+    { en: "90 days from date of recording", ru: "90 дней с даты записи" },
+    { en: "1 year", ru: "1 года" }
+  ],
+  correct: 2,
+  exp: { en: "Mechanic's lien automatically expires 90 days after recording unless a foreclosure action is filed in superior court within that time.",
+         ru: "Lien автоматически прекращается через 90 дней с записи, если не подан иск в superior court за это время." }
+},
+{
+  section: "Liens",
+  q: { en: "A Notice of Completion must be recorded by the owner within:",
+       ru: "Notice of Completion должен быть подан владельцем в течение:" },
+  choices: [
+    { en: "5 days of completion", ru: "5 дней после завершения" },
+    { en: "10 days of completion", ru: "10 дней после завершения" },
+    { en: "15 days of completion", ru: "15 дней после завершения" },
+    { en: "30 days of completion", ru: "30 дней после завершения" }
+  ],
+  correct: 2,
+  exp: { en: "Per Civil Code §8182, NOC must be recorded within 15 days of actual completion. NOC shortens lien deadlines for everyone — strategic tool for owners.",
+         ru: "По Civil Code §8182 NOC подаётся в течение 15 дней после фактического завершения. NOC сокращает lien-сроки для всех — стратегический инструмент для владельца." }
+},
+{
+  section: "Liens",
+  q: { en: "A 'stop payment notice' (formerly stop notice) is used to:",
+       ru: "Stop payment notice используется чтобы:" },
+  choices: [
+    { en: "Stop work on a project", ru: "Остановить работу на проекте" },
+    { en: "Direct the owner/lender to withhold undisbursed construction funds", ru: "Заставить владельца/lender удержать невыданные средства" },
+    { en: "Cancel a home improvement contract", ru: "Отменить home improvement contract" },
+    { en: "Stop a customer's check", ru: "Остановить чек клиента" }
+  ],
+  correct: 1,
+  exp: { en: "Stop payment notice goes to the owner or construction lender directing them to withhold undisbursed funds. Powerful alternative or supplement to a lien.",
+         ru: "Stop payment notice — указание владельцу или lender удержать невыданные средства. Мощная альтернатива или дополнение к lien." }
+},
+{
+  section: "Liens",
+  q: { en: "Which of the following can NOT file a mechanic's lien?",
+       ru: "Кто НЕ может подать mechanic's lien?" },
+  choices: [
+    { en: "An unlicensed contractor who performed work requiring a license", ru: "Нелицензированный подрядчик за работу, требующую лицензии" },
+    { en: "A licensed subcontractor unpaid for materials installed", ru: "Лицензированный sub за неоплаченные установленные материалы" },
+    { en: "A material supplier", ru: "Поставщик материалов" },
+    { en: "An equipment rental company", ru: "Компания по аренде оборудования" }
+  ],
+  correct: 0,
+  exp: { en: "BPC §7031 — an unlicensed contractor performing work requiring a license cannot collect compensation or file a lien. Total bar to recovery.",
+         ru: "BPC §7031 — нелицензированный подрядчик за работу, требующую лицензии, не может получить оплату и не может подать lien. Полный запрет." }
+},
+{
+  section: "Liens",
+  q: { en: "General liability (GL) insurance for a contractor primarily covers:",
+       ru: "General liability (GL) подрядчика покрывает в основном:" },
+  choices: [
+    { en: "Damage to the contractor's own tools", ru: "Ущерб собственным инструментам подрядчика" },
+    { en: "Injuries to employees", ru: "Травмы сотрудников" },
+    { en: "Third-party bodily injury and property damage", ru: "Травмы третьих лиц и ущерб их имуществу" },
+    { en: "Auto accidents only", ru: "Только ДТП" }
+  ],
+  correct: 2,
+  exp: { en: "GL covers third-party bodily injury and property damage caused by the contractor's work. Employee injuries → workers' comp. Auto → commercial auto.",
+         ru: "GL покрывает травмы и ущерб имуществу третьих лиц от работ подрядчика. Сотрудники — workers' comp. Авто — commercial auto." }
+},
+{
+  section: "Liens",
+  q: { en: "Required GL insurance disclosure under California Home Improvement law must list:",
+       ru: "Обязательное раскрытие GL по home improvement в Калифорнии должно указывать:" },
+  choices: [
+    { en: "Whether the contractor carries GL, with insurer name and policy info if yes", ru: "Есть ли GL, с указанием страховщика и полиса при наличии" },
+    { en: "GL premium amount only", ru: "Только сумму премии GL" },
+    { en: "The owner's homeowners insurance", ru: "Страхование владельца" },
+    { en: "GL is optional and need not be disclosed", ru: "GL опционально, раскрывать не обязательно" }
+  ],
+  correct: 0,
+  exp: { en: "BPC §7159 (e)(7) — home improvement contracts must include a GL insurance disclosure stating whether the contractor carries GL and, if so, the carrier and limits.",
+         ru: "BPC §7159 (e)(7) — home improvement контракт должен содержать GL disclosure: есть ли страхование, и если да — страховщик и лимиты." }
+},
+{
+  section: "Liens",
+  q: { en: "A 'bid bond' on a public project is intended to:",
+       ru: "Bid bond на public project нужен чтобы:" },
+  choices: [
+    { en: "Guarantee project completion", ru: "Гарантировать завершение проекта" },
+    { en: "Guarantee that the lowest bidder will sign the contract if awarded", ru: "Гарантировать, что low bidder заключит контракт, если ему присудят" },
+    { en: "Pay workers' wages", ru: "Платить зарплату рабочим" },
+    { en: "Cover defective work", ru: "Покрывать дефекты" }
+  ],
+  correct: 1,
+  exp: { en: "Bid bond guarantees the bidder, if selected, will enter into the contract at the bid price. Performance bond covers completion; payment bond covers wages and materials.",
+         ru: "Bid bond гарантирует, что выбранный участник заключит контракт по своей цене. Performance bond — завершение; payment bond — зарплаты и материалы." }
+},
+{
+  section: "Liens",
+  q: { en: "A performance bond on a construction project secures:",
+       ru: "Performance bond обеспечивает:" },
+  choices: [
+    { en: "Payment to subcontractors and suppliers", ru: "Оплату субов и поставщиков" },
+    { en: "Completion of the work per contract specifications", ru: "Завершение работ по контракту" },
+    { en: "Workers' comp claims", ru: "Workers' comp требования" },
+    { en: "Bid honoring", ru: "Соблюдение бида" }
+  ],
+  correct: 1,
+  exp: { en: "Performance bond protects the owner if the contractor fails to complete the project per contract — surety steps in to finish or pay damages.",
+         ru: "Performance bond защищает владельца, если подрядчик не завершает проект — surety доделывает или платит компенсацию." }
+},
+{
+  section: "Liens",
+  q: { en: "A 'release of lien' from a subcontractor protects the owner by:",
+       ru: "Release of lien от субподрядчика защищает владельца тем, что:" },
+  choices: [
+    { en: "Cancelling all warranties", ru: "Отменяет все гарантии" },
+    { en: "Confirming the sub has been paid and waives further lien claims", ru: "Подтверждает оплату субу и его отказ от lien" },
+    { en: "Extending the lien filing deadline", ru: "Продлевает срок подачи lien" },
+    { en: "Allowing the prime to withhold payment", ru: "Разрешает prime удерживать оплату" }
+  ],
+  correct: 1,
+  exp: { en: "Subcontractor releases are critical — prime contractors should collect them with every progress payment to prevent surprise liens later. Required to be on California statutory form.",
+         ru: "Sub releases критичны — prime собирает их с каждым progress payment, чтобы избежать сюрпризов с lien. Должны быть на установленной форме штата." }
+},
+{
+  section: "Liens",
+  q: { en: "Builder's Risk insurance covers:",
+       ru: "Builder's Risk insurance покрывает:" },
+  choices: [
+    { en: "Workers' injuries", ru: "Травмы рабочих" },
+    { en: "Property damage to the structure under construction", ru: "Ущерб имуществу — самой строящейся структуре" },
+    { en: "Third-party liability", ru: "Ответственность перед третьими лицами" },
+    { en: "Contract performance", ru: "Исполнение контракта" }
+  ],
+  correct: 1,
+  exp: { en: "Builder's Risk = first-party property insurance covering the building under construction against fire, theft, weather damage, vandalism, etc.",
+         ru: "Builder's Risk — first-party страхование самого строящегося объекта от пожара, кражи, погоды, вандализма." }
+},
+
+// =====================================================
+// SECTION V: CONTRACT REQUIREMENTS (~21%)
+// =====================================================
+{
+  section: "Contracts",
+  q: { en: "A home improvement contract must be in writing for labor + materials of:",
+       ru: "Home improvement contract должен быть в письменном виде при сумме труда + материалов:" },
+  choices: [
+    { en: "Over $200", ru: "Свыше $200" },
+    { en: "$500 or more", ru: "$500 и больше" },
+    { en: "$1,000 or more", ru: "$1,000 и больше" },
+    { en: "$2,500 or more", ru: "$2,500 и больше" }
+  ],
+  correct: 1,
+  exp: { en: "Per BPC §7159, any home improvement contract for $500 or more in labor + materials must be in writing.",
+         ru: "По BPC §7159 любой home improvement контракт на $500+ (труд + материалы) должен быть письменным." }
+},
+{
+  section: "Contracts",
+  q: { en: "Maximum down payment on a home improvement contract for $7,000 is:",
+       ru: "Максимальный down payment по home improvement контракту на $7,000:" },
+  choices: [
+    { en: "$700", ru: "$700" },
+    { en: "$1,000", ru: "$1,000" },
+    { en: "$1,400", ru: "$1,400" },
+    { en: "$2,000", ru: "$2,000" }
+  ],
+  correct: 0,
+  exp: { en: "Rule: $1,000 or 10%, whichever is LESS. 10% of $7,000 = $700. $700 < $1,000, so max = $700.",
+         ru: "Правило: $1,000 или 10%, что МЕНЬШЕ. 10% от $7,000 = $700. $700 < $1,000, значит max = $700." }
+},
+{
+  section: "Contracts",
+  q: { en: "Maximum down payment on a home improvement contract for $25,000 is:",
+       ru: "Максимальный down payment по home improvement контракту на $25,000:" },
+  choices: [
+    { en: "$1,000", ru: "$1,000" },
+    { en: "$2,500", ru: "$2,500" },
+    { en: "$5,000", ru: "$5,000" },
+    { en: "$10,000", ru: "$10,000" }
+  ],
+  correct: 0,
+  exp: { en: "$1,000 or 10%, whichever is LESS. 10% of $25,000 = $2,500. $1,000 < $2,500, so max = $1,000. The $1,000 cap is absolute.",
+         ru: "$1,000 или 10%, что МЕНЬШЕ. 10% от $25,000 = $2,500. $1,000 < $2,500 — max = $1,000. Лимит $1,000 абсолютный." }
+},
+{
+  section: "Contracts",
+  q: { en: "After signing a home improvement contract, a homeowner's right to cancel is:",
+       ru: "После подписания home improvement контракта право клиента на отмену:" },
+  choices: [
+    { en: "3 calendar days", ru: "3 календарных дня" },
+    { en: "3 business days (5 for seniors 65+)", ru: "3 рабочих дня (5 для senior 65+)" },
+    { en: "7 calendar days", ru: "7 календарных дней" },
+    { en: "30 days for any reason", ru: "30 дней по любой причине" }
+  ],
+  correct: 1,
+  exp: { en: "Standard 3 business days; senior citizens (65+) and disaster-area contracts get 5 business days. Notice of Cancellation must be in duplicate at signing.",
+         ru: "Стандарт — 3 рабочих дня; senior (65+) и контракты в зоне disaster — 5 рабочих дней. Notice of Cancellation выдаётся в двух экземплярах при подписании." }
+},
+{
+  section: "Contracts",
+  q: { en: "Progress payments under a home improvement contract may NOT:",
+       ru: "Progress payments по home improvement контракту НЕ могут:" },
+  choices: [
+    { en: "Be required at all", ru: "Требоваться вообще" },
+    { en: "Exceed the value of work performed and materials delivered", ru: "Превышать стоимость выполненной работы и доставленных материалов" },
+    { en: "Be made in cash", ru: "Делаться наличными" },
+    { en: "Be made before final inspection", ru: "Делаться до финальной инспекции" }
+  ],
+  correct: 1,
+  exp: { en: "BPC §7159 — progress payments may NEVER exceed the value of work performed and materials delivered to that point. 'Front-loading' is a top complaint.",
+         ru: "BPC §7159 — progress payments НЕ могут превышать стоимость уже выполненной работы и доставленных материалов. Front-loading — главная жалоба." }
+},
+{
+  section: "Contracts",
+  q: { en: "A 'Service and Repair Contract' under BPC §7159.10 differs from a Home Improvement Contract in that:",
+       ru: "Service and Repair Contract по BPC §7159.10 отличается от home improvement тем, что:" },
+  choices: [
+    { en: "It can have no signed agreement", ru: "Может не иметь подписи" },
+    { en: "It is for service initiated by the buyer for repairs, with a price of $750 or less and no down payment beyond the agreed price", ru: "Это сервис, инициированный заказчиком, ≤ $750, без down payment сверх цены" },
+    { en: "Down payment can exceed 50%", ru: "Down payment может быть больше 50%" },
+    { en: "It does not need a license number", ru: "Может не содержать номер лицензии" }
+  ],
+  correct: 1,
+  exp: { en: "Service/Repair contracts apply to buyer-initiated repairs at $750 or less. Payment in full is paid at completion; no down payment allowed.",
+         ru: "Service/Repair контракт — ремонт по инициативе заказчика на сумму ≤ $750. Полная оплата по завершении; down payment не допускается." }
+},
+{
+  section: "Contracts",
+  q: { en: "All home improvement contracts MUST include all of the following EXCEPT:",
+       ru: "Все home improvement контракты ОБЯЗАНЫ содержать всё, КРОМЕ:" },
+  choices: [
+    { en: "Mechanic's Lien Warning", ru: "Mechanic's Lien Warning" },
+    { en: "Three-day Right to Cancel notice", ru: "Three-day Right to Cancel" },
+    { en: "Contractor's home address", ru: "Домашний адрес подрядчика" },
+    { en: "Contractor's license number", ru: "Номер лицензии подрядчика" }
+  ],
+  correct: 2,
+  exp: { en: "Business address, license number, lien warning, and 3-day cancel notice — all required. Home address of the contractor is NOT required.",
+         ru: "Business адрес, номер лицензии, lien warning и 3-day cancel — обязательны. Домашний адрес подрядчика — нет." }
+},
+{
+  section: "Contracts",
+  q: { en: "A 'change order' modifying scope, price, or schedule must be:",
+       ru: "Change order (изменения объёма, цены или сроков) должен быть:" },
+  choices: [
+    { en: "Verbal is fine for amounts under $2,000", ru: "Устным при суммах до $2,000" },
+    { en: "In writing and signed by both parties", ru: "Письменным и подписан обеими сторонами" },
+    { en: "Approved by CSLB", ru: "Утверждён CSLB" },
+    { en: "Notarized", ru: "Нотариально заверен" }
+  ],
+  correct: 1,
+  exp: { en: "California home improvement law requires all change orders to be in writing and signed by both parties. Oral change orders are a top source of disputes.",
+         ru: "Закон Калифорнии требует, чтобы все change orders были письменными и подписаны обеими сторонами. Устные — главная причина споров." }
+},
+{
+  section: "Contracts",
+  q: { en: "A 'cost-plus' contract bills the customer for:",
+       ru: "Cost-plus контракт выставляет клиенту:" },
+  choices: [
+    { en: "A fixed lump sum", ru: "Фиксированную сумму" },
+    { en: "Actual costs plus a defined fee or percentage", ru: "Фактические расходы + согласованную fee или процент" },
+    { en: "Whatever the contractor decides", ru: "По решению подрядчика" },
+    { en: "A unit price × quantity completed", ru: "Цена за единицу × выполненное количество" }
+  ],
+  correct: 1,
+  exp: { en: "Cost-plus pays actual costs + a fee (fixed or %). Risk shifts to owner. Often capped by Guaranteed Maximum Price (GMP) hybrid contracts.",
+         ru: "Cost-plus = фактические расходы + fee (фиксированная или %). Риск на владельце. Часто ограничен GMP-гибридом." }
+},
+{
+  section: "Contracts",
+  q: { en: "Contract 'liquidated damages' clauses:",
+       ru: "Условие liquidated damages в контракте:" },
+  choices: [
+    { en: "Are penalties unenforceable in CA", ru: "Это штрафы, в Калифорнии не подлежат исполнению" },
+    { en: "Pre-set a reasonable estimate of damages for breach, typically late completion", ru: "Заранее устанавливают разумную оценку убытков за нарушение, обычно за просрочку завершения" },
+    { en: "Apply only to the owner", ru: "Применяются только к владельцу" },
+    { en: "Apply only to subcontractors", ru: "Применяются только к субам" }
+  ],
+  correct: 1,
+  exp: { en: "Liquidated damages are enforceable if they're a reasonable pre-estimate of harm (not a penalty). Common as $X per day late.",
+         ru: "Liquidated damages исполнимы, если это разумная заранее оценка ущерба (не штраф). Обычно $X за каждый день просрочки." }
+},
+{
+  section: "Contracts",
+  q: { en: "Substantial completion typically means:",
+       ru: "Substantial completion обычно означает:" },
+  choices: [
+    { en: "100% complete with all punch-list items resolved", ru: "100% завершено, все punch-list пункты закрыты" },
+    { en: "Owner can occupy or use the project for its intended purpose with only minor items remaining", ru: "Владелец может пользоваться объектом по назначению, остались только мелкие punch-list пункты" },
+    { en: "Building permits closed only", ru: "Только закрыты разрешения" },
+    { en: "All money paid", ru: "Все деньги выплачены" }
+  ],
+  correct: 1,
+  exp: { en: "Substantial completion = beneficial use achieved. Triggers warranty start, retainage release timing, and certain lien deadlines.",
+         ru: "Substantial completion = объект пригоден к использованию. Запускает гарантийный срок, retainage и lien-сроки." }
+},
+{
+  section: "Contracts",
+  q: { en: "A contractor's bid mistake discovered AFTER acceptance may be relieved if:",
+       ru: "Ошибка в биде, обнаруженная ПОСЛЕ принятия, может быть прощена если:" },
+  choices: [
+    { en: "It was material, prompt notice was given, and the contractor was not grossly negligent", ru: "Существенная, дано быстрое уведомление, и подрядчик не был грубо небрежен" },
+    { en: "Always — bids are never binding", ru: "Всегда — биды никогда не обязательны" },
+    { en: "Never — bids are 100% binding", ru: "Никогда — биды 100% обязательны" },
+    { en: "Only if approved by CSLB", ru: "Только с одобрения CSLB" }
+  ],
+  correct: 0,
+  exp: { en: "Bid mistake relief requires: (a) material error; (b) prompt notice before owner's substantial reliance; (c) no gross negligence by bidder.",
+         ru: "Освобождение от ошибки бида: (а) существенная ошибка; (б) уведомление до того, как владелец полностью положился на бид; (в) нет грубой небрежности." }
+},
+{
+  section: "Contracts",
+  q: { en: "The required Notice of Cancellation under home improvement law must be:",
+       ru: "Notice of Cancellation по home improvement law должен:" },
+  choices: [
+    { en: "Mailed within 5 days of signing", ru: "Высылаться в течение 5 дней после подписания" },
+    { en: "Provided in duplicate on a separate, detachable form at signing", ru: "Выдаваться в двух копиях на отдельном отрывном бланке при подписании" },
+    { en: "Notarized", ru: "Нотариально заверен" },
+    { en: "Filed with CSLB", ru: "Подаваться в CSLB" }
+  ],
+  correct: 1,
+  exp: { en: "Two duplicate copies of Notice of Cancellation must be given to the buyer at the time of signing, on a separate detachable form. Failure extends the cancellation period indefinitely.",
+         ru: "Две копии Notice of Cancellation выдаются заказчику при подписании на отдельном отрывном бланке. Невыдача продлевает право на отмену неопределённо." }
+},
+{
+  section: "Contracts",
+  q: { en: "California's mandatory contractor arbitration program under CSLB applies to disputes:",
+       ru: "Обязательная CSLB-арбитражная программа применяется к спорам:" },
+  choices: [
+    { en: "Of any amount", ru: "На любую сумму" },
+    { en: "$15,000 or less", ru: "$15,000 или меньше" },
+    { en: "$50,000 or less", ru: "$50,000 или меньше" },
+    { en: "$100,000 or more", ru: "$100,000 или больше" }
+  ],
+  correct: 1,
+  exp: { en: "Mandatory arbitration: $15,000 or less. Voluntary arbitration: up to $50,000. Above $50,000 — civil court only.",
+         ru: "Обязательный арбитраж — $15,000 или меньше. Добровольный — до $50,000. Выше $50,000 — только гражданский суд." }
+},
+{
+  section: "Contracts",
+  q: { en: "An owner must be provided a 'Notice to Owner Regarding Mechanics' Lien Law' (per BPC §7018.5):",
+       ru: "Владельцу должен быть предоставлен 'Notice to Owner Regarding Mechanics Lien Law' (по BPC §7018.5):" },
+  choices: [
+    { en: "After project completion", ru: "После завершения проекта" },
+    { en: "With the home improvement contract", ru: "Вместе с home improvement контрактом" },
+    { en: "Only if requested", ru: "Только по запросу" },
+    { en: "After a lien is filed", ru: "После подачи lien" }
+  ],
+  correct: 1,
+  exp: { en: "The Mechanics Lien Warning and Notice to Owner must be part of every home improvement contract. Provides advance warning of lien rights and how to protect against double payment.",
+         ru: "Mechanics Lien Warning и Notice to Owner — обязательные части каждого home improvement контракта. Предупреждают о lien rights и как защититься от двойной оплаты." }
+},
+{
+  section: "Contracts",
+  q: { en: "A swimming pool contract under BPC §7165 requires:",
+       ru: "Контракт на бассейн по BPC §7165 требует:" },
+  choices: [
+    { en: "No down payment limit", ru: "Нет лимита down payment" },
+    { en: "Same $1,000/10% down payment limit, payment schedule, and detailed scope as home improvement", ru: "Тот же лимит $1,000/10%, payment schedule и детальное описание, как у home improvement" },
+    { en: "Verbal acceptance only", ru: "Только устное согласие" },
+    { en: "A 30-day right to cancel", ru: "30-дневное право на отмену" }
+  ],
+  correct: 1,
+  exp: { en: "Swimming pool contracts must meet all home improvement contract requirements including down payment limit, payment schedule, lien warning, and 3-day cancellation rights.",
+         ru: "Контракты на бассейн должны соответствовать всем требованиям home improvement: лимит down payment, payment schedule, lien warning, 3-day cancel." }
+},
+{
+  section: "Contracts",
+  q: { en: "Disaster-area home repair contracts in California provide the homeowner with a right to cancel of:",
+       ru: "Контракты на ремонт в зоне disaster дают владельцу право на отмену:" },
+  choices: [
+    { en: "3 business days", ru: "3 рабочих дня" },
+    { en: "5 business days", ru: "5 рабочих дней" },
+    { en: "7 business days after signing or contractor commencement, whichever is later", ru: "7 рабочих дней после подписания или начала работ — что позже" },
+    { en: "30 days from project start", ru: "30 дней с начала проекта" }
+  ],
+  correct: 2,
+  exp: { en: "BPC §7159.9 — disaster area contracts allow 7 business days to cancel; if not provided with notice, the cancellation period is extended.",
+         ru: "BPC §7159.9 — disaster контракты дают 7 рабочих дней на отмену; без выдачи notice период продлевается." }
+},
+{
+  section: "Contracts",
+  q: { en: "Bidding errors that affect public contracts can sometimes be relieved under:",
+       ru: "Ошибки бида на public contracts могут быть прощены по:" },
+  choices: [
+    { en: "Public Contract Code §5100 et seq.", ru: "Public Contract Code §5100 и далее" },
+    { en: "Business & Professions Code §7159", ru: "BPC §7159" },
+    { en: "Family Code", ru: "Family Code" },
+    { en: "Probate Code", ru: "Probate Code" }
+  ],
+  correct: 0,
+  exp: { en: "Public Contract Code §5100-5107 — relief from forfeiture of bid security where mistake is clerical/arithmetical (not judgmental).",
+         ru: "Public Contract Code §5100-5107 — освобождение от потери bid security при ошибках канцелярских/арифметических (не суждения)." }
+},
+
+// =====================================================
+// SECTION VI: PUBLIC WORKS (~5%)
+// =====================================================
+{
+  section: "Public Works",
+  q: { en: "On California public works, contractors must pay workers:",
+       ru: "На public works в Калифорнии рабочим выплачивается:" },
+  choices: [
+    { en: "Federal minimum wage", ru: "Федеральный min wage" },
+    { en: "State minimum wage", ru: "Min wage штата" },
+    { en: "Prevailing wage as determined by DIR for the trade and locality", ru: "Prevailing wage по трейду и местности (определяет DIR)" },
+    { en: "Whatever the parties agree", ru: "По договорённости сторон" }
+  ],
+  correct: 2,
+  exp: { en: "Prevailing wage applies to public works of $1,000+ ($25,000+ for maintenance) and is set by DIR for each craft + locality.",
+         ru: "Prevailing wage применяется на public works от $1,000+ (для maintenance — $25,000+); ставку DIR определяет по крафту и местности." }
+},
+{
+  section: "Public Works",
+  q: { en: "To bid or work on California public works, a contractor must:",
+       ru: "Чтобы участвовать в public works в Калифорнии, подрядчик должен:" },
+  choices: [
+    { en: "Hold a separate 'public works' license", ru: "Иметь отдельную 'public works' лицензию" },
+    { en: "Register annually with the Department of Industrial Relations (DIR)", ru: "Ежегодно регистрироваться в DIR" },
+    { en: "Submit fingerprints to IRS", ru: "Сдать отпечатки в IRS" },
+    { en: "Post a $1M surety bond", ru: "Внести $1М surety bond" }
+  ],
+  correct: 1,
+  exp: { en: "Labor Code §1725.5 — all contractors and subs must register annually with DIR. Without registration, no bidding/contracting/working on public projects.",
+         ru: "Labor Code §1725.5 — все подрядчики и субы должны ежегодно регистрироваться в DIR. Без регистрации — никаких public-работ." }
+},
+{
+  section: "Public Works",
+  q: { en: "Certified payroll on California public works projects must be:",
+       ru: "Certified payroll на public works в Калифорнии должен:" },
+  choices: [
+    { en: "Submitted annually", ru: "Подаваться ежегодно" },
+    { en: "Submitted to DIR and the awarding body weekly", ru: "Подаваться в DIR и awarding body еженедельно" },
+    { en: "Submitted only on request", ru: "Подаваться только по запросу" },
+    { en: "Submitted at project completion only", ru: "Подаваться только по завершении" }
+  ],
+  correct: 1,
+  exp: { en: "Certified payroll submitted weekly via DIR's eCPR system. Includes name, classification, hours, wages, fringe benefits per worker.",
+         ru: "Certified payroll подаётся еженедельно через DIR eCPR. Содержит имя, классификацию, часы, зарплату, fringe benefits по каждому рабочему." }
+},
+{
+  section: "Public Works",
+  q: { en: "On public works of $30,000 or more, the prime contractor must employ apprentices in a ratio of at least:",
+       ru: "На public works от $30,000 prime обязан нанимать apprentices в соотношении не менее:" },
+  choices: [
+    { en: "1 apprentice for every 10 journey-level workers", ru: "1 apprentice на каждые 10 journey-level" },
+    { en: "1 apprentice hour for every 5 journey-level hours", ru: "1 час apprentice на каждые 5 часов journey-level" },
+    { en: "1:1 apprentice to journey-level", ru: "1:1 apprentice к journey-level" },
+    { en: "No apprentice requirement", ru: "Нет требования по apprentices" }
+  ],
+  correct: 1,
+  exp: { en: "Labor Code §1777.5 — 1 apprentice hour per 5 journey-level hours minimum on public works of $30,000+. Subject to DAS approval.",
+         ru: "Labor Code §1777.5 — минимум 1 час apprentice на 5 часов journey-level на public works от $30,000. Под надзором DAS." }
+},
+{
+  section: "Public Works",
+  q: { en: "On a public works project, a contractor must post a payment bond when the contract amount exceeds:",
+       ru: "На public works payment bond требуется, если сумма контракта превышает:" },
+  choices: [
+    { en: "$5,000", ru: "$5,000" },
+    { en: "$15,000", ru: "$15,000" },
+    { en: "$25,000", ru: "$25,000" },
+    { en: "$100,000", ru: "$100,000" }
+  ],
+  correct: 2,
+  exp: { en: "Civil Code §9550 — payment bond required on public works contracts over $25,000. Bond protects subs, suppliers, and workers.",
+         ru: "Civil Code §9550 — payment bond обязателен на public works контрактах свыше $25,000. Защищает субов, поставщиков и рабочих." }
+},
+
+// =====================================================
+// SECTION VII: SAFETY (~14%)
+// =====================================================
+{
+  section: "Safety",
+  q: { en: "Cal/OSHA requires that every employer have a written:",
+       ru: "Cal/OSHA требует от каждого работодателя письменную:" },
+  choices: [
+    { en: "Job Hazard Analysis (JHA) only", ru: "Job Hazard Analysis (JHA)" },
+    { en: "Injury and Illness Prevention Program (IIPP)", ru: "Injury and Illness Prevention Program (IIPP)" },
+    { en: "Federal OSHA 1910 manual", ru: "Federal OSHA 1910 manual" },
+    { en: "EPA RRP plan only", ru: "Только EPA RRP plan" }
+  ],
+  correct: 1,
+  exp: { en: "Title 8 §3203 — every employer must have a written IIPP, in effect at all times, covering 8 required elements.",
+         ru: "Title 8 §3203 — каждый работодатель обязан иметь письменный IIPP, постоянно действующий, с 8 обязательными элементами." }
+},
+{
+  section: "Safety",
+  q: { en: "Serious work-related injury, illness, or death must be reported to Cal/OSHA within:",
+       ru: "Тяжёлая травма, болезнь или смерть на работе должны быть сообщены в Cal/OSHA в течение:" },
+  choices: [
+    { en: "1 hour", ru: "1 часа" },
+    { en: "8 hours", ru: "8 часов" },
+    { en: "24 hours", ru: "24 часов" },
+    { en: "72 hours", ru: "72 часов" }
+  ],
+  correct: 1,
+  exp: { en: "Title 8 §342 — 8 hours to report serious injury, illness, or any work-related fatality. Minimum penalty $5,000+ for failure to report.",
+         ru: "Title 8 §342 — 8 часов на сообщение тяжёлой травмы, болезни или смерти. Штраф от $5,000 за невыполнение." }
+},
+{
+  section: "Safety",
+  q: { en: "Fall protection in construction is required at heights of:",
+       ru: "Fall protection в строительстве требуется на высоте:" },
+  choices: [
+    { en: "4 feet", ru: "4 фута" },
+    { en: "6 feet", ru: "6 футов" },
+    { en: "10 feet", ru: "10 футов" },
+    { en: "15 feet", ru: "15 футов" }
+  ],
+  correct: 1,
+  exp: { en: "Title 8 §1670 — fall protection at 6 ft in construction. General Industry: 4 ft. Steep roofs: different rules.",
+         ru: "Title 8 §1670 — fall protection с 6 футов в строительстве. General Industry — с 4 футов. Крутые крыши — отдельные правила." }
+},
+{
+  section: "Safety",
+  q: { en: "Cal/OSHA Heat Illness Prevention (Title 8 §3395) requires shade and water for outdoor employees when temperatures equal or exceed:",
+       ru: "Cal/OSHA Heat Illness Prevention (§3395) требует тень и воду для outdoor работников при температуре:" },
+  choices: [
+    { en: "75°F", ru: "75°F" },
+    { en: "80°F", ru: "80°F" },
+    { en: "90°F", ru: "90°F" },
+    { en: "95°F", ru: "95°F" }
+  ],
+  correct: 1,
+  exp: { en: "Basic heat rule kicks in at 80°F: shade, water, training. High-heat procedures (cool-down, observer, pre-shift meeting) at 95°F.",
+         ru: "Базовое правило с 80°F: тень, вода, обучение. High-heat procedures (cool-down, observer, pre-shift meeting) — с 95°F." }
+},
+{
+  section: "Safety",
+  q: { en: "Safety Data Sheets (SDS) must be maintained for:",
+       ru: "Safety Data Sheets (SDS) должны храниться для:" },
+  choices: [
+    { en: "Only toxic chemicals", ru: "Только токсичных химикатов" },
+    { en: "Each hazardous chemical present in the workplace", ru: "КАЖДОГО опасного химиката на рабочем месте" },
+    { en: "Only chemicals stored in 5+ gallon containers", ru: "Только в ёмкостях 5+ галлонов" },
+    { en: "Refrigerants only", ru: "Только хладагентов" }
+  ],
+  correct: 1,
+  exp: { en: "HazCom Standard — SDS required for every hazardous chemical, accessible to all workers per shift. Common Cal/OSHA citation.",
+         ru: "HazCom Standard — SDS для каждого опасного химиката, доступен всем работникам в любую смену. Частая причина citation." }
+},
+{
+  section: "Safety",
+  q: { en: "Cal/OSHA recordable injury and illness logs (300/300A) must be retained for:",
+       ru: "Cal/OSHA injury/illness logs (300/300A) хранятся:" },
+  choices: [
+    { en: "1 year", ru: "1 год" },
+    { en: "3 years", ru: "3 года" },
+    { en: "5 years", ru: "5 лет" },
+    { en: "10 years", ru: "10 лет" }
+  ],
+  correct: 2,
+  exp: { en: "Form 300 logs and 300A annual summaries — 5 years after the calendar year they cover. Form 300A must be posted Feb 1 – Apr 30.",
+         ru: "Form 300 и 300A annual summary — 5 лет после календарного года. 300A вывешивается с 1 февраля по 30 апреля." }
+},
+{
+  section: "Safety",
+  q: { en: "Asbestos work over 100 sq ft requires:",
+       ru: "Работа с асбестом свыше 100 кв.ф. требует:" },
+  choices: [
+    { en: "C-20 license only", ru: "Только C-20 лицензии" },
+    { en: "Cal/OSHA asbestos registration AND a CSLB asbestos certification", ru: "Cal/OSHA asbestos registration И CSLB asbestos certification" },
+    { en: "EPA 608 only", ru: "Только EPA 608" },
+    { en: "A general B license", ru: "General B-лицензии" }
+  ],
+  correct: 1,
+  exp: { en: "Asbestos work 100+ sq ft requires Cal/OSHA registration AND CSLB asbestos certification on the license. C-22 may also be required for abatement work.",
+         ru: "Асбест 100+ кв.ф. — Cal/OSHA registration И CSLB asbestos certification на лицензии. Для abatement также нужен C-22." }
+},
+{
+  section: "Safety",
+  q: { en: "Lockout/Tagout (LOTO) procedures protect workers from:",
+       ru: "Lockout/Tagout (LOTO) защищает работников от:" },
+  choices: [
+    { en: "Falls from heights", ru: "Падений с высоты" },
+    { en: "Unexpected energization or startup of machinery during servicing", ru: "Неожиданного включения или запуска оборудования при обслуживании" },
+    { en: "Inhalation of dust", ru: "Вдыхания пыли" },
+    { en: "Trench cave-ins", ru: "Обрушений траншей" }
+  ],
+  correct: 1,
+  exp: { en: "Title 8 §3314 — LOTO required when servicing or maintaining machinery where unexpected startup or energy release could cause injury. Critical for HVAC techs working on systems with live power, gas, or pressurized refrigerant.",
+         ru: "Title 8 §3314 — LOTO обязателен при обслуживании оборудования, где возможен неожиданный запуск или сброс энергии. Критично для HVAC при работе с током, газом или давлением хладагента." }
+},
+{
+  section: "Safety",
+  q: { en: "Trench excavations 5 feet or deeper generally require:",
+       ru: "Траншеи глубиной 5 футов и более обычно требуют:" },
+  choices: [
+    { en: "No protection", ru: "Никакой защиты" },
+    { en: "Protective system (shoring, shielding, or sloping)", ru: "Защитную систему (shoring, shielding или sloping)" },
+    { en: "Only a hard hat", ru: "Только каску" },
+    { en: "Permit from Cal/OSHA after digging", ru: "Разрешение Cal/OSHA после копки" }
+  ],
+  correct: 1,
+  exp: { en: "Title 8 §1541 — trenches 5+ feet must have shoring, shielding, or properly sloped walls. Trenches 20+ feet need design by registered engineer.",
+         ru: "Title 8 §1541 — траншеи 5+ футов требуют shoring, shielding или sloping стенок. Глубже 20 футов — проект инженера." }
+},
+{
+  section: "Safety",
+  q: { en: "An employer must provide an employee's medical records, training records, and exposure records:",
+       ru: "Работодатель обязан предоставить работнику его medical records, training records и exposure records:" },
+  choices: [
+    { en: "Within 1 business day of request, free", ru: "В течение 1 рабочего дня по запросу, бесплатно" },
+    { en: "Only after employment ends", ru: "Только после увольнения" },
+    { en: "Within 30 days for a $50 fee", ru: "В течение 30 дней за $50" },
+    { en: "Never — they are confidential employer property", ru: "Никогда — это закрытые документы работодателя" }
+  ],
+  correct: 0,
+  exp: { en: "Title 8 §3204 — employee/representative access to exposure and medical records within reasonable time and free of charge.",
+         ru: "Title 8 §3204 — работник или его представитель имеет доступ к exposure и medical records в разумный срок и бесплатно." }
+},
+{
+  section: "Safety",
+  q: { en: "Personal Protective Equipment (PPE) provided to employees must be:",
+       ru: "Personal Protective Equipment (PPE) для сотрудников должен:" },
+  choices: [
+    { en: "Paid for by the employee", ru: "Оплачиваться работником" },
+    { en: "Provided by the employer at no cost to the employee", ru: "Предоставляться работодателем бесплатно для работника" },
+    { en: "Optional", ru: "Опциональный" },
+    { en: "Sold to the employee at cost", ru: "Продаваться работнику по себестоимости" }
+  ],
+  correct: 1,
+  exp: { en: "Per Title 8 and federal OSHA, employer must provide all required PPE at no cost to the employee (with limited exceptions like personal-use boots).",
+         ru: "По Title 8 и федеральному OSHA, работодатель обязан предоставить весь обязательный PPE бесплатно (за исключением личных вещей вроде ботинок)." }
+},
+{
+  section: "Safety",
+  q: { en: "Confined space entry in construction is regulated under:",
+       ru: "Вход в confined space в строительстве регулируется:" },
+  choices: [
+    { en: "Title 8 §5157", ru: "Title 8 §5157" },
+    { en: "Title 8 §1950 et seq. (Cal/OSHA Confined Spaces in Construction)", ru: "Title 8 §1950 и далее (Confined Spaces in Construction)" },
+    { en: "BPC §7159", ru: "BPC §7159" },
+    { en: "Civil Code §895", ru: "Civil Code §895" }
+  ],
+  correct: 1,
+  exp: { en: "Cal/OSHA's construction confined space rules are at Title 8 §1950+. General industry rules at §5157.",
+         ru: "Cal/OSHA confined space для строительства — Title 8 §1950+. General industry — §5157." }
+},
+{
+  section: "Safety",
+  q: { en: "Silica exposure regulation in California requires which of the following?",
+       ru: "Регулирование воздействия silica в Калифорнии требует:" },
+  choices: [
+    { en: "Written Exposure Control Plan when above the Action Level", ru: "Письменный Exposure Control Plan при превышении Action Level" },
+    { en: "No exposure standards exist", ru: "Не существует стандартов воздействия" },
+    { en: "Only annual medical exams", ru: "Только ежегодные медосмотры" },
+    { en: "PPE only, no other controls", ru: "Только PPE, без других мер" }
+  ],
+  correct: 0,
+  exp: { en: "Title 8 §1532.3 — written Exposure Control Plan, engineering controls, medical surveillance for workers exposed above Action Level (25 µg/m³).",
+         ru: "Title 8 §1532.3 — письменный Exposure Control Plan, engineering controls, медосмотры при превышении Action Level (25 µg/m³)." }
+}
+];
+
+// =============================
+// STATE
+// =============================
+let answers = {};
+let score = 0;
+let totalAnswered = 0;
+let displayedQuestions = [];
+let currentLang = 'both';
+
+// =============================
+// UTILITIES
+// =============================
+function shuffle(array) {
+  const a = [...array];
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+// =============================
+// RENDER
+// =============================
+function render() {
+  const body = document.getElementById('examBody');
+  document.getElementById('total').textContent = displayedQuestions.length;
+  document.getElementById('questionCount').textContent = displayedQuestions.length + ' questions';
+  document.getElementById('scoreTotal').textContent = '/' + displayedQuestions.length;
+
+  let html = '';
+  displayedQuestions.forEach((q, idx) => {
+    html += `<div class="question" id="q${idx}" data-correct="${q.correct}">
+      <div class="q-meta">
+        <span class="q-num">№ ${String(idx+1).padStart(3,'0')}</span>
+        <span class="q-section">${q.section}</span>
+      </div>
+      <div class="q-text en">${q.q.en}</div>
+      <div class="q-text ru">${q.q.ru}</div>
+      <div class="choices">`;
+    q.choices.forEach((c, ci) => {
+      const letter = String.fromCharCode(97 + ci);
+      html += `<label class="choice" data-cidx="${ci}">
+        <input type="radio" name="q${idx}" value="${ci}" onchange="onAnswer(${idx}, ${ci})">
+        <span class="letter">${letter}</span>
+        <span class="choice-text-en">${c.en}</span>
+        <span class="choice-text-ru">${c.ru}</span>
+      </label>`;
+    });
+    html += `</div>
+      <div class="explanation">
+        <div class="exp-en">
+          <div class="exp-label">Rationale</div>
+          ${q.exp.en}
+        </div>
+        <div class="exp-ru">
+          <div class="exp-label">Перевод</div>
+          ${q.exp.ru}
+        </div>
+      </div>
+    </div>`;
+  });
+  body.innerHTML = html;
+}
+
+function onAnswer(qIdx, cIdx) {
+  if (answers[qIdx] !== undefined) return;
+  answers[qIdx] = cIdx;
+  const qEl = document.getElementById('q' + qIdx);
+  const correctIdx = parseInt(qEl.dataset.correct);
+  qEl.classList.add('graded');
+  qEl.querySelectorAll('.choice').forEach((ch, i) => {
+    if (i === correctIdx) ch.classList.add('correct-answer');
+    if (i === cIdx && cIdx !== correctIdx) ch.classList.add('user-wrong');
+  });
+  if (cIdx === correctIdx) score++;
+  totalAnswered++;
+  document.getElementById('answered').textContent = totalAnswered;
+  document.getElementById('scoreLive').textContent = score;
+  const pct = Math.round((totalAnswered / displayedQuestions.length) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  if (totalAnswered === displayedQuestions.length) setTimeout(showResults, 400);
+}
+
+function showResults() {
+  const sectionScores = {};
+  displayedQuestions.forEach((q, i) => {
+    if (!sectionScores[q.section]) sectionScores[q.section] = { c: 0, t: 0 };
+    sectionScores[q.section].t++;
+    if (answers[i] === q.correct) sectionScores[q.section].c++;
+  });
+  const r = document.getElementById('results');
+  r.classList.add('show');
+  document.getElementById('scoreNum').textContent = score;
+  const pct = Math.round((score / displayedQuestions.length) * 100);
+  document.getElementById('scorePct').textContent = pct + '% Correct';
+  let verdict;
+  if (pct >= 73) verdict = '✦ Passing standard — well prepared';
+  else if (pct >= 65) verdict = '○ Close to passing — review weak areas';
+  else if (pct >= 50) verdict = '△ Substantial review needed';
+  else verdict = '✗ Significant study required';
+  document.getElementById('verdict').textContent = verdict;
+  let bd = '';
+  Object.keys(sectionScores).sort().forEach(s => {
+    bd += `<div class="breakdown-item">
+      <div class="b-label">${s}</div>
+      <div class="b-score">${sectionScores[s].c}/${sectionScores[s].t}</div>
+    </div>`;
+  });
+  document.getElementById('breakdown').innerHTML = bd;
+  r.scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function reshuffleAndReset() {
+  answers = {};
+  score = 0;
+  totalAnswered = 0;
+  document.getElementById('results').classList.remove('show');
+  document.getElementById('answered').textContent = '0';
+  document.getElementById('scoreLive').textContent = '0';
+  document.getElementById('progressFill').style.width = '0%';
+  displayedQuestions = shuffle(QUESTIONS);
+  render();
+  window.scrollTo({top:0, behavior:'smooth'});
+}
+
+// LANGUAGE TOGGLE
+function setLang(lang) {
+  currentLang = lang;
+  document.body.className = 'lang-' + lang;
+  document.querySelectorAll('.lang-btn').forEach(b => {
+    b.classList.toggle('active', b.dataset.lang === lang);
+  });
+}
+
+document.querySelectorAll('.lang-btn').forEach(b => {
+  b.addEventListener('click', () => setLang(b.dataset.lang));
+});
+
+// INIT
+setLang('both');
+displayedQuestions = shuffle(QUESTIONS);
+render();
+</script>
 </body>
 </html>
