@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Путь к лицензии C-20 и своей компании — California / CSLB</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f4ec; --card:#ffffff; --ink:#1b2436; --ink2:#3a4660;
+  --navy:#1b3b6f; --navy2:#102a52; --gold:#b8862b; --gold-soft:#f6ecd5;
+  --line:#ddd5c4; --rule:#c9bfa8; --steel:#6e7689;
+  --green:#1d7a4d; --green-soft:#e4f1e7; --red:#b3382c;
+  --shadow:0 1px 2px rgba(27,36,54,.05),0 10px 30px rgba(27,36,54,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6}
+.wrap{max-width:860px;margin:0 auto;padding:0 22px}
+a{color:var(--navy)}
+
+.mast{background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+.mast .wrap{padding:18px 22px 22px}
+.seal{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#d9e2f1}
+.seal .star{color:var(--gold);font-size:15px;line-height:1}
+.mast h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(26px,5.5vw,40px);margin:10px 0 6px;line-height:1.06}
+.mast h1 em{font-style:italic;font-weight:600;color:#f4d692}
+.mast .sub{font-family:'IBM Plex Mono';font-size:12px;color:#c4d0e6}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px 0 0;opacity:.7}
+
+main{padding:8px 0 40px}
+.lead{font-size:15.5px;color:var(--ink2);margin:22px 0 8px}
+.disc{font-size:13px;color:var(--ink2);background:var(--gold-soft);border:1px solid #ecdcb6;border-left:4px solid var(--gold);border-radius:10px;padding:12px 15px;margin:14px 0}
+.disc b{color:var(--ink)}
+
+h2{font-family:'Playfair Display',serif;font-weight:800;font-size:24px;margin:34px 0 4px;padding-top:14px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:11px}
+h2 .n{font-family:'IBM Plex Mono';font-size:13px;font-weight:600;color:#fff;background:var(--navy);padding:4px 9px;border-radius:7px;flex:none}
+h3{font-size:17px;font-weight:700;margin:20px 0 6px;color:var(--navy)}
+p{margin:9px 0}
+.en{color:var(--steel);font-style:italic}
+.term{font-family:'IBM Plex Mono';font-size:.92em;background:#f0ece0;border:1px solid var(--line);border-radius:5px;padding:1px 6px;color:var(--navy2)}
+
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+th{background:var(--navy);color:#fff;text-align:left;padding:10px 12px;font-size:12px;letter-spacing:.02em;font-weight:600}
+td{border-top:1px solid var(--line);padding:9px 12px;vertical-align:top}
+tr:nth-child(even) td{background:#faf7ef}
+td.mono{font-family:'IBM Plex Mono';font-weight:600;white-space:nowrap;color:var(--navy2)}
+
+.steps{counter-reset:s;margin:14px 0;padding:0;list-style:none}
+.steps>li{position:relative;background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;box-shadow:var(--shadow);padding:15px 17px 15px 56px;margin:0 0 12px}
+.steps>li::before{counter-increment:s;content:counter(s);position:absolute;left:13px;top:14px;width:30px;height:30px;background:var(--navy);color:#fff;border-radius:8px;display:grid;place-items:center;font-family:'Playfair Display',serif;font-weight:800;font-size:16px}
+.steps h3{margin:0 0 4px;color:var(--ink)}
+.steps .meta{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--gold);font-weight:600;text-transform:uppercase;letter-spacing:.04em;margin-bottom:6px}
+.steps p{margin:6px 0;font-size:14px}
+.steps ul{margin:7px 0;padding-left:18px;font-size:14px}
+.steps li{margin:3px 0}
+
+.check{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:8px 16px;margin:14px 0}
+.check .row{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-bottom:1px dashed var(--rule)}
+.check .row:last-child{border-bottom:0}
+.box{flex:none;width:18px;height:18px;border:2px solid var(--navy);border-radius:5px;margin-top:2px}
+.check .t{font-size:14px}
+.check .t b{color:var(--navy2)}
+.check .t .en{display:block;font-size:12.5px}
+
+.cards{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0}
+.opt{flex:1;min-width:230px;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:14px 16px}
+.opt .h{font-weight:700;font-size:15px;color:var(--navy);display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.opt .h .tag{font-family:'IBM Plex Mono';font-size:10px;background:var(--gold-soft);border:1px solid #ecdcb6;border-radius:5px;padding:2px 6px;color:var(--navy2)}
+.opt ul{margin:6px 0 0;padding-left:17px;font-size:13.3px;color:var(--ink2)}
+.opt li{margin:3px 0}
+
+.callout{background:var(--green-soft);border:1px solid #bfe0ca;border-radius:11px;padding:12px 15px;margin:14px 0;font-size:14px}
+.callout b{color:var(--green)}
+.xlink{flex:none;background:var(--navy);color:#fff;text-decoration:none;font-weight:600;font-size:13.5px;padding:8px 14px;border-radius:9px;white-space:nowrap}
+.xlink:hover{background:var(--navy2)}
+.crossbar{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--navy);border-radius:12px;box-shadow:var(--shadow);padding:13px 16px;margin:16px 0;display:flex;align-items:center;gap:12px;justify-content:space-between;flex-wrap:wrap}
+.crossbar .t{font-size:14px}
+.warn{background:#f9e6e3;border:1px solid #e9c2bb;border-radius:11px;padding:12px 15px;margin:14px 0;font-size:14px}
+.warn b{color:var(--red)}
+
+.links{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:6px 16px;margin:14px 0}
+.links .row{display:flex;gap:12px;align-items:baseline;padding:10px 0;border-bottom:1px dashed var(--rule);font-size:14px}
+.links .row:last-child{border-bottom:0}
+.links .lbl{font-weight:600;min-width:150px;flex:none}
+
+footer{border-top:1px solid var(--line);margin-top:24px;padding:18px 0 50px}
+footer .wrap{font-size:12px;color:var(--steel)}
+.src{font-size:12.5px;color:var(--ink2);background:var(--gold-soft);border:1px solid #ecdcb6;border-radius:9px;padding:10px 13px;margin-top:8px}
+.src a{color:var(--navy);font-weight:600}
+@media(max-width:520px){.opt{min-width:100%}}
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <div class="wrap">
+    <div class="seal"><span class="star">&#9733;</span> State of California · CSLB · LICENA Guide</div>
+    <h1>Путь к лицензии <em>C-20</em> и своей компании</h1>
+    <div class="sub">От нуля до активной лицензии и открытого бизнеса · пошагово · RU + English terms</div>
+    <div class="rule"></div>
+  </div>
+</div>
+
+<main>
+<div class="wrap">
+
+  <p class="lead">Полный маршрут: какие документы нужны, чтобы записаться на экзамен, как пройти все шаги до получения лицензии CSLB, и как затем легально открыть и запустить компанию. Английские названия форм, агентств и терминов оставлены как есть — именно так ты встретишь их в документах.</p>
+
+  <div class="crossbar">
+    <span class="t">📝 Готовишься к экзамену? Открой тренажёр: <b>500 вопросов CSLB Law &amp; Business</b> (RU / EN, 5 блоков).</span>
+    <a class="xlink" href="cslb_law_business_500.html">Открыть тренажёр →</a>
+  </div>
+
+  <div class="disc"><b>Важно про цифры.</b> Сборы, формы и пороги периодически меняются. Все суммы здесь — ориентир на 2026 год; перед подачей всегда сверяйся с актуальной страницей CSLB (ссылки в конце). Это руководство — не юридическая консультация.</div>
+
+  <h2><span class="n">0</span> Нужна ли вообще лицензия?</h2>
+  <p>В Калифорнии лицензия CSLB обязательна, если общая стоимость работы <b>(труд + материалы)</b> составляет <b>$1,000 и больше</b>, либо если для работы нужен permit. Это порог по <span class="term">AB 2622</span> (действует с 1 января 2025; раньше было $500).</p>
+  <p>Единственное узкое исключение — <span class="en">«minor work»</span>: одна специальность, дешевле $500, без работников и без разрешения. На практике под него почти ничего реального не попадает.</p>
+  <div class="warn"><b>Работа без лицензии</b> сверх порога — это нарушение (обычно мисдиминор), плюс по <span class="term">§7031</span> безлицензионный подрядчик не может через суд взыскать оплату и может быть обязан вернуть всё полученное. Не стоит того.</div>
+
+  <h2><span class="n">1</span> Варианты структуры бизнеса</h2>
+  <p>Лицензию можно получить на одну из форм. Структуру выбирают <b>до</b> подачи заявки, потому что у каждой свои формы, сборы и ответственность. Сменить форму позже = получать <b>новую</b> лицензию.</p>
+
+  <div class="cards">
+    <div class="opt">
+      <div class="h">Sole Owner <span class="tag">ИП</span></div>
+      <ul>
+        <li>Проще и дешевле всего в запуске</li>
+        <li>Личная ответственность по долгам бизнеса</li>
+        <li>Лицензия привязана к человеку</li>
+        <li>Initial fee — <b>$200</b></li>
+      </ul>
+    </div>
+    <div class="opt">
+      <div class="h">Partnership <span class="tag">партнёрство</span></div>
+      <ul>
+        <li>2+ владельца</li>
+        <li>Совместная (часто личная) ответственность</li>
+        <li>Нужно соглашение между партнёрами</li>
+        <li>Initial fee — <b>$350</b></li>
+      </ul>
+    </div>
+    <div class="opt">
+      <div class="h">Corporation <span class="tag">Inc</span></div>
+      <ul>
+        <li>Отдельное юрлицо, ограниченная ответственность</li>
+        <li>Нужен квалификатор (RMO/RME)</li>
+        <li>Больше формальностей + min. franchise tax ($800/год)</li>
+        <li>Initial fee — <b>$350</b></li>
+      </ul>
+    </div>
+    <div class="opt">
+      <div class="h">LLC <span class="tag">ООО</span></div>
+      <ul>
+        <li>Ограниченная ответственность</li>
+        <li>Обязательны: страховка ответственности <b>$1,000,000</b> (до $5M с ростом штата) <b>+</b> отдельная облигация для работников <b>$100,000</b></li>
+        <li>Min. franchise tax $800/год</li>
+        <li>Initial fee — <b>$350</b></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>Кто «квалифицирует» лицензию: RMO и RME</h3>
+  <p>Лицензию «держит» <b>квалифицирующее лицо</b> <span class="en">(qualifying individual)</span> — тот, кто подтвердил опыт и сдал экзамены:</p>
+  <ul>
+    <li><b>RMO</b> <span class="en">(Responsible Managing Officer)</span> — владелец/офицер компании. Если он владеет <b>менее 10%</b> компании, дополнительно нужна <span class="term">Bond of Qualifying Individual $25,000</span>.</li>
+    <li><b>RME</b> <span class="en">(Responsible Managing Employee)</span> — настоящий постоянный сотрудник с реальным надзором (обычно 32+ ч/нед). Для RME <b>всегда</b> нужна Bond of Qualifying Individual.</li>
+  </ul>
+  <div class="warn"><b>«Аренда» лицензии</b> — когда квалификатор числится на бумаге, но не управляет, — это серьёзное нарушение закона. Квалификатор должен реально контролировать работу.</div>
+
+  <h2><span class="n">2</span> Требования к заявителю</h2>
+  <table>
+    <tr><th>Требование</th><th>Детали</th></tr>
+    <tr><td class="mono">Возраст</td><td>18 лет и старше</td></tr>
+    <tr><td class="mono">Опыт</td><td><b>4 года</b> опыта уровня journey-level в выбранной классификации за последние <b>10 лет</b> (B&amp;P §7068). Подтверждается формой Certification of Work Experience.</td></tr>
+    <tr><td class="mono">ID</td><td>SSN <b>или</b> ITIN (индивидуальный налоговый номер)</td></tr>
+    <tr><td class="mono">Asbestos</td><td>Все новые заявители обязаны сдать <b>asbestos open-book exam</b> (§7058.5) и сдать форму до выдачи лицензии</td></tr>
+    <tr><td class="mono">Экзамены</td><td>Law &amp; Business <b>+</b> Trade (для HVAC — <b>C-20</b>), если нет основания для waiver</td></tr>
+    <tr><td class="mono">Отпечатки</td><td>Live Scan (fingerprints) — проверка судимостей DOJ/FBI</td></tr>
+  </table>
+
+  <h3>Нужны ли документы (W-2, 1099, payroll)?</h3>
+  <p>Короткий ответ: <b>с заявкой их прикладывать не нужно</b>. Подаётся сама форма Certification of Work Experience, подписанная <b>сертификатором</b> — тем, кто из первых рук знает твой опыт (работодатель, лицензированный контрактор, прораб и т.п.). Подписи только <b>оригинальные</b> (не копии/факс/штамп), отдельная форма — на каждого работодателя.</p>
+  <p><b>НО опыт должен быть подтверждаемым.</b> CSLB случайно отбирает <b>~3%</b> заявок на проверку и может связаться с сертификатором или запросить документы. Поэтому держи под рукой доказательства на случай запроса: <b>W-2, 1099, payroll-записи, налоговые декларации, договоры</b> и т.п. Если опыт не подтвердится — заявку отклонят.</p>
+  <div class="links" style="margin-top:10px">
+    <div class="row"><span class="lbl">📄 Скачать форму</span><a href="https://www.cslb.ca.gov/Resources/FormsAndApplications/CertificationOfWorkExperience.pdf" target="_blank" rel="noopener">Certification of Work Experience (13A-11) — PDF</a></div>
+  </div>
+
+  <h2><span class="n">3</span> Пошаговый путь к лицензии</h2>
+  <ol class="steps">
+    <li>
+      <div class="meta">Подготовка</div>
+      <h3>Выбрать классификацию и структуру</h3>
+      <p>Для отопления/кондиционирования — <b>C-20 (Warm-Air Heating, Ventilating &amp; Air-Conditioning)</b>. Определись со структурой (Sole Owner / Corp / LLC) — от неё зависят формы и сборы.</p>
+    </li>
+    <li>
+      <div class="meta">Документы об опыте</div>
+      <h3>Собрать подтверждение 4 лет опыта</h3>
+      <p>Заполняется форма <span class="term">Certification of Work Experience (13A-11)</span> — отдельная на каждого работодателя, с <b>оригинальной</b> подписью сертификатора. После подачи <b>добавить опыт уже нельзя</b> — собирай всё сразу. Держи W-2/1099/payroll на случай выборочной проверки (см. раздел 2).</p>
+      <p>📄 <a href="https://www.cslb.ca.gov/Resources/FormsAndApplications/CertificationOfWorkExperience.pdf" target="_blank" rel="noopener">Скачать форму Certification of Work Experience (PDF) →</a></p>
+    </li>
+    <li>
+      <div class="meta">Заявка + $450</div>
+      <h3>Подать Application for Original Contractor License</h3>
+      <ul>
+        <li>Заполнить заявку <b>ручкой или на печатной машинке/в полях</b> (карандаш вернут), подписать всеми указанными лицами.</li>
+        <li>Приложить сбор <b>$450</b> (non-refundable).</li>
+        <li>Инвалидам — форма <span class="term">Special Accommodation Request 13E-77</span>.</li>
+        <li><b>НЕ</b> прикладывать облигацию и initial fee на этом этапе.</li>
+      </ul>
+      <p>Адрес: <span class="term">CSLB HQ, P.O. Box 26000, Sacramento, CA 95826-0026</span>. Укажи обратный адрес на конверте.</p>
+      <p>📄 <a href="https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/applying_for_license.aspx" target="_blank" rel="noopener">Заявка и инструкции (CSLB — Applying for the Examination) →</a></p>
+    </li>
+    <li>
+      <div class="meta">Live Scan</div>
+      <h3>Сдать отпечатки пальцев</h3>
+      <p>После того как CSLB примет заявку, тебе пришлют инструкции на Live Scan для проверки судимостей (DOJ + FBI). Стоимость ~$49–59 в зависимости от локации.</p>
+    </li>
+    <li>
+      <div class="meta">Экзамены (PSI)</div>
+      <h3>Сдать Law &amp; Business + Trade C-20</h3>
+      <p>После одобрения заявки придёт уведомление с датой. Экзамены сдаются в центре <b>PSI</b>: сначала обычно Law &amp; Business, затем Trade (C-20). Проходной балл ≈ 73%. Доступна языковая помощь на экзамене.</p>
+      <p>👉 Именно к этим экзаменам готовит тренажёр LICENA: <b><a href="cslb_law_business_500.html">500 вопросов по Law &amp; Business →</a></b> (C-20 Trade — отдельная страница).</p>
+    </li>
+    <li>
+      <div class="meta">Asbestos · на этапе выдачи</div>
+      <h3>Пройти asbestos open-book exam</h3>
+      <p>После сдачи Law+Trade CSLB выдаёт буклет <span class="term">«Asbestos: A Contractor's Guide and Open Book Examination»</span>. Нужно прочитать его и пройти <b>open-book</b> тест (ответы ищешь прямо в буклете), затем отправить онлайн. Сдаётся <b>вместе с bond и license fee</b> на этапе выдачи. <b>Только Qualifier</b> проходит экзамен.</p>
+      <p>Экзамен лёгкий, но <b>обязательный</b>: без него CSLB <b>не выдаст лицензию</b> (§7058.5). Он <b>не даёт права</b> на работы с асбестом — это отдельная сертификация.</p>
+      <p>🔗 <a href="https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/AbsOpenBookExam.aspx" target="_blank" rel="noopener">Пройти / отправить онлайн — Asbestos Open Book Exam (CSLB) →</a></p>
+    </li>
+    <li>
+      <div class="meta">Bond + WC + fee</div>
+      <h3>Выполнить требования выдачи</h3>
+      <p>После сдачи придёт <b>bond and fee letter</b>. Нужно предоставить:</p>
+      <ul>
+        <li><b>Contractor Bond $25,000</b> (обязательно).</li>
+        <li><b>Bond of Qualifying Individual $25,000</b> — если применимо (RME, или RMO с долей &lt;10%).</li>
+        <li><b>Workers' Compensation</b> — полис, либо Exemption (если нет работников).</li>
+        <li>Для <b>LLC</b>: страховка ответственности $1M + облигация для работников $100,000.</li>
+        <li><b>Initial license fee:</b> $200 (Sole Owner) / $350 (Corp/Partnership/LLC).</li>
+      </ul>
+    </li>
+    <li>
+      <div class="meta">Готово</div>
+      <h3>Лицензия выдана 🎉</h3>
+      <p>Номер лицензии становится активным (срок — <b>2 года</b>). Теперь его обязательно указывать во <b>всей рекламе</b>, договорах и заявках. Весь путь обычно занимает <b>3–6 месяцев</b>.</p>
+    </li>
+  </ol>
+
+  <h2><span class="n">4</span> Чеклист документов на экзамен</h2>
+  <div class="check">
+    <div class="row"><span class="box"></span><span class="t"><b>Application for Original Contractor License</b><span class="en">заполнена ручкой, подписана всеми указанными лицами</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>Certification of Work Experience (13A-11)</b><span class="en">4 года, подписана подтверждающим лицом</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>SSN или ITIN</b><span class="en">номер указан в заявке</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>Сбор $450</b><span class="en">чек/мани-ордер, non-refundable</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>Asbestos open-book exam form</b><span class="en">заполнена и приложена/сдана</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>Special Accommodation (13E-77)</b><span class="en">только если нужны особые условия на экзамене</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>Данные о бизнес-структуре</b><span class="en">для Corp/LLC — данные сущности и квалификатора (RMO/RME)</span></span></div>
+    <div class="row"><span class="box"></span><span class="t"><b>Обратный адрес на конверте</b><span class="en">+ НЕ вкладывать облигацию и initial fee</span></span></div>
+  </div>
+  <div class="callout"><b>Совет:</b> вычитай заявку на пропуски. Любая недостающая информация = CSLB вернёт пакет и лицензия задержится на недели.</div>
+
+  <h2><span class="n">5</span> Открытие и запуск компании</h2>
+  <p>Это можно (и удобно) делать параллельно с обработкой заявки CSLB. Для Sole Owner часть шагов не нужна.</p>
+
+  <h3>5.1 — Регистрация сущности</h3>
+  <ul>
+    <li><b>Corp/LLC:</b> зарегистрировать в <span class="term">California Secretary of State (SOS)</span> — Articles of Incorporation (Corp) или Articles of Organization (LLC). Затем <b>Statement of Information</b>.</li>
+    <li><b>Sole Owner / партнёрство под вымышленным именем:</b> подать <span class="term">DBA / Fictitious Business Name</span> в округе и опубликовать в газете.</li>
+  </ul>
+
+  <h3>5.2 — Налоги и регистрации</h3>
+  <ul>
+    <li><b>EIN</b> <span class="en">(федеральный налоговый номер работодателя)</span> — бесплатно на сайте IRS.</li>
+    <li><b>EDD</b> — регистрация как работодатель, если платишь зарплату свыше $100 за квартал (для payroll-налогов штата).</li>
+    <li><b>Seller's Permit (CDTFA)</b> — если продаёшь оборудование/товары с налогом с продаж (часто для HVAC актуально). Бесплатно.</li>
+    <li><b>City/County Business License</b> — местная бизнес-лицензия там, где работаешь (напр., город Лос-Анджелес, Глендейл и т.д.).</li>
+  </ul>
+
+  <h3>5.3 — Страховка и облигации</h3>
+  <ul>
+    <li><b>Contractor Bond $25,000</b> — обязательна для лицензии.</li>
+    <li><b>General Liability (GL)</b> — не требуется законом для большинства, но критична на практике (и для подрядов с GC/девелоперами).</li>
+    <li><b>Workers' Comp</b> — обязателен, если есть работники; exemption — если нет.</li>
+    <li><b>Commercial Auto</b> — на рабочие машины/фургоны.</li>
+    <li><b>LLC:</b> $1M liability insurance + $100,000 worker bond.</li>
+  </ul>
+
+  <h3>5.4 — Финансы и операции</h3>
+  <ul>
+    <li>Открыть <b>бизнес-счёт в банке</b> (отдельно от личного — особенно для Corp/LLC).</li>
+    <li>Настроить <b>бухгалтерию</b> (учёт по заказам — job costing) и систему счетов/договоров.</li>
+    <li>Шаблоны договоров с обязательными для HIC пунктами (даты, цена, график платежей, уведомление об отмене, mechanics lien warning).</li>
+  </ul>
+
+  <h2><span class="n">6</span> Таблица сборов (ориентир 2026)</h2>
+  <table>
+    <tr><th>Статья</th><th>Сумма</th></tr>
+    <tr><td>Application for Original Contractor License (exam)</td><td class="mono">$450</td></tr>
+    <tr><td>Initial License Fee — Sole Owner</td><td class="mono">$200</td></tr>
+    <tr><td>Initial License Fee — Corp / Partnership / LLC</td><td class="mono">$350</td></tr>
+    <tr><td>Live Scan (fingerprints)</td><td class="mono">~$49–59</td></tr>
+    <tr><td>Contractor Bond $25,000 (годовая премия)</td><td class="mono">~$100–400/год*</td></tr>
+    <tr><td>Bond of Qualifying Individual (если нужна)</td><td class="mono">$25,000 покрытие</td></tr>
+    <tr><td>LLC: страховка ответственности</td><td class="mono">$1,000,000</td></tr>
+    <tr><td>LLC: облигация для работников</td><td class="mono">$100,000</td></tr>
+    <tr><td>EIN (IRS)</td><td class="mono">бесплатно</td></tr>
+    <tr><td>Seller's Permit (CDTFA)</td><td class="mono">бесплатно</td></tr>
+    <tr><td>SOS: Articles (LLC ~$70 / Corp ~$100)</td><td class="mono">~$70–100</td></tr>
+    <tr><td>CA Franchise Tax (Corp/LLC, минимум)</td><td class="mono">$800/год</td></tr>
+    <tr><td>City Business License</td><td class="mono">варьируется</td></tr>
+    <tr><td>Срок лицензии</td><td class="mono">2 года</td></tr>
+    <tr><td>Штраф за просрочку продления</td><td class="mono">+50% сбора</td></tr>
+  </table>
+  <p style="font-size:12.5px;color:var(--steel)">* Премия за облигацию зависит от кредитной истории. Покрытие облигации всегда $25,000 — премия это то, что ты платишь страховщику в год.</p>
+
+  <h2><span class="n">7</span> Примерные сроки</h2>
+  <table>
+    <tr><th>Этап</th><th>Время</th></tr>
+    <tr><td>Обработка заявки CSLB</td><td class="mono">~4–6 недель</td></tr>
+    <tr><td>Подготовка к экзаменам (параллельно)</td><td class="mono">используй это время</td></tr>
+    <tr><td>Экзамены + Live Scan + asbestos</td><td class="mono">недели</td></tr>
+    <tr><td>Выдача после сдачи (bond, WC, fee)</td><td class="mono">~1–2 недели</td></tr>
+    <tr><td><b>Итого от заявки до активной лицензии</b></td><td class="mono"><b>~3–6 месяцев</b></td></tr>
+  </table>
+
+  <h2><span class="n">8</span> Полезные официальные ссылки</h2>
+  <div class="links">
+    <div class="row"><span class="lbl">📘 Law Book 2026 (PDF)</span><a href="https://www.cslb.ca.gov/Resources/GuidesAndPublications/2026/2026_CSLB_Law_Book.pdf" target="_blank" rel="noopener">2026 CSLB Contractors License Law &amp; Reference Book</a></div>
+    <div class="row"><span class="lbl">CSLB — главная</span><a href="https://www.cslb.ca.gov" target="_blank" rel="noopener">cslb.ca.gov</a></div>
+    <div class="row"><span class="lbl">Шаги к лицензии</span><a href="https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/applying_for_license.aspx" target="_blank" rel="noopener">Applying for the Examination</a></div>
+    <div class="row"><span class="lbl">Выдача лицензии</span><a href="https://www.cslb.ca.gov/contractors/applicants/contractors_license/exam_application/Issuing_My_License.aspx" target="_blank" rel="noopener">Step 8: Issuing My License</a></div>
+    <div class="row"><span class="lbl">📄 Форма: опыт</span><a href="https://www.cslb.ca.gov/Resources/FormsAndApplications/CertificationOfWorkExperience.pdf" target="_blank" rel="noopener">Certification of Work Experience (13A-11) — PDF</a></div>
+    <div class="row"><span class="lbl">Asbestos exam</span><a href="https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/AbsOpenBookExam.aspx" target="_blank" rel="noopener">Asbestos Open Book Exam (CSLB)</a></div>
+    <div class="row"><span class="lbl">Guides &amp; Publications</span><a href="https://www.cslb.ca.gov/about_us/library/guides_and_publications/" target="_blank" rel="noopener">CSLB Guides &amp; Publications</a></div>
+    <div class="row"><span class="lbl">EIN (IRS)</span><a href="https://www.irs.gov/businesses/small-businesses-self-employed/apply-for-an-employer-identification-number-ein-online" target="_blank" rel="noopener">IRS — Apply for EIN</a></div>
+    <div class="row"><span class="lbl">CA Secretary of State</span><a href="https://www.sos.ca.gov/business-programs" target="_blank" rel="noopener">sos.ca.gov — Business</a></div>
+    <div class="row"><span class="lbl">EDD (payroll)</span><a href="https://edd.ca.gov" target="_blank" rel="noopener">edd.ca.gov</a></div>
+    <div class="row"><span class="lbl">Seller's Permit</span><a href="https://www.cdtfa.ca.gov" target="_blank" rel="noopener">cdtfa.ca.gov</a></div>
+  </div>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    LICENA · Гайд по лицензированию C-20 и открытию компании в Калифорнии · RU + English terms
+    <div class="src">📘 Первоисточник: <a href="https://www.cslb.ca.gov/Resources/GuidesAndPublications/2026/2026_CSLB_Law_Book.pdf" target="_blank" rel="noopener">2026 California Contractors License Law &amp; Reference Book</a> (бесплатный PDF, CSLB). Цифры и формы сверяй с актуальной страницей CSLB перед подачей — это не юридическая консультация.</div>
+  </div>
+</footer>
+
+</body>
+</html>
