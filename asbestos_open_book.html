@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="light only">
+<title>Asbestos Open-Book Exam — Practice (Bilingual)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;0,800;1,600&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#f7f4ec; --card:#ffffff; --ink:#1b2436; --ink2:#3a4660;
+  --navy:#1b3b6f; --navy2:#102a52; --gold:#b8862b; --gold-soft:#f6ecd5;
+  --line:#ddd5c4; --rule:#c9bfa8; --steel:#6e7689;
+  --green:#1d7a4d; --green-soft:#e4f1e7; --red:#b3382c; --red-soft:#f7e3e0;
+  --shadow:0 1px 2px rgba(27,36,54,.05),0 10px 30px rgba(27,36,54,.07);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.5}
+.wrap{max-width:820px;margin:0 auto;padding:0 20px}
+a{color:var(--navy)}
+
+.mast{background:var(--navy);color:#fff;border-bottom:3px solid var(--gold)}
+.mast .wrap{padding:16px 20px 18px}
+.seal{display:flex;align-items:center;gap:10px;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:#d9e2f1}
+.seal .star{color:var(--gold);font-size:15px;line-height:1}
+.mast h1{font-family:'Playfair Display',serif;font-weight:800;font-size:clamp(26px,6vw,40px);margin:8px 0 4px;letter-spacing:.005em;line-height:1.05}
+.mast h1 em{font-style:italic;font-weight:600;color:#f4d692}
+.mast .sub{font-family:'IBM Plex Mono';font-size:12px;color:#c4d0e6;letter-spacing:.02em}
+.rule{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:14px 0 0;opacity:.7}
+
+.controls{position:sticky;top:0;z-index:30;background:rgba(247,244,236,.94);backdrop-filter:blur(7px);border-bottom:1px solid var(--line)}
+.controls .wrap{display:flex;align-items:center;gap:12px;flex-wrap:wrap;padding:11px 20px}
+.lab{font-family:'IBM Plex Mono';font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--steel)}
+.seg{display:inline-flex;background:var(--card);border:1px solid var(--line);border-radius:9px;padding:3px;box-shadow:var(--shadow)}
+.seg button{appearance:none;border:0;background:transparent;cursor:pointer;font-family:'IBM Plex Mono';font-weight:600;font-size:12px;color:var(--steel);padding:6px 10px;border-radius:7px}
+.seg button[aria-pressed="true"]{background:var(--navy);color:#fff}
+.btn{appearance:none;border:1px solid var(--line);background:var(--card);border-radius:9px;padding:7px 12px;font-family:'IBM Plex Mono';font-weight:600;font-size:12px;color:var(--ink);cursor:pointer}
+.btn:hover{border-color:var(--navy)}
+.spacer{flex:1}
+.live{font-family:'IBM Plex Mono';font-weight:600;font-size:13px;color:var(--navy)}
+.live .s2{color:var(--steel);font-weight:500}
+select.btn{padding-right:8px}
+
+/* intro */
+.intro{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:12px;box-shadow:var(--shadow);margin:20px 0 4px;padding:0}
+.intro summary{cursor:pointer;list-style:none;padding:15px 18px;display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:18px}
+.intro summary::-webkit-details-marker{display:none}
+.intro summary .chev{margin-left:auto;font-family:'IBM Plex Mono';color:var(--steel);font-size:13px}
+.intro[open] summary .chev{transform:rotate(90deg)}
+.intro .body{padding:0 18px 16px;font-size:14px;color:var(--ink2);line-height:1.6}
+.intro .body p{margin:0 0 10px}
+.intro .body b{color:var(--ink)}
+.intro ol{margin:6px 0 12px;padding-left:20px}
+.intro li{margin:5px 0}
+.intro .tbl{width:100%;border-collapse:collapse;margin:6px 0 12px;font-size:13px}
+.intro .tbl td{border:1px solid var(--line);padding:7px 9px}
+.intro .tbl td:last-child{font-family:'IBM Plex Mono';font-weight:600;text-align:right;white-space:nowrap}
+.intro .tbl tr:nth-child(even){background:#faf7ef}
+.intro .key{background:var(--gold-soft);border:1px solid #ecdcb6;border-radius:9px;padding:10px 12px;font-size:13px}
+.intro .key b{font-family:'IBM Plex Mono'}
+
+.blocks{display:flex;gap:10px;margin:18px 0 4px;flex-wrap:wrap}
+.bcard{flex:1;min-width:200px;border:1px solid var(--line);background:var(--card);border-radius:12px;padding:13px 15px;cursor:pointer;display:flex;gap:12px;align-items:center;box-shadow:var(--shadow);transition:border-color .15s}
+.bcard[aria-pressed="true"]{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold-soft),var(--shadow)}
+.bnum{font-family:'Playfair Display',serif;font-weight:800;font-size:20px;color:#fff;background:var(--navy);width:38px;height:38px;border-radius:9px;display:grid;place-items:center;flex:none}
+.bcard[aria-pressed="true"] .bnum{background:var(--gold)}
+.bt{font-weight:700;font-size:15px}
+.bs{font-size:12px;color:var(--steel)}
+
+.note{font-size:12.5px;color:var(--ink2);background:var(--gold-soft);border:1px solid #ecdcb6;border-radius:11px;padding:11px 14px;margin:16px 0 0;display:flex;gap:9px}
+.note b{font-family:'IBM Plex Mono'}
+
+.band{position:sticky;top:47px;z-index:20;background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:10px 14px;margin:18px 0 22px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.band .big{font-family:'Playfair Display',serif;font-weight:700;font-size:19px}
+.band .meta{font-size:12px;color:var(--steel)}
+.prog{flex:1;min-width:120px;height:7px;background:var(--paper);border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.prog>i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),#dcb45f);transition:width .3s}
+.pill{font-family:'IBM Plex Mono';font-size:12px;font-weight:600;padding:3px 9px;border-radius:99px}
+.pill.ok{background:var(--green-soft);color:var(--green)}
+.pill.no{background:var(--red-soft);color:var(--red)}
+
+.q{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow);padding:18px;margin:0 0 15px;scroll-margin-top:120px}
+.qhead{display:flex;gap:9px;align-items:baseline;margin-bottom:10px}
+.qno{font-family:'IBM Plex Mono';font-weight:600;font-size:11.5px;color:#fff;background:var(--navy2);padding:3px 8px;border-radius:6px;flex:none}
+.qsec{font-family:'IBM Plex Mono';font-size:10.5px;color:var(--steel);text-transform:uppercase;letter-spacing:.04em}
+.qtext{margin:0 0 13px}
+.qtext .qen{font-weight:600;font-size:16px;line-height:1.4}
+.qtext .qru{font-weight:600;font-size:15px;line-height:1.4;color:var(--navy);margin-top:5px}
+.opts{display:flex;flex-direction:column;gap:8px}
+.opt{display:flex;gap:11px;align-items:flex-start;border:1px solid var(--line);border-radius:10px;padding:11px 13px;cursor:pointer;background:#fff;transition:border-color .12s,background .12s}
+.opt:hover{border-color:var(--navy)}
+.opt .k{font-family:'IBM Plex Mono';font-weight:600;font-size:13px;color:var(--steel);flex:none;width:16px;padding-top:1px}
+.opt .t{display:flex;flex-direction:column;gap:2px}
+.opt .t .oen{font-size:14.5px;line-height:1.35}
+.opt .t .oru{font-size:13.5px;line-height:1.35;color:var(--steel)}
+.opt.correct{border-color:var(--green);background:var(--green-soft)} .opt.correct .k{color:var(--green)} .opt.correct .t .oru{color:#2f7d56}
+.opt.wrong{border-color:var(--red);background:var(--red-soft)} .opt.wrong .k{color:var(--red)}
+.opt.locked{cursor:default} .opt.dim{opacity:.5}
+
+.exp{margin-top:13px;border-top:1px dashed var(--rule);padding-top:12px;display:none}
+.exp.show{display:block}
+.rrow{display:flex;gap:9px;margin-bottom:9px} .rrow:last-child{margin-bottom:0}
+.flag{font-family:'IBM Plex Mono';font-size:10px;font-weight:600;letter-spacing:.04em;color:#fff;background:var(--navy2);padding:2px 7px;border-radius:5px;height:fit-content;flex:none}
+.flag.ru{background:var(--gold)}
+.rtext{font-size:13.8px;line-height:1.5;color:var(--ink2)}
+
+.tally{display:none;background:var(--navy);color:#fff;border-radius:16px;border:3px solid var(--gold);padding:24px;margin:8px 0 26px;text-align:center}
+.tally.show{display:block}
+.tally .lab{color:#f4d692}
+.tally h2{font-family:'Playfair Display',serif;font-weight:800;font-size:30px;margin:6px 0 2px}
+.tally .pct{font-family:'IBM Plex Mono';font-size:14px;color:#cdd8ec;margin-bottom:14px}
+.bd{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0 16px}
+.bd .item{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:9px;padding:8px 11px;font-size:12px;text-align:left;min-width:155px}
+.bd .item b{font-family:'IBM Plex Mono';color:#f4d692}
+.tally .btn{background:transparent;color:#fff;border-color:rgba(255,255,255,.4)}
+.tally .btn:hover{border-color:#fff}
+
+.totop{position:fixed;right:18px;bottom:18px;z-index:40;background:var(--navy);color:#fff;border:0;border-radius:10px;padding:9px 12px;font-family:'IBM Plex Mono';font-size:12px;font-weight:600;cursor:pointer;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:opacity .2s}
+.totop.show{opacity:1;pointer-events:auto}
+
+footer{border-top:1px solid var(--line);margin-top:10px;padding:18px 0 40px}
+footer .wrap{font-size:12px;color:var(--steel)}
+.caps{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--ink2);margin-top:7px}
+.caps b{color:var(--gold)}
+.disc{font-size:11.5px;color:var(--steel);margin-top:10px}
+.src{font-size:12px;color:var(--ink2);margin-top:9px;background:var(--gold-soft);border:1px solid #ecdcb6;border-radius:9px;padding:9px 12px}
+.src a{color:var(--navy);font-weight:600}
+@media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="mast">
+  <div class="wrap">
+    <div class="seal"><span class="star">&#9733;</span> State of California &middot; Asbestos Open-Book Exam &middot; Bilingual Edition</div>
+    <h1>Asbestos <em>Open-Book Exam</em></h1>
+    <div class="sub">CSLB &middot; Based on &laquo;Asbestos: A Contractor&rsquo;s Guide and Open Book Examination&raquo; &middot; 47 practice questions &middot; Open book</div>
+    <div class="rule"></div>
+  </div>
+</div>
+
+<div class="controls">
+  <div class="wrap">
+    <span class="lab">Язык / Lang</span>
+    <div class="seg" id="langseg" role="group" aria-label="Language">
+      <button data-lang="en" aria-pressed="false">EN</button>
+      <button data-lang="both" aria-pressed="true">EN+RU</button>
+      <button data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <select id="secfilter" class="btn" aria-label="Topic">
+      <option value="all">All topics</option>
+      <option value="1">1 &middot; Basics &amp; ID</option>
+      <option value="2">2 &middot; Health hazards</option>
+      <option value="3">3 &middot; Where it&rsquo;s found</option>
+      <option value="4">4 &middot; Rules &amp; registration</option>
+      <option value="5">5 &middot; Work practices</option>
+    </select>
+    <button class="btn" id="shuffle">&#8635; Shuffle</button>
+    <span class="spacer"></span>
+    <span class="live"><span id="liveScore">0/0</span> <span class="s2">&middot; Score</span></span>
+  </div>
+</div>
+
+<main class="wrap">
+
+  <details class="intro" open>
+    <summary><span class="star" style="color:var(--gold)">&#9733;</span> Про asbestos-экзамен: лёгкий, open-book, но обязательный <span class="chev">&#9654;</span></summary>
+    <div class="body">
+      <p>Это <b>open-book</b> экзамен по буклету CSLB &laquo;Asbestos: A Contractor&rsquo;s Guide and Open Book Examination&raquo;. Ответы есть прямо в тексте буклета — на реальном экзамене можно в него смотреть, поэтому он считается лёгким.</p>
+      <ol>
+        <li><b>Обязателен для новых заявителей</b> (BPC &sect;7058.5). Без него CSLB <b>не выдаст лицензию</b>.</li>
+        <li><b>Сдаётся на этапе выдачи</b> — вместе с bond и license fee. Проходит только <b>квалификатор (Qualifier)</b>.</li>
+        <li><b>Сдать экзамен &ne; право работать с асбестом.</b> Чтобы реально удалять асбест (от <b>100 кв. футов</b>), нужна <b>регистрация Cal/OSHA</b> + обученные работники, а для классификации — <b>C-22 Asbestos Abatement</b>.</li>
+        <li><b>Это отдельный экзамен</b> от Law &amp; Business и от Trade (C-20) — но обязательная часть пути к лицензии.</li>
+      </ol>
+      <div class="key"><b>Зачем учить, если open-book?</b> На экзамене ты ищешь ответ в буклете под таймером. Если темы знакомы заранее — находишь за секунды. Эти 47 вопросов закрывают всё, что реально спрашивают: что такое асбест, вред для здоровья, где встречается, правила и регистрация, методы работы и утилизация.</div>
+      <p style="margin-top:10px">📘 <b>Первоисточник / отправка экзамена:</b> <a href="https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/AbsOpenBookExam.aspx" target="_blank" rel="noopener">Asbestos Open Book Exam — CSLB (онлайн)</a>.</p>
+      <p style="margin-top:8px">📋 Связанные страницы: <a href="index.html"><b>500 вопросов Law &amp; Business →</b></a> &middot; <a href="licena_guide_license_company.html"><b>гайд: путь к C-20 и открытию компании →</b></a></p>
+    </div>
+  </details>
+
+  <div class="blocks" id="blocks" role="group" aria-label="Question set">
+    <button class="bcard" data-block="1" aria-pressed="true">
+      <span class="bnum">I</span>
+      <span><span class="bt">Set 1 &middot; 25 questions</span><br><span class="bs">Core &middot; basics, hazards, locations, rules, practice</span></span>
+    </button>
+    <button class="bcard" data-block="2" aria-pressed="false">
+      <span class="bnum">II</span>
+      <span><span class="bt">Set 2 &middot; 22 questions</span><br><span class="bs">Review &middot; registration, work practices &amp; disposal</span></span>
+    </button>
+  </div>
+
+  <div class="note"><b>i</b><span>Вопросы основаны на английском тексте (реальный экзамен CSLB — на английском). Переключатель показывает выбранный язык. Оригинальные вопросы в стиле экзамена — не настоящие вопросы CSLB. Цифры и пороги сверяй с актуальным буклетом CSLB и стандартами Cal/OSHA.</span></div>
+
+  <div class="band">
+    <div><div class="big" id="scoreNum">0 / 0</div><div class="meta" id="scoreMeta">answered 0 of 0</div></div>
+    <div class="prog"><i id="progFill"></i></div>
+    <span class="pill ok" id="pillOk">&#10003; 0</span>
+    <span class="pill no" id="pillNo">&#10007; 0</span>
+  </div>
+
+  <div id="list"></div>
+
+  <div class="tally" id="tally">
+    <div class="lab seal" style="justify-content:center"><span class="star">&#9733;</span> Final Tally</div>
+    <h2 id="tallyScore">0 / 0</h2>
+    <div class="pct" id="tallyPct"></div>
+    <div class="bd" id="tallyBd"></div>
+    <button class="btn" id="newset">&#8635; New Random Set</button>
+  </div>
+</main>
+
+<button class="totop" id="totop">&#8593; Top</button>
+
+<footer>
+  <div class="wrap">
+    Asbestos Open-Book Exam &middot; Bilingual EN/RU &middot; Instant feedback &middot; Randomized order each load
+    <div class="caps">PEL: <b>0.1 f/cc</b> (8-hr TWA) &middot; Cal/OSHA registration: <b>100 sq ft+</b> &middot; ACM <b>&gt; 0.1%</b> (Cal/OSHA) &middot; NESHAP notice <b>~10 work days</b> &middot; <b>C-22</b> = abatement</div>
+    <div class="src">📘 Источник / Source: <a href="https://www.cslb.ca.gov/OnlineServices/WebApplication/InteractivePDFs/AbsOpenBookExam.aspx" target="_blank" rel="noopener">CSLB Asbestos Open Book Examination</a> — буклет и онлайн-отправка экзамена. Вопросы — оригинальные, в стиле экзамена.</div>
+    <div class="src" style="margin-top:7px">📋 Связанные страницы: <a href="index.html">500 вопросов Law &amp; Business →</a> &middot; <a href="licena_guide_license_company.html">Гайд — путь к лицензии C-20 и открытию компании →</a></div>
+    <div class="disc">Practice tool, not a school — passing is never guaranteed. © 2026 · Made in Los Angeles.</div>
+  </div>
+</footer>
+
+<script>
+/* LICENA — Asbestos open-book exam question bank.
+   Original practice questions in the style of the CSLB open-book exam. NOT real CSLB items.
+   Verify every figure/threshold against the current CSLB booklet and Cal/OSHA standards.
+   sec: 1 Basics/ID · 2 Health · 3 Where found · 4 Rules/Registration · 5 Work practices
+   re = English rationale · rr = Russian rationale */
+const QUESTIONS = [{"id": 1, "sec": 1, "block": 1, "q": "Asbestos is best described as:", "opts": ["A man-made plastic fiber", "A naturally occurring fibrous mineral", "A type of fiberglass insulation", "A synthetic foam"], "correct": 1, "re": "Asbestos is a group of naturally occurring fibrous minerals once valued for heat and fire resistance.", "rr": "Асбест — группа природных волокнистых минералов, ценившихся за жаро- и огнестойкость."}, {"id": 2, "sec": 1, "block": 1, "q": "Asbestos was widely used in construction mainly because it is:", "opts": ["Fire-resistant, strong and a good insulator", "Lightweight and transparent", "Electrically conductive", "Waterproof and flexible only"], "correct": 0, "re": "It resists heat and fire, adds strength, and insulates well — which is why it was common before the 1980s.", "rr": "Он огнестойкий, прочный и хорошо изолирует — поэтому был распространён до 1980-х."}, {"id": 3, "sec": 1, "block": 1, "q": "What makes asbestos dangerous to health?", "opts": ["Its color", "It breaks into microscopic fibers that can be inhaled", "It is radioactive", "It dissolves in water"], "correct": 1, "re": "When disturbed, asbestos releases tiny fibers that lodge deep in the lungs.", "rr": "При нарушении асбест выделяет крошечные волокна, которые оседают глубоко в лёгких."}, {"id": 4, "sec": 1, "block": 1, "q": "'Friable' asbestos-containing material is material that:", "opts": ["Is sealed in concrete", "Can be crumbled by hand pressure, releasing fibers", "Is always safe to remove", "Contains no fibers"], "correct": 1, "re": "Friable material crumbles under hand pressure and easily releases fibers — the most hazardous form.", "rr": "Хрупкий (friable) материал крошится под нажимом руки и легко выделяет волокна — самая опасная форма."}, {"id": 5, "sec": 1, "block": 1, "q": "Can you tell whether a material contains asbestos just by looking at it?", "opts": ["Yes, by its color", "Yes, by its smell", "No — only laboratory analysis can confirm it", "Yes, if it is older than 50 years"], "correct": 2, "re": "Only lab testing (e.g., polarized light microscopy) confirms asbestos; assume suspect materials contain it until tested.", "rr": "Подтвердить асбест может только лаборатория (напр., поляризационная микроскопия); до анализа считай подозрительный материал асбестовым."}, {"id": 6, "sec": 1, "block": 2, "q": "Which of the following is a common type of asbestos?", "opts": ["Chrysotile (white)", "Polyethylene", "Cellulose", "Perlite"], "correct": 0, "re": "Chrysotile (white asbestos) is the most common type used in buildings; amosite and crocidolite are others.", "rr": "Хризотил (белый асбест) — самый распространённый в зданиях; ещё амозит и крокидолит."}, {"id": 7, "sec": 1, "block": 2, "q": "Under Cal/OSHA, a material is generally considered 'asbestos-containing' when it contains more than:", "opts": ["0.01% asbestos", "0.1% asbestos", "1% asbestos", "10% asbestos"], "correct": 1, "re": "Cal/OSHA treats material with more than 0.1% asbestos as asbestos-containing (federal EPA/NESHAP uses 1%).", "rr": "Cal/OSHA считает асбестосодержащим материал с содержанием более 0,1% асбеста (федеральный EPA/NESHAP — 1%)."}, {"id": 8, "sec": 1, "block": 2, "q": "Non-friable asbestos material (e.g., intact floor tile) becomes hazardous mainly when it is:", "opts": ["Left undisturbed", "Painted over", "Cut, sanded, drilled or broken", "Cleaned with water"], "correct": 2, "re": "Non-friable material is low risk intact but releases fibers when cut, sanded, drilled or smashed.", "rr": "Нехрупкий материал безопасен в целом виде, но выделяет волокна при резке, шлифовке, сверлении или разрушении."}, {"id": 9, "sec": 1, "block": 2, "q": "The safest assumption about a suspect material in a pre-1980 building is to:", "opts": ["Assume it is asbestos-free", "Assume it contains asbestos until tested", "Ignore it", "Burn a sample to check"], "correct": 1, "re": "Treat suspect materials in older buildings as asbestos-containing until lab results prove otherwise.", "rr": "Подозрительные материалы в старых зданиях считай асбестовыми, пока лаборатория не докажет обратное."}, {"id": 10, "sec": 2, "block": 1, "q": "The main way asbestos fibers enter the body is by:", "opts": ["Skin absorption", "Inhalation of airborne fibers", "Drinking water", "Eye contact"], "correct": 1, "re": "Inhalation of airborne fibers is the primary route of exposure and harm.", "rr": "Главный путь воздействия — вдыхание витающих в воздухе волокон."}, {"id": 11, "sec": 2, "block": 1, "q": "Which disease is almost exclusively caused by asbestos exposure?", "opts": ["Mesothelioma", "The common cold", "Diabetes", "Tendonitis"], "correct": 0, "re": "Mesothelioma — cancer of the lining of the lungs or abdomen — is strongly tied to asbestos.", "rr": "Мезотелиома — рак оболочки лёгких/брюшной полости — почти всегда связана с асбестом."}, {"id": 12, "sec": 2, "block": 1, "q": "Asbestosis is:", "opts": ["A skin rash", "Scarring of lung tissue from inhaled fibers", "A type of headache", "A bacterial infection"], "correct": 1, "re": "Asbestosis is chronic scarring (fibrosis) of the lungs that impairs breathing.", "rr": "Асбестоз — хроническое рубцевание (фиброз) лёгких, ухудшающее дыхание."}, {"id": 13, "sec": 2, "block": 1, "q": "Symptoms of asbestos-related disease typically appear:", "opts": ["Within hours", "Within a week", "Many years (often 10–40) after exposure", "Only in children"], "correct": 2, "re": "Asbestos diseases have a long latency — often decades pass before symptoms show.", "rr": "У асбестовых болезней долгий латентный период — симптомы часто появляются спустя десятилетия."}, {"id": 14, "sec": 2, "block": 2, "q": "Combining smoking with asbestos exposure:", "opts": ["Has no effect on risk", "Greatly multiplies the risk of lung cancer", "Cancels out the danger", "Only affects non-smokers"], "correct": 1, "re": "Smoking and asbestos act together synergistically, sharply raising lung-cancer risk.", "rr": "Курение и асбест действуют синергично, резко повышая риск рака лёгких."}, {"id": 15, "sec": 2, "block": 2, "q": "What is the established 'safe' level of asbestos exposure?", "opts": ["10 fibers/cc", "1 fiber/cc", "There is no level proven completely safe — minimize all exposure", "Any level under boiling point"], "correct": 2, "re": "No exposure level is proven completely safe; the goal is to keep exposure as low as possible.", "rr": "Полностью безопасный уровень не доказан; цель — снизить воздействие максимально."}, {"id": 16, "sec": 2, "block": 2, "q": "Asbestos poses the greatest health risk when:", "opts": ["It is encapsulated and intact", "Its fibers become airborne and are inhaled", "It is wet and undisturbed", "It is buried in a landfill"], "correct": 1, "re": "Risk peaks when material is disturbed and fibers go airborne to be inhaled.", "rr": "Риск максимален, когда материал нарушен и волокна попадают в воздух и вдыхаются."}, {"id": 17, "sec": 2, "block": 2, "q": "Workers who disturb asbestos are typically required to have:", "opts": ["No special measures", "Medical surveillance and respiratory protection", "Only gloves", "A business license only"], "correct": 1, "re": "Cal/OSHA requires medical surveillance, training, and respiratory protection for asbestos work.", "rr": "Cal/OSHA требует медосмотры, обучение и респираторную защиту для работ с асбестом."}, {"id": 18, "sec": 3, "block": 1, "q": "Asbestos is most likely to be found in buildings constructed:", "opts": ["After 2010", "Before about 1980", "Only after 2000", "Only in the 1990s"], "correct": 1, "re": "Asbestos use was common before about 1980; older buildings are the main concern.", "rr": "Асбест активно использовали до ~1980 года; главный риск — старые здания."}, {"id": 19, "sec": 3, "block": 1, "q": "Which of these older materials commonly contained asbestos?", "opts": ["Pipe and boiler insulation", "LED light bulbs", "PVC conduit", "Aluminum siding"], "correct": 0, "re": "Thermal pipe and boiler insulation ('lagging') was a classic asbestos product.", "rr": "Тепловая изоляция труб и котлов («lagging») — классический асбестовый продукт."}, {"id": 20, "sec": 3, "block": 1, "q": "Old 'popcorn' or acoustic ceiling texture may contain:", "opts": ["Asbestos", "Lead paint only", "Pure cement", "Nothing hazardous"], "correct": 0, "re": "Sprayed acoustic ('popcorn') ceilings from older eras frequently contain asbestos.", "rr": "Напыляемые акустические потолки («popcorn») старых лет часто содержат асбест."}, {"id": 21, "sec": 3, "block": 1, "q": "Vinyl floor tile and the black mastic beneath it in older buildings can contain:", "opts": ["Asbestos", "Only wax", "Only rubber", "Asbestos is impossible in flooring"], "correct": 0, "re": "9x9 vinyl-asbestos tile and its mastic adhesive are well-known asbestos sources.", "rr": "Виниловая плитка 9x9 и мастика под ней — известные источники асбеста."}, {"id": 22, "sec": 3, "block": 2, "q": "In older HVAC systems, asbestos was commonly used in:", "opts": ["Duct insulation/wrap and gaskets", "Digital thermostats", "Copper line sets", "Wi-Fi controls"], "correct": 0, "re": "Duct wrap, tape, and gaskets in old HVAC systems often contain asbestos — relevant to HVAC trades.", "rr": "Обмотка/лента воздуховодов и прокладки в старых HVAC-системах часто содержат асбест — важно для HVAC."}, {"id": 23, "sec": 3, "block": 2, "q": "Asbestos cement pipe (often called 'Transite') was used for:", "opts": ["Water, sewer and duct piping", "Fiber-optic cable", "Electrical wiring", "Garden hoses"], "correct": 0, "re": "Transite asbestos-cement pipe was used for water, sewer, and HVAC duct/flue applications.", "rr": "Асбестоцементная труба Transite применялась для водопровода, канализации и воздуховодов/дымоходов."}, {"id": 24, "sec": 3, "block": 2, "q": "Joint compound and certain wall textures in older buildings may contain:", "opts": ["Asbestos", "Only gypsum, never asbestos", "Only paint", "Only sand"], "correct": 0, "re": "Pre-1980 drywall joint compound and textures can contain asbestos.", "rr": "Шпатлёвка для швов и фактуры стен до 1980 года могут содержать асбест."}, {"id": 25, "sec": 3, "block": 2, "q": "Which of these can also be an asbestos source on a roof?", "opts": ["Roofing felts, shingles and mastics", "Solar panels", "Vinyl rain gutters", "Modern membrane only"], "correct": 0, "re": "Old roofing felts, shingles, and mastics/flashing cements can contain asbestos.", "rr": "Старые рубероид, гонт и мастики/герметики кровли могут содержать асбест."}, {"id": 26, "sec": 4, "block": 1, "q": "In California, the agency that regulates worker safety for asbestos work is:", "opts": ["The CSLB", "Cal/OSHA (DOSH)", "The DMV", "The local water board"], "correct": 1, "re": "Cal/OSHA (Division of Occupational Safety and Health) regulates asbestos worker safety and registration.", "rr": "Cal/OSHA (DOSH) регулирует безопасность работников и регистрацию по асбесту."}, {"id": 27, "sec": 4, "block": 1, "q": "A contractor must register with Cal/OSHA for asbestos work involving at least:", "opts": ["1 square foot", "10 square feet", "100 square (or linear) feet of asbestos-containing material", "10,000 square feet"], "correct": 2, "re": "Cal/OSHA registration is required for asbestos-related work involving 100 sq ft/linear ft or more.", "rr": "Регистрация Cal/OSHA нужна для асбестовых работ от 100 кв./пог. футов и более."}, {"id": 28, "sec": 4, "block": 1, "q": "Passing the CSLB open-book asbestos exam means that you:", "opts": ["Are now certified to remove asbestos", "Have shown basic awareness — it does NOT authorize asbestos abatement", "Can skip Cal/OSHA registration", "Are exempt from the trade exam"], "correct": 1, "re": "The open-book exam only shows awareness; abatement requires Cal/OSHA registration and proper certification.", "rr": "Open-book экзамен показывает лишь осведомлённость; для удаления нужна регистрация Cal/OSHA и сертификация."}, {"id": 29, "sec": 4, "block": 1, "q": "Which CSLB classification is specifically for asbestos abatement?", "opts": ["C-20", "C-22 (Asbestos Abatement)", "C-36", "B (General Building)"], "correct": 1, "re": "C-22 is the Asbestos Abatement classification; it is separate from the open-book exam.", "rr": "C-22 — классификация Asbestos Abatement; она отдельна от open-book экзамена."}, {"id": 30, "sec": 4, "block": 1, "q": "The open-book asbestos exam is required for new license applicants under:", "opts": ["Business & Professions Code §7058.5", "The Clean Air Act only", "No law — it is optional", "City ordinance only"], "correct": 0, "re": "BPC §7058.5 requires the asbestos open-book certification for new applicants.", "rr": "BPC §7058.5 требует open-book сертификацию по асбесту для новых заявителей."}, {"id": 31, "sec": 4, "block": 1, "q": "Who must complete the CSLB open-book asbestos exam?", "opts": ["Every employee", "The qualifying individual (Qualifier) for the license", "Only the bookkeeper", "Only subcontractors"], "correct": 1, "re": "The qualifying individual for the license takes the open-book asbestos exam.", "rr": "Open-book asbestos-экзамен сдаёт квалифицирующее лицо (Qualifier) лицензии."}, {"id": 32, "sec": 4, "block": 2, "q": "The federal agency that sets NESHAP rules for asbestos in demolition/renovation is:", "opts": ["The EPA", "The FBI", "The FAA", "The USPS"], "correct": 0, "re": "The EPA administers NESHAP, which governs asbestos handling in demolition and renovation.", "rr": "EPA администрирует NESHAP, регулирующий обращение с асбестом при сносе/реконструкции."}, {"id": 33, "sec": 4, "block": 2, "q": "Before demolition or renovation that may disturb asbestos, NESHAP generally requires notifying the air agency:", "opts": ["After the work is done", "About 10 working days in advance", "Only if asked", "Never"], "correct": 1, "re": "NESHAP requires advance written notice (about 10 working days) to the regulating air agency.", "rr": "NESHAP требует заранее (≈10 рабочих дней) письменно уведомить регулирующий орган по воздуху."}, {"id": 34, "sec": 4, "block": 2, "q": "The Cal/OSHA Permissible Exposure Limit (PEL) for asbestos over an 8-hour day is:", "opts": ["0.1 fiber per cubic centimeter (f/cc)", "10 f/cc", "1 gram per liter", "There is none"], "correct": 0, "re": "The Cal/OSHA 8-hour TWA PEL is 0.1 f/cc, with a short-term excursion limit of 1.0 f/cc.", "rr": "8-часовой PEL Cal/OSHA — 0,1 волокна/см³, с кратковременным пределом 1,0 волокна/см³."}, {"id": 35, "sec": 4, "block": 2, "q": "Doing large asbestos abatement legally generally requires:", "opts": ["Only a business card", "Cal/OSHA registration plus trained/certified workers", "Just a respirator", "Nothing special"], "correct": 1, "re": "Legal abatement needs Cal/OSHA registration, trained certified workers, and (for the classification) C-22.", "rr": "Законное удаление требует регистрации Cal/OSHA, обученных сертифицированных работников и (для классификации) C-22."}, {"id": 36, "sec": 4, "block": 2, "q": "The open-book asbestos exam is submitted to CSLB:", "opts": ["Before you apply", "At the license issuance stage, with the bond and fee", "Ten years later", "Only if you fail the trade exam"], "correct": 1, "re": "It is submitted at issuance, along with the contractor bond and license fee.", "rr": "Сдаётся на этапе выдачи лицензии — вместе с bond и license fee."}, {"id": 37, "sec": 5, "block": 1, "q": "The preferred way to control fiber release during asbestos removal is to:", "opts": ["Use compressed air", "Keep the material wet (wet methods)", "Sweep it dry quickly", "Use a household fan"], "correct": 1, "re": "Wetting suppresses airborne fibers and is the core control method.", "rr": "Смачивание подавляет витание волокон и является основным методом контроля."}, {"id": 38, "sec": 5, "block": 1, "q": "Which practice is PROHIBITED when handling asbestos?", "opts": ["Wetting the material", "Using a HEPA vacuum", "Using compressed air or dry sweeping", "Bagging the waste"], "correct": 2, "re": "Compressed air and dry sweeping send fibers airborne and are prohibited.", "rr": "Сжатый воздух и сухое подметание поднимают волокна в воздух и запрещены."}, {"id": 39, "sec": 5, "block": 1, "q": "The correct vacuum for asbestos cleanup is:", "opts": ["Any shop vacuum", "A HEPA-filter vacuum", "A leaf blower", "A wet/dry vac with no filter"], "correct": 1, "re": "Only HEPA-filter vacuums capture the tiny fibers; ordinary vacuums spread them.", "rr": "Только HEPA-пылесос улавливает мельчайшие волокна; обычный пылесос их разносит."}, {"id": 40, "sec": 5, "block": 1, "q": "Asbestos waste must be:", "opts": ["Thrown in any dumpster", "Wetted, sealed in labeled leak-tight containers, and taken to an approved landfill", "Burned on site", "Recycled with metal"], "correct": 1, "re": "Asbestos waste is wetted, sealed/double-bagged, labeled, and disposed at an approved site.", "rr": "Асбестовые отходы смачивают, герметично упаковывают, маркируют и вывозят на одобренный полигон."}, {"id": 41, "sec": 5, "block": 1, "q": "Respiratory protection for asbestos work must be:", "opts": ["A paper dust mask", "An approved, properly fitted respirator (e.g., HEPA/negative-pressure)", "A wet cloth", "Optional"], "correct": 1, "re": "Approved, fit-tested respirators (HEPA / negative-pressure) are required — paper masks do not qualify.", "rr": "Нужны одобренные респираторы с примеркой (HEPA/негативного давления) — бумажные маски не подходят."}, {"id": 42, "sec": 5, "block": 1, "q": "For large abatement jobs, fibers are contained using:", "opts": ["An open window", "A negative-pressure enclosure with HEPA filtration", "A box fan", "No containment"], "correct": 1, "re": "A sealed negative-pressure enclosure with HEPA filtration keeps fibers from escaping.", "rr": "Герметичная зона негативного давления с HEPA-фильтрацией не даёт волокнам выйти наружу."}, {"id": 43, "sec": 5, "block": 2, "q": "Disposable suits and clothing used in abatement should be:", "opts": ["Taken home and washed", "Treated as asbestos waste and disposed of properly", "Reused next week", "Sold"], "correct": 1, "re": "Contaminated disposables are asbestos waste — never reused or taken home.", "rr": "Загрязнённая одноразовая одежда — это асбестовые отходы; её не переиспользуют и не несут домой."}, {"id": 44, "sec": 5, "block": 2, "q": "Why must asbestos material be kept wet during removal?", "opts": ["To make it heavier to lift", "Because wetting suppresses airborne fiber release", "To clean the floor", "It is not necessary"], "correct": 1, "re": "Water keeps fibers from becoming airborne, the key exposure pathway.", "rr": "Вода не даёт волокнам подняться в воздух — главный путь воздействия."}, {"id": 45, "sec": 5, "block": 2, "q": "Containers of asbestos waste must be:", "opts": ["Unmarked", "Labeled with proper asbestos warning labels", "Painted green", "Left open"], "correct": 1, "re": "Regulations require asbestos-warning labels on sealed waste containers.", "rr": "Правила требуют наносить предупреждающие асбестовые этикетки на запечатанные контейнеры."}, {"id": 46, "sec": 5, "block": 2, "q": "If you unexpectedly find suspected asbestos during a job, you should:", "opts": ["Keep working faster", "Stop work and have it tested before disturbing it", "Sweep it up immediately", "Paint over it"], "correct": 1, "re": "Stop, isolate the area, and test before any further disturbance.", "rr": "Остановись, огради зону и сделай анализ, прежде чем продолжать."}, {"id": 47, "sec": 5, "block": 2, "q": "After abatement, area air clearance is typically confirmed by:", "opts": ["A coin flip", "Air monitoring/sampling showing fibers below the clearance level", "Just looking around", "The smell"], "correct": 1, "re": "Clearance air sampling confirms fiber levels are low enough before re-occupancy.", "rr": "Контрольный отбор проб воздуха подтверждает, что уровень волокон достаточно низок для возврата людей."}];
+/* Russian translations keyed by question id. q = stem, o = 4 options. */
+const TRANS = {"1": {"q": "Асбест лучше всего описать как:", "o": ["Искусственное пластиковое волокно", "Природный волокнистый минерал", "Вид стекловолоконной изоляции", "Синтетическую пену"]}, "2": {"q": "Асбест широко применяли в строительстве главным образом потому, что он:", "o": ["Огнестойкий, прочный и хороший изолятор", "Лёгкий и прозрачный", "Электропроводный", "Только водостойкий и гибкий"]}, "3": {"q": "Что делает асбест опасным для здоровья?", "o": ["Его цвет", "Он распадается на микроскопические волокна, которые можно вдохнуть", "Он радиоактивен", "Он растворяется в воде"]}, "4": {"q": "«Friable» (хрупкий) асбестосодержащий материал — это материал, который:", "o": ["Запечатан в бетон", "Крошится под нажимом руки, выделяя волокна", "Всегда безопасно удалять", "Не содержит волокон"]}, "5": {"q": "Можно ли определить наличие асбеста в материале просто на глаз?", "o": ["Да, по цвету", "Да, по запаху", "Нет — подтверждает только лабораторный анализ", "Да, если материалу больше 50 лет"]}, "6": {"q": "Что из перечисленного является распространённым видом асбеста?", "o": ["Хризотил (белый)", "Полиэтилен", "Целлюлоза", "Перлит"]}, "7": {"q": "По Cal/OSHA материал обычно считается «асбестосодержащим», если в нём более:", "o": ["0,01% асбеста", "0,1% асбеста", "1% асбеста", "10% асбеста"]}, "8": {"q": "Нехрупкий асбестовый материал (напр., целая плитка) становится опасным в основном, когда его:", "o": ["Оставляют нетронутым", "Закрашивают", "Режут, шлифуют, сверлят или ломают", "Моют водой"]}, "9": {"q": "Самое безопасное предположение о подозрительном материале в здании до 1980 года:", "o": ["Считать, что асбеста нет", "Считать, что асбест есть, пока не проверено", "Игнорировать", "Сжечь образец для проверки"]}, "10": {"q": "Основной путь попадания волокон асбеста в организм:", "o": ["Через кожу", "Вдыхание витающих волокон", "Питьевая вода", "Контакт с глазами"]}, "11": {"q": "Какое заболевание почти исключительно вызывается воздействием асбеста?", "o": ["Мезотелиома", "Простуда", "Диабет", "Тендинит"]}, "12": {"q": "Асбестоз — это:", "o": ["Кожная сыпь", "Рубцевание лёгочной ткани от вдыхания волокон", "Вид головной боли", "Бактериальная инфекция"]}, "13": {"q": "Симптомы болезней, связанных с асбестом, обычно проявляются:", "o": ["В течение часов", "В течение недели", "Через много лет (часто 10–40) после воздействия", "Только у детей"]}, "14": {"q": "Сочетание курения и воздействия асбеста:", "o": ["Не влияет на риск", "Сильно умножает риск рака лёгких", "Сводит опасность на нет", "Влияет только на некурящих"]}, "15": {"q": "Какой установлен «безопасный» уровень воздействия асбеста?", "o": ["10 волокон/см³", "1 волокно/см³", "Полностью безопасный уровень не доказан — минимизируй любое воздействие", "Любой ниже точки кипения"]}, "16": {"q": "Асбест представляет наибольший риск для здоровья, когда:", "o": ["Он инкапсулирован и цел", "Его волокна попадают в воздух и вдыхаются", "Он мокрый и нетронутый", "Он захоронен на полигоне"]}, "17": {"q": "Работникам, нарушающим асбест, обычно требуется:", "o": ["Никаких особых мер", "Медицинское наблюдение и респираторная защита", "Только перчатки", "Только бизнес-лицензия"]}, "18": {"q": "Асбест чаще всего встречается в зданиях, построенных:", "o": ["После 2010", "Примерно до 1980", "Только после 2000", "Только в 1990-х"]}, "19": {"q": "Какой из этих старых материалов часто содержал асбест?", "o": ["Изоляция труб и котлов", "Светодиодные лампы", "ПВХ-короб", "Алюминиевый сайдинг"]}, "20": {"q": "Старая фактура потолка «popcorn» (акустическая) может содержать:", "o": ["Асбест", "Только свинцовую краску", "Чистый цемент", "Ничего опасного"]}, "21": {"q": "Виниловая напольная плитка и чёрная мастика под ней в старых зданиях могут содержать:", "o": ["Асбест", "Только воск", "Только резину", "В напольных покрытиях асбест невозможен"]}, "22": {"q": "В старых системах HVAC асбест часто использовался в:", "o": ["Изоляции/обмотке воздуховодов и прокладках", "Цифровых термостатах", "Медных линиях", "Wi-Fi-управлении"]}, "23": {"q": "Асбестоцементная труба (часто «Transite») использовалась для:", "o": ["Водопровода, канализации и воздуховодов", "Оптоволоконного кабеля", "Электропроводки", "Садовых шлангов"]}, "24": {"q": "Шпатлёвка для швов и некоторые фактуры стен в старых зданиях могут содержать:", "o": ["Асбест", "Только гипс, никогда асбест", "Только краску", "Только песок"]}, "25": {"q": "Что из этого тоже может быть источником асбеста на крыше?", "o": ["Рубероид, гонт и мастики", "Солнечные панели", "Виниловые водостоки", "Только современная мембрана"]}, "26": {"q": "В Калифорнии безопасность работников при работе с асбестом регулирует:", "o": ["CSLB", "Cal/OSHA (DOSH)", "DMV", "Местный водный совет"]}, "27": {"q": "Контрактор обязан зарегистрироваться в Cal/OSHA для асбестовых работ объёмом не менее:", "o": ["1 кв. фута", "10 кв. футов", "100 кв. (или пог.) футов асбестосодержащего материала", "10 000 кв. футов"]}, "28": {"q": "Сдача open-book asbestos-экзамена CSLB означает, что вы:", "o": ["Теперь сертифицированы удалять асбест", "Показали базовую осведомлённость — это НЕ даёт права на abatement", "Можете пропустить регистрацию Cal/OSHA", "Освобождены от trade-экзамена"]}, "29": {"q": "Какая классификация CSLB предназначена именно для удаления асбеста?", "o": ["C-20", "C-22 (Asbestos Abatement)", "C-36", "B (General Building)"]}, "30": {"q": "Open-book asbestos-экзамен обязателен для новых заявителей согласно:", "o": ["Business & Professions Code §7058.5", "Только Закону о чистом воздухе", "Никакому закону — он необязателен", "Только городскому постановлению"]}, "31": {"q": "Кто должен пройти open-book asbestos-экзамен CSLB?", "o": ["Каждый сотрудник", "Квалифицирующее лицо (Qualifier) лицензии", "Только бухгалтер", "Только субподрядчики"]}, "32": {"q": "Федеральное агентство, устанавливающее правила NESHAP для асбеста при сносе/реконструкции:", "o": ["EPA", "ФБР", "FAA", "Почта США"]}, "33": {"q": "Перед сносом/реконструкцией, способными нарушить асбест, NESHAP обычно требует уведомить орган по воздуху:", "o": ["После завершения работ", "Примерно за 10 рабочих дней", "Только по запросу", "Никогда"]}, "34": {"q": "Допустимый предел воздействия (PEL) Cal/OSHA по асбесту за 8-часовой день:", "o": ["0,1 волокна на кубический сантиметр (f/cc)", "10 f/cc", "1 грамм на литр", "Не существует"]}, "35": {"q": "Чтобы законно выполнять крупное удаление асбеста, как правило, нужно:", "o": ["Только визитка", "Регистрация Cal/OSHA плюс обученные/сертифицированные работники", "Только респиратор", "Ничего особенного"]}, "36": {"q": "Open-book asbestos-экзамен подаётся в CSLB:", "o": ["До подачи заявки", "На этапе выдачи лицензии, вместе с bond и fee", "Через десять лет", "Только если провалил trade-экзамен"]}, "37": {"q": "Предпочтительный способ контроля выделения волокон при удалении асбеста:", "o": ["Сжатый воздух", "Держать материал мокрым (влажные методы)", "Быстро подмести насухо", "Бытовой вентилятор"]}, "38": {"q": "Какая практика ЗАПРЕЩЕНА при работе с асбестом?", "o": ["Смачивание материала", "Использование HEPA-пылесоса", "Сжатый воздух или сухое подметание", "Упаковка отходов в мешки"]}, "39": {"q": "Правильный пылесос для уборки асбеста:", "o": ["Любой строительный пылесос", "Пылесос с HEPA-фильтром", "Воздуходувка", "Влажно-сухой пылесос без фильтра"]}, "40": {"q": "Асбестовые отходы необходимо:", "o": ["Выбросить в любой контейнер", "Смочить, герметично упаковать с маркировкой и вывезти на одобренный полигон", "Сжечь на месте", "Сдать в металлолом"]}, "41": {"q": "Респираторная защита для работ с асбестом должна быть:", "o": ["Бумажная пылевая маска", "Одобренный, правильно подогнанный респиратор (HEPA/негативного давления)", "Мокрая тряпка", "По желанию"]}, "42": {"q": "На крупных работах по удалению волокна удерживают с помощью:", "o": ["Открытого окна", "Зоны негативного давления с HEPA-фильтрацией", "Напольного вентилятора", "Без изоляции"]}, "43": {"q": "Одноразовые костюмы и одежду, использованные при удалении, следует:", "o": ["Унести домой и постирать", "Считать асбестовыми отходами и правильно утилизировать", "Переиспользовать на следующей неделе", "Продать"]}, "44": {"q": "Почему асбестовый материал нужно держать мокрым при удалении?", "o": ["Чтобы он стал тяжелее", "Потому что смачивание подавляет выделение волокон в воздух", "Чтобы помыть пол", "Это не обязательно"]}, "45": {"q": "Контейнеры с асбестовыми отходами должны быть:", "o": ["Без маркировки", "С надлежащими предупреждающими асбестовыми этикетками", "Покрашены в зелёный", "Оставлены открытыми"]}, "46": {"q": "Если во время работы вы неожиданно нашли подозреваемый асбест, нужно:", "o": ["Работать быстрее", "Остановить работу и сделать анализ до нарушения", "Сразу подмести", "Закрасить"]}, "47": {"q": "После удаления чистоту воздуха в зоне обычно подтверждают:", "o": ["Подбрасыванием монеты", "Мониторингом/отбором проб воздуха ниже уровня очистки", "Просто осмотром", "По запаху"]}};
+
+QUESTIONS.forEach(q=>{const t=TRANS[q.id];if(t){q.qr=t.q;q.optsR=t.o;}});
+
+const SEC={1:"Basics & ID",2:"Health Hazards",3:"Where It's Found",4:"Rules & Registration",5:"Work Practices"};
+let lang="both", curBlock=1, curSec="all", view=[], answered={};
+function pool(){return QUESTIONS.filter(q=>q.block===curBlock&&(curSec==="all"||q.sec==+curSec));}
+function shuf(a){for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]];}return a;}
+function el(t,c,h){const e=document.createElement(t);if(c)e.className=c;if(h!=null)e.innerHTML=h;return e;}
+function esc(s){return (s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}
+
+function build(reshuffle){view=pool();if(reshuffle)shuf(view);render();}
+function render(){
+  const L=document.getElementById('list');L.innerHTML="";
+  view.forEach(q=>{
+    const c=el('div','q');c.id='q'+q.id;
+    const h=el('div','qhead');h.appendChild(el('span','qno','#'+q.id));h.appendChild(el('span','qsec',SEC[q.sec]));c.appendChild(h);
+    const qt=el('div','qtext');
+    qt.innerHTML='<div class="qen lx-en">'+esc(q.q)+'</div><div class="qru lx-ru">'+esc(q.qr)+'</div>';
+    c.appendChild(qt);
+    const o=el('div','opts');
+    q.opts.forEach((op,i)=>{
+      const d=el('div','opt');d.dataset.i=i;
+      d.innerHTML='<span class="k">'+String.fromCharCode(65+i)+'</span>'+
+                  '<span class="t"><span class="oen lx-en">'+esc(op)+'</span><span class="oru lx-ru">'+esc(q.optsR[i])+'</span></span>';
+      d.onclick=()=>choose(q,i);o.appendChild(d);
+    });
+    c.appendChild(o);
+    const e=el('div','exp');
+    e.innerHTML='<div class="rrow lx-en"><span class="flag">EN</span><span class="rtext">'+esc(q.re)+'</span></div>'+
+                '<div class="rrow lx-ru"><span class="flag ru">RU</span><span class="rtext">'+esc(q.rr)+'</span></div>';
+    c.appendChild(e);L.appendChild(c);
+    if(answered[q.id]!=null)paint(q,answered[q.id],c);
+  });
+  applyLang();score();
+}
+function choose(q,i){if(answered[q.id]!=null)return;answered[q.id]=i;paint(q,i,document.getElementById('q'+q.id));score();}
+function paint(q,ch,c){[...c.querySelectorAll('.opt')].forEach(o=>{const i=+o.dataset.i;o.classList.add('locked');if(i===q.correct)o.classList.add('correct');else if(i===ch)o.classList.add('wrong');else o.classList.add('dim');});c.querySelector('.exp').classList.add('show');}
+function score(){
+  const tot=view.length,ans=view.filter(q=>answered[q.id]!=null);let ok=0;ans.forEach(q=>{if(answered[q.id]===q.correct)ok++;});const no=ans.length-ok;
+  document.getElementById('scoreNum').textContent=ok+' / '+tot;
+  document.getElementById('scoreMeta').textContent='answered '+ans.length+' of '+tot;
+  document.getElementById('liveScore').textContent=ok+'/'+ans.length;
+  document.getElementById('pillOk').textContent='\u2713 '+ok;document.getElementById('pillNo').textContent='\u2717 '+no;
+  document.getElementById('progFill').style.width=tot?(ans.length/tot*100)+'%':'0%';
+  const T=document.getElementById('tally');
+  if(tot>0&&ans.length===tot)tally(ok,tot);else T.classList.remove('show');
+}
+function tally(ok,tot){
+  const pct=Math.round(ok/tot*100);document.getElementById('tally').classList.add('show');
+  document.getElementById('tallyScore').textContent=ok+' / '+tot;
+  let v=pct>=90?'Ready — you clearly know the booklet':pct>=75?'Almost — re-read the weak topics':pct>=60?'More review needed':'Study the booklet first';
+  document.getElementById('tallyPct').textContent=pct+'% correct \u00b7 '+v+' \u00b7 Open-book: in the real exam you may look up answers in the CSLB booklet';
+  const bd={};view.forEach(q=>{bd[q.sec]=bd[q.sec]||{ok:0,t:0};bd[q.sec].t++;if(answered[q.id]===q.correct)bd[q.sec].ok++;});
+  const b=document.getElementById('tallyBd');b.innerHTML="";Object.keys(bd).sort().forEach(s=>b.appendChild(el('div','item','<b>'+bd[s].ok+'/'+bd[s].t+'</b> \u00b7 '+SEC[s])));
+}
+function applyLang(){
+  const showEn=(lang!=='ru'), showRu=(lang!=='en');
+  document.querySelectorAll('.lx-en').forEach(x=>x.style.display=showEn?'':'none');
+  document.querySelectorAll('.lx-ru').forEach(x=>x.style.display=showRu?'':'none');
+}
+
+document.getElementById('langseg').onclick=e=>{const b=e.target.closest('button');if(!b)return;lang=b.dataset.lang;[...e.currentTarget.children].forEach(x=>x.setAttribute('aria-pressed',x===b));applyLang();};
+document.getElementById('blocks').onclick=e=>{const b=e.target.closest('.bcard');if(!b)return;curBlock=+b.dataset.block;[...e.currentTarget.children].forEach(x=>x.setAttribute('aria-pressed',x===b));build(false);window.scrollTo({top:0,behavior:'smooth'});};
+document.getElementById('secfilter').onchange=e=>{curSec=e.target.value;build(false);};
+document.getElementById('shuffle').onclick=()=>build(true);
+document.getElementById('newset').onclick=()=>{view.forEach(q=>delete answered[q.id]);build(true);window.scrollTo({top:0,behavior:'smooth'});};
+const tt=document.getElementById('totop');
+tt.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+window.addEventListener('scroll',()=>{tt.classList.toggle('show',window.scrollY>500);});
+
+build(true);
+
+</script>
+</body>
+</html>
