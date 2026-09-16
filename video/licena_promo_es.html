@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>LICENA · Promo (ES)</title>
+<style>
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;src:url(fonts/playfair-var.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;src:url(fonts/playfair-italic-var.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;src:url(fonts/inter-var.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:400;src:url(fonts/plexmono-400.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;src:url(fonts/plexmono-500.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;src:url(fonts/plexmono-600.woff2) format('woff2')}
+
+:root{
+  --paper:#f7f4ec; --card:#ffffff; --ink:#1b2436; --ink2:#3a4660;
+  --navy:#1b3b6f; --navy2:#102a52; --navy3:#0b1d3a; --gold:#b8862b; --gold2:#f4d692; --gold-soft:#f6ecd5;
+  --line:#ddd5c4; --steel:#6e7689; --green:#1d7a4d; --green-soft:#e4f1e7; --red:#c9473a; --red-soft:#f7e3e0;
+  --mono:'IBM Plex Mono',monospace; --serif:'Playfair Display',serif; --sans:'Inter',system-ui,sans-serif;
+  /* portrait scale (1080×1920) */
+  --kicker:32px; --h1:118px; --big:100px; --body:50px; --small:36px;
+  --num:140px; --label:38px;
+  --pad-x:80px; --pad-right:110px; --pad-top:190px; --pad-bottom:300px;
+  --card-r:28px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden;background:var(--navy2)}
+body{font-family:var(--sans);color:#fff;-webkit-font-smoothing:antialiased}
+
+.scene{position:absolute;inset:0;display:none;opacity:0}
+.scene.dark{background:radial-gradient(120% 90% at 50% 0%,#24488a 0%,var(--navy) 45%,var(--navy3) 100%);color:#fff}
+.scene.light{background:var(--paper);color:var(--ink)}
+.glow{position:absolute;width:1400px;height:1400px;border-radius:50%;left:50%;top:40%;margin:-700px 0 0 -700px;
+  background:radial-gradient(circle,rgba(244,214,146,.22) 0%,rgba(244,214,146,0) 60%);pointer-events:none}
+.light .glow{background:radial-gradient(circle,rgba(184,134,43,.14) 0%,rgba(184,134,43,0) 60%)}
+.grain{position:absolute;inset:0;opacity:.06;background-image:
+  linear-gradient(90deg,rgba(255,255,255,.4) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.4) 1px,transparent 1px);
+  background-size:120px 120px}
+.light .grain{opacity:.35;background-image:
+  linear-gradient(90deg,rgba(27,59,111,.08) 1px,transparent 1px),linear-gradient(0deg,rgba(27,59,111,.08) 1px,transparent 1px)}
+
+.content{position:absolute;left:var(--pad-x);right:var(--pad-right);top:var(--pad-top);bottom:var(--pad-bottom);
+  display:flex;flex-direction:column;justify-content:center;gap:38px}
+.content.top{justify-content:flex-start}
+
+.kicker{font-family:var(--mono);font-size:var(--kicker);letter-spacing:.24em;text-transform:uppercase;font-weight:600;
+  color:var(--gold2);display:flex;align-items:center;gap:16px}
+.light .kicker{color:var(--gold)}
+.kicker .star{color:var(--gold);font-size:1.1em}
+.kicker.red{color:#ffb3aa}
+.kicker::after{content:"";flex:1;height:2px;background:linear-gradient(90deg,currentColor,transparent);opacity:.5;margin-left:8px}
+
+h1{font-family:var(--serif);font-weight:900;font-size:var(--h1);line-height:1.02;letter-spacing:-.005em}
+h1 em{font-style:italic;font-weight:700;color:var(--gold2)}
+.light h1 em{color:var(--gold)}
+h1 .w{display:inline-block;margin-right:.24em}
+br.p{display:inline}
+.big{font-family:var(--serif);font-weight:800;font-size:var(--big);line-height:1.05}
+.big em{font-style:italic;color:var(--gold2);font-weight:700}
+.body{font-size:var(--body);font-weight:600;line-height:1.3}
+.sub{font-size:var(--small);font-weight:500;line-height:1.35;color:#c4d0e6}
+.light .sub{color:var(--ink2)}
+.mono{font-family:var(--mono)}
+
+/* list rows with icon */
+.row{display:flex;align-items:flex-start;gap:26px;font-size:var(--body);font-weight:700;line-height:1.22}
+.row .ic{flex:none;width:1.45em;height:1.45em;border-radius:14px;display:grid;place-items:center;font-family:var(--mono);font-weight:600;font-size:.85em}
+.row .ic.x{background:var(--red);color:#fff}
+.row .ic.ok{background:var(--gold);color:#fff}
+.row .ic.chk{background:var(--green);color:#fff}
+.row small{display:block;font-size:.62em;font-weight:500;color:#c4d0e6;margin-top:6px;font-family:var(--mono);letter-spacing:.02em}
+
+/* pills */
+.pills{display:flex;flex-wrap:wrap;gap:20px}
+.pill{border:3px solid rgba(255,255,255,.35);border-radius:999px;padding:20px 42px;font-family:var(--mono);font-weight:600;font-size:44px;background:rgba(255,255,255,.06)}
+.pill.hot{border-color:var(--red);background:rgba(201,71,58,.22)}
+
+/* trap box */
+.trap{background:var(--card);color:var(--ink);border-radius:var(--card-r);padding:38px 44px;border-left:14px solid var(--red);
+  font-size:42px;font-weight:600;line-height:1.35;box-shadow:0 30px 60px rgba(0,0,0,.35)}
+.trap .q{font-family:var(--mono);font-size:28px;color:var(--steel);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.trap mark{background:var(--red-soft);color:var(--red);padding:0 10px;border-radius:8px;font-weight:800}
+
+/* brand */
+.brand{display:flex;align-items:center;gap:22px;font-family:var(--serif);font-weight:900;font-size:172px;letter-spacing:.01em;line-height:1;color:var(--navy)}
+.brand .star{color:var(--gold);font-size:.78em;transform:translateY(-4%)}
+.tag{font-family:var(--mono);font-size:40px;font-weight:600;color:var(--ink2);letter-spacing:.02em}
+
+/* feature cards */
+.cards{display:grid;grid-template-columns:1fr 1fr;gap:26px}
+.card{background:var(--card);border:2px solid var(--line);border-radius:var(--card-r);padding:34px 34px 30px;box-shadow:0 14px 40px rgba(27,36,54,.10);display:flex;flex-direction:column;gap:8px;min-height:350px;justify-content:flex-end}
+.card .n{font-family:var(--serif);font-weight:800;font-size:var(--num);line-height:1;color:var(--navy)}
+.card .n.gold{color:var(--gold)}
+.card .l{font-size:var(--label);font-weight:700;color:var(--ink);line-height:1.2}
+.card .s{font-family:var(--mono);font-size:26px;color:var(--steel)}
+
+/* question card (mimics the trainer UI) */
+.qcard{background:var(--card);border:2px solid var(--line);border-radius:var(--card-r);box-shadow:0 20px 60px rgba(27,36,54,.14);overflow:hidden}
+.qcard .qh{background:var(--navy);color:#fff;font-family:var(--mono);font-size:28px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:20px 36px;display:flex;justify-content:space-between}
+.qcard .qh b{color:var(--gold2)}
+.qcard .qb{padding:30px 36px 34px}
+.qcard .qt{font-size:42px;font-weight:600;line-height:1.35;color:var(--ink);margin-bottom:24px}
+.opt{display:flex;align-items:center;gap:20px;border:2px solid var(--line);border-radius:18px;padding:20px 26px;font-size:40px;font-weight:600;color:var(--ink);margin-bottom:14px;background:#fff}
+.opt .k{font-family:var(--mono);font-weight:600;color:var(--steel);width:1.2em}
+.opt .m{margin-left:auto;font-family:var(--mono);font-weight:600;opacity:0;transform:scale(.6)}
+.qcard.on .opt{opacity:.45}
+.qcard.on .opt.ok{opacity:1;border-color:var(--green);background:var(--green-soft);color:var(--green)}
+.qcard.on .opt.ok .k{color:var(--green)}
+.qcard.on .opt.ok .m{opacity:1;transform:scale(1);color:var(--green)}
+.expl{margin-top:22px;background:var(--gold-soft);border:2px solid #ecdcb6;border-left:12px solid var(--gold);border-radius:18px;padding:24px 28px;font-size:33px;line-height:1.4;color:var(--ink2)}
+.expl b{color:var(--ink)}
+.chips{display:flex;gap:16px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:30px;font-weight:600;border:2px solid var(--line);background:#fff;color:var(--navy);border-radius:999px;padding:10px 24px}
+
+/* proof blocks */
+.proof{background:var(--card);border:2px solid var(--line);border-left:14px solid var(--gold);border-radius:var(--card-r);padding:40px 44px;font-size:47px;font-weight:700;line-height:1.28;color:var(--ink);box-shadow:0 14px 40px rgba(27,36,54,.10);display:flex;gap:26px;align-items:flex-start}
+.proof .em{flex:none;font-size:1.3em;line-height:1}
+.proof small{display:block;font-size:.66em;font-weight:500;color:var(--ink2);margin-top:8px}
+
+/* stat bars */
+.stat{display:flex;flex-direction:column;gap:14px}
+.stat .lab{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--small);font-weight:600;color:#dfe6f3}
+.stat .val{font-family:var(--serif);font-weight:800;font-size:104px;line-height:1;color:#fff}
+.stat .val.gold{color:var(--gold2)}
+.track{height:40px;border-radius:999px;background:rgba(255,255,255,.12);overflow:hidden;border:2px solid rgba(255,255,255,.15)}
+.track i{display:block;height:100%;width:0;border-radius:999px;background:linear-gradient(90deg,#7d8aa6,#aeb8cc)}
+.track i.gold{background:linear-gradient(90deg,var(--gold),var(--gold2))}
+
+/* CTA */
+.cta{display:inline-flex;align-items:center;gap:22px;background:var(--gold);color:#1b2436;font-family:var(--mono);font-weight:600;font-size:48px;border-radius:999px;padding:32px 56px;box-shadow:0 20px 60px rgba(184,134,43,.45);align-self:flex-start}
+.cta .arr{font-size:1.2em;display:inline-block}
+.lockup{display:flex;align-items:center;gap:20px;font-family:var(--serif);font-weight:900;font-size:124px;color:#fff;line-height:1}
+.lockup .star{color:var(--gold);font-size:.75em}
+.foot{font-family:var(--mono);font-size:30px;letter-spacing:.2em;text-transform:uppercase;color:#c4d0e6}
+
+/* chrome */
+.topchip{position:absolute;left:var(--pad-x);top:calc(var(--pad-top) - 110px);font-family:var(--mono);font-size:28px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:#fff;
+  display:flex;align-items:center;gap:14px;opacity:0;mix-blend-mode:normal;z-index:50}
+.topchip .star{color:var(--gold)}
+.topchip.onlight{color:var(--navy)}
+.pbar{position:absolute;left:0;right:0;bottom:0;height:12px;background:rgba(0,0,0,.25);z-index:60}
+.pbar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2))}
+.caption{position:absolute;left:var(--pad-x);right:var(--pad-x);bottom:calc(var(--pad-bottom) - 120px);text-align:center;font-size:34px;font-weight:700;line-height:1.3;z-index:55;opacity:0}
+.caption span{background:rgba(11,29,58,.85);color:#fff;padding:10px 22px;border-radius:14px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* ---------- landscape (1920×1080) ---------- */
+@media (min-aspect-ratio: 1/1){
+  :root{--kicker:26px; --h1:106px; --big:82px; --body:42px; --small:31px; --num:108px; --label:30px;
+    --pad-x:120px; --pad-right:120px; --pad-top:120px; --pad-bottom:110px}
+  .content{gap:28px;left:50%;right:auto;width:1480px;transform:translateX(-50%)}
+  .content.wide{width:1680px}
+  .cards{grid-template-columns:repeat(4,1fr);gap:24px}
+  .card{min-height:270px;padding:28px 28px 26px}
+  .card .s{font-size:21px}
+  .brand{font-size:140px}
+  .tag{font-size:32px}
+  .pill{font-size:30px;padding:14px 32px}
+  .trap{font-size:32px;padding:28px 36px}
+  .trap .q{font-size:22px}
+  .row{font-size:36px;gap:20px}
+  .qwrap{display:grid;grid-template-columns:1.15fr .85fr;gap:40px;align-items:center}
+  .qcard .qh{font-size:20px;padding:14px 28px}
+  .qcard .qb{padding:22px 28px 24px}
+  .qcard .qt{font-size:28px;margin-bottom:16px}
+  .opt{font-size:26px;padding:12px 18px;margin-bottom:10px;border-radius:14px}
+  .expl{font-size:23px;padding:16px 20px;margin-top:14px}
+  .chip{font-size:22px}
+  .proof{font-size:34px;padding:28px 34px}
+  .stat .val{font-size:72px}
+  .track{height:26px}
+  .cta{font-size:36px;padding:24px 44px}
+  .lockup{font-size:96px}
+  .foot{font-size:22px}
+  .topchip{font-size:22px;top:50px;left:calc(50% - 740px)}
+  .caption{font-size:28px;bottom:40px}
+  .twocol{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+  br.p{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- 1 · HOOK -->
+<section class="scene dark" data-scene="hook">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker" data-t="0.1"><span class="star">&#9733;</span> California · HVAC · 2026</div>
+    <h1>
+      <span class="w" data-t="0.35" data-fx="pop">¿Trabajas</span><br class="p"><span class="w" data-t="0.5" data-fx="pop">en</span><span class="w" data-t="0.62" data-fx="pop">aire</span><span class="w" data-t="0.78" data-fx="pop">acondicionado…</span><br>
+      <em><span class="w" data-t="1.9" data-fx="pop">sin</span><span class="w" data-t="2.05" data-fx="pop">licencia</span><span class="w" data-t="2.25" data-fx="pop">C-20?</span></em>
+    </h1>
+    <div class="sub" data-t="3.4">El examen del CSLB se puede pasar a la primera. Te mostramos cómo.</div>
+  </div>
+</section>
+
+<!-- 2 · PAIN -->
+<section class="scene dark" data-scene="pain">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker red" data-t="0.1">Sin licencia</div>
+    <div class="row" data-t="0.5" data-fx="left"><span class="ic x">&#10007;</span><div>Todo trabajo de <b>$1,000</b> o más es ilegal<small>B&amp;P §7028 · desde 2025</small></div></div>
+    <div class="row" data-t="3.4" data-fx="left"><span class="ic x">&#10007;</span><div>Sin permisos · sin cobrar en corte<small>B&amp;P §7031 · el cliente puede no pagarte</small></div></div>
+    <div class="row" data-t="6.3" data-fx="left"><span class="ic x">&#10007;</span><div>Los contratos grandes se los lleva <em style="color:var(--gold2);font-style:normal">otro</em></div></div>
+  </div>
+</section>
+
+<!-- 3 · DREAM -->
+<section class="scene dark" data-scene="dream">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker" data-t="0.1"><span class="star">&#9733;</span> Con tu C-20</div>
+    <div class="big" data-t="0.7" data-fx="up">Tu <em>empresa.</em></div>
+    <div class="big" data-t="1.9" data-fx="up">Tus <em>precios.</em></div>
+    <div class="big" data-t="3.0" data-fx="up">Tus <em>clientes.</em></div>
+    <div class="row" data-t="4.1" data-fx="left" style="font-size:var(--small);font-weight:600"><span class="ic chk">&#10003;</span><div>Contratista con licencia · CSLB · California</div></div>
+  </div>
+</section>
+
+<!-- 4 · OBSTACLE -->
+<section class="scene dark" data-scene="obstacle">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker" data-t="0.1">El examen del CSLB</div>
+    <div class="pills">
+      <div class="pill" data-t="0.9" data-fx="pop">Solo en inglés</div>
+      <div class="pill" data-t="2.2" data-fx="pop">3.5 horas</div>
+      <div class="pill hot" data-t="3.6" data-fx="pop">Preguntas con trampa</div>
+    </div>
+    <div class="trap" data-t="4.4" data-fx="up">
+      <div class="q">Pregunta típica · estilo PSI</div>
+      For a contract to be valid, all of the following are required <mark>EXCEPT</mark>… <span style="color:var(--steel)">→ 4 opciones casi idénticas.</span>
+    </div>
+    <div class="sub" data-t="5.6">Sin preparación real, muchos no pasan a la primera.</div>
+  </div>
+</section>
+
+<!-- 5 · SOLUTION (brand reveal) -->
+<section class="scene light" data-scene="solution">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content wide">
+    <div class="brand" data-t="0.1" data-fx="pop" data-d="0.7"><span class="star">&#9733;</span> LICENA</div>
+    <div class="tag" data-t="0.7">Tu entrenador para el examen CSLB</div>
+    <div class="cards">
+      <div class="card" data-t="2.0" data-fx="up"><div class="n"><span data-t="2.0" data-fx="count" data-to="500" data-d="1.1">0</span></div><div class="l">preguntas · Law &amp; Business</div><div class="s">5 bloques × 100 · 7 secciones</div></div>
+      <div class="card" data-t="3.6" data-fx="up"><div class="n"><span data-t="3.6" data-fx="count" data-to="500" data-d="1.1">0</span></div><div class="l">preguntas · Trade C-20</div><div class="s">Manual J/D/S · refrigeración · SEER</div></div>
+      <div class="card" data-t="5.6" data-fx="up"><div class="n gold"><span data-t="5.6" data-fx="count" data-to="47" data-d="0.9">0</span></div><div class="l">preguntas · Asbestos open-book</div><div class="s">obligatorio antes de la licencia</div></div>
+      <div class="card" data-t="7.0" data-fx="up"><div class="n gold" style="font-size:calc(var(--num) * .6);line-height:1.08">Guía<br>paso a paso</div><div class="l">de cero a tu propia empresa</div><div class="s">experiencia · solicitud · bond · LLC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · DEMO -->
+<section class="scene light" data-scene="demo">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="qwrap">
+      <div>
+        <div class="kicker" data-t="0.1"><span class="star">&#9733;</span> Así se practica</div>
+        <div class="qcard" data-t="0.5" data-fx="up" data-cls="on" data-on="2.1">
+          <div class="qh"><span>Question <b>58</b> · Contracts</span><span>Block 1</span></div>
+          <div class="qb">
+            <div class="qt">A home improvement contract in California must be in writing when it exceeds:</div>
+            <div class="opt"><span class="k">A</span>$200</div>
+            <div class="opt ok"><span class="k">B</span>$500<span class="m">&#10003; correct</span></div>
+            <div class="opt"><span class="k">C</span>$1,000</div>
+            <div class="opt"><span class="k">D</span>$5,000</div>
+            <div class="expl" data-t="2.7" data-fx="up"><b>&#10003; Correct.</b> Home improvement contracts over $500 must be in writing and signed before work begins (B&amp;P §7159).</div>
+          </div>
+        </div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:26px">
+        <div class="body" data-t="3.6" data-fx="up" style="color:var(--ink)">En inglés, como el examen real. <span style="color:var(--gold)">Explicación al instante.</span></div>
+        <div class="chips" data-t="4.2" data-fx="up"><span class="chip">Orden aleatorio</span><span class="chip">Corrección inmediata</span><span class="chip">Celular o PC</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7 · PROOF -->
+<section class="scene light" data-scene="proof">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker" data-t="0.1"><span class="star">&#9733;</span> Por qué confiar</div>
+    <div class="proof" data-t="0.6" data-fx="up"><span class="em">&#128216;</span><div>Basado en el <em>Law &amp; Reference Book 2026</em> oficial del CSLB<small>Montos y umbrales actualizados: bond $25,000 · salario mínimo $16.90/h · anticipo $1,000 o 10%</small></div></div>
+    <div class="proof" data-t="3.9" data-fx="up"><span class="em">&#128295;</span><div>Hecho en Los Ángeles por un contratista de HVAC<small>No es una escuela. Es la práctica que usamos nosotros.</small></div></div>
+  </div>
+</section>
+
+<!-- 8 · HONEST -->
+<section class="scene dark" data-scene="honest">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker" data-t="0.1">Hablando claro</div>
+    <div class="big" data-t="0.4" data-fx="up">Nadie garantiza <em>el 100%.</em></div>
+    <div class="sub" data-t="1.2">Chance estimada de pasar a la primera:</div>
+    <div class="stat" data-t="3.0" data-fx="up">
+      <div class="lab"><span>Solo memorizar respuestas</span><span class="val">~<span data-t="3.2" data-fx="count" data-to="75" data-d="1.2">0</span>%</span></div>
+      <div class="track"><i data-t="3.2" data-fx="bar" data-to="75" data-d="1.2"></i></div>
+    </div>
+    <div class="stat" data-t="5.4" data-fx="up">
+      <div class="lab"><span>Práctica + libro + entender la lógica</span><span class="val gold">~<span data-t="5.6" data-fx="count" data-to="92" data-d="1.3">0</span>%</span></div>
+      <div class="track"><i class="gold" data-t="5.6" data-fx="bar" data-to="92" data-d="1.3"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9 · CTA -->
+<section class="scene dark" data-scene="cta">
+  <div class="glow" data-glow></div><div class="grain"></div>
+  <div class="content">
+    <div class="kicker" data-t="0.1"><span class="star">&#9733;</span> Tu licencia empieza hoy</div>
+    <div class="big" data-t="0.4" data-fx="up">Haz tu primer bloque de <em>100 preguntas.</em></div>
+    <div class="cta" data-t="1.6" data-fx="pop"><span class="arr" data-pulse>&#8595;</span> Enlace en la descripción</div>
+    <div class="lockup" data-t="2.6" data-fx="up"><span class="star">&#9733;</span> LICENA</div>
+    <div class="foot" data-t="3.0">Made in Los Angeles · 2026</div>
+  </div>
+</section>
+
+<div class="topchip" data-topchip><span class="star">&#9733;</span> LICENA · CSLB Exam Trainer</div>
+<div class="pbar"><i data-pbar></i></div>
+
+<script>
+const TL = {"total": 66.67, "scenes": {"hook": [0.0, 5.6], "pain": [5.6, 15.2], "dream": [15.2, 20.2], "obstacle": [20.2, 27.2], "solution": [27.2, 36.97], "demo": [36.97, 42.77], "proof": [42.77, 50.82], "honest": [50.82, 60.2], "cta": [60.2, 66.67]}};
+const EASE = {
+  out: p => 1 - Math.pow(1 - p, 3),
+  inout: p => p < .5 ? 4*p*p*p : 1 - Math.pow(-2*p + 2, 3) / 2,
+  back: p => { const c = 1.5; return 1 + (c + 1) * Math.pow(p - 1, 3) + c * Math.pow(p - 1, 2); },
+};
+const clamp = (x, a, b) => Math.max(a, Math.min(b, x));
+const FADE = 0.3;
+
+function animate(el, lt){
+  const tin = +el.dataset.t, d = +(el.dataset.d || 0.55), fx = el.dataset.fx || 'up';
+  const p = clamp((lt - tin) / d, 0, 1);
+  const po = el.dataset.out ? clamp((lt - +el.dataset.out) / 0.3, 0, 1) : 0;
+  if (fx === 'count'){ el.textContent = Math.round(EASE.out(p) * +el.dataset.to); return; }
+  if (fx === 'bar'){ el.style.width = (EASE.inout(p) * +el.dataset.to) + '%'; return; }
+  const e = EASE.out(p);
+  el.style.opacity = e * (1 - po);
+  if (fx === 'up') el.style.transform = `translateY(${(1 - e) * 46}px)`;
+  else if (fx === 'left') el.style.transform = `translateX(${(1 - e) * -70}px)`;
+  else if (fx === 'pop') el.style.transform = `scale(${0.7 + 0.3 * EASE.back(p)})`;
+  else el.style.transform = 'none';
+  if (el.dataset.cls) el.classList.toggle(el.dataset.cls, lt >= +el.dataset.on);
+}
+
+window.seek = function(t){
+  let onLight = false, chipVisible = false;
+  document.querySelectorAll('[data-scene]').forEach(sc => {
+    const [s, e] = TL.scenes[sc.dataset.scene];
+    if (t < s || t >= e + FADE){ sc.style.display = 'none'; return; }
+    sc.style.display = 'block';
+    let op = 1;
+    if (s > 0) op = Math.min(op, clamp((t - s) / FADE, 0, 1));
+    if (t >= e) op = Math.min(op, clamp(1 - (t - e) / FADE, 0, 1));
+    sc.style.opacity = op;
+    sc.style.zIndex = t >= e ? 1 : 2;
+    const lt = t - s;
+    sc.querySelectorAll('[data-t]').forEach(el => animate(el, lt));
+    const g = sc.querySelector('[data-glow]');
+    if (g) g.style.transform = `translate(${Math.sin(t * 0.35) * 140}px, ${Math.cos(t * 0.27) * 90}px) scale(${1 + 0.05 * Math.sin(t * 0.8)})`;
+    if (t < e){ onLight = sc.classList.contains('light'); chipVisible = sc.dataset.scene !== 'hook' && sc.dataset.scene !== 'solution' && sc.dataset.scene !== 'cta'; }
+  });
+  const chip = document.querySelector('[data-topchip]');
+  chip.style.opacity = chipVisible ? 1 : 0;
+  chip.classList.toggle('onlight', onLight);
+  document.querySelector('[data-pbar]').style.width = (100 * clamp(t / TL.total, 0, 1)) + '%';
+  const pulse = document.querySelector('[data-pulse]');
+  if (pulse) pulse.style.transform = `translateY(${Math.sin(t * 5) * 6}px)`;
+};
+window.seek(0);
+// Live preview when opened in a normal browser (the renderer drives seek() itself).
+if (!navigator.webdriver) {
+  const start = performance.now();
+  (function loop(){ window.seek(((performance.now() - start) / 1000) % (TL.total + 1)); requestAnimationFrame(loop); })();
+}
+</script>
+</body>
+</html>
