@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>LICENA · Brand assets</title>
+<style>
+@font-face{font-family:'Playfair Display';font-style:normal;font-weight:400 900;src:url(fonts/playfair-var.woff2) format('woff2')}
+@font-face{font-family:'Playfair Display';font-style:italic;font-weight:400 900;src:url(fonts/playfair-italic-var.woff2) format('woff2')}
+@font-face{font-family:'Inter';font-style:normal;font-weight:100 900;src:url(fonts/inter-var.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;src:url(fonts/plexmono-600.woff2) format('woff2')}
+:root{
+  --navy:#1b3b6f; --navy2:#102a52; --navy3:#0b1d3a; --gold:#b8862b; --gold2:#f4d692; --paper:#f7f4ec;
+  --mono:'IBM Plex Mono',monospace; --serif:'Playfair Display',serif; --sans:'Inter',system-ui,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:radial-gradient(90% 70% at 50% 30%,#27508f 0%,var(--navy) 45%,var(--navy3) 100%);color:#fff;font-family:var(--sans);-webkit-font-smoothing:antialiased;position:relative}
+.grain{position:absolute;inset:0;opacity:.07;background-image:linear-gradient(90deg,rgba(255,255,255,.5) 1px,transparent 1px),linear-gradient(0deg,rgba(255,255,255,.5) 1px,transparent 1px);background-size:120px 120px}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(244,214,146,.24) 0%,rgba(244,214,146,0) 62%)}
+
+/* ---------- banner 2560×1440, safe area 1546×423 centered ---------- */
+.banner .glow{width:2000px;height:2000px;left:50%;top:50%;margin:-1000px 0 0 -1000px}
+.banner .rule{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold) 30%,var(--gold) 70%,transparent);opacity:.75}
+.banner .rule.top{top:470px}.banner .rule.bot{top:968px}
+.banner .deco{position:absolute;top:50%;width:520px;height:520px;margin-top:-260px;opacity:.16}
+.banner .deco.l{left:60px}.banner .deco.r{right:60px}
+.banner .safe{position:absolute;left:50%;top:50%;width:1546px;height:423px;margin:-211px 0 0 -773px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:18px 0}
+.seal{font-family:var(--mono);font-size:23px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:#d9e2f1;display:flex;align-items:center;gap:16px}
+.seal .star{color:var(--gold);font-size:1.2em}
+.wordmark{font-family:var(--serif);font-weight:900;font-size:168px;line-height:1;letter-spacing:.02em;display:flex;align-items:center;gap:26px;text-shadow:0 14px 50px rgba(0,0,0,.35)}
+.wordmark .star{color:var(--gold);font-size:.72em;transform:translateY(-6%)}
+.tag{font-family:var(--serif);font-style:italic;font-weight:600;font-size:40px;color:var(--gold2)}
+.chips{display:flex;gap:16px;flex-wrap:wrap;justify-content:center;margin-top:6px}
+.chip{font-family:var(--mono);font-size:22px;font-weight:600;letter-spacing:.04em;border:2px solid rgba(255,255,255,.4);border-radius:999px;padding:8px 22px;background:rgba(255,255,255,.07)}
+.chip.gold{border-color:var(--gold);color:var(--gold2)}
+
+/* ---------- avatar 800×800 ---------- */
+.avatar .glow{width:1100px;height:1100px;left:50%;top:40%;margin:-550px 0 0 -550px}
+.avatar .ring{position:absolute;inset:34px;border-radius:50%;border:6px solid var(--gold);opacity:.9}
+.avatar .ring2{position:absolute;inset:54px;border-radius:50%;border:2px solid rgba(244,214,146,.45)}
+.avatar .mono{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.avatar .L{font-family:var(--serif);font-weight:900;font-size:560px;line-height:1;color:#fff;text-shadow:0 20px 60px rgba(0,0,0,.4);transform:translate(-14px,-10px)}
+.avatar .starL{position:absolute;color:var(--gold);font-size:150px;line-height:1;left:472px;top:190px;filter:drop-shadow(0 10px 20px rgba(0,0,0,.4))}
+.avatar .under{position:absolute;left:0;right:0;bottom:118px;text-align:center;font-family:var(--mono);font-size:30px;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:#d9e2f1}
+.avatar .word{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px}
+.avatar .word .star{color:var(--gold);font-size:120px;line-height:1}
+.avatar .word .wm{font-family:var(--serif);font-weight:900;font-size:176px;line-height:1;letter-spacing:.02em;text-shadow:0 14px 40px rgba(0,0,0,.4)}
+.avatar .word .sub{font-family:var(--mono);font-size:26px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:#d9e2f1;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="grain"></div><div class="glow"></div>
+<div data-root></div>
+<script>
+const ICON = `<svg viewBox="0 0 300 300" fill="none" stroke="#f4d692" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+  <rect x="30" y="40" width="240" height="220" rx="26"/><circle cx="150" cy="150" r="76"/><circle cx="150" cy="150" r="14" fill="#f4d692" stroke="none"/>
+  <path d="M150 150 C 120 118, 128 84, 150 74 M150 150 C 182 118, 174 84, 150 74"/><path d="M150 150 C 118 182, 84 174, 74 150 M150 150 C 118 118, 84 126, 74 150"/>
+  <path d="M150 150 C 182 182, 216 174, 226 150 M150 150 C 182 118, 216 126, 226 150"/><path d="M150 150 C 118 182, 126 216, 150 226 M150 150 C 182 182, 174 216, 150 226"/>
+  <line x1="56" y1="66" x2="244" y2="66" opacity=".55"/><line x1="56" y1="236" x2="244" y2="236" opacity=".55"/><line x1="70" y1="262" x2="70" y2="286"/><line x1="230" y1="262" x2="230" y2="286"/></svg>`;
+const T = {
+  banner_es: { cls: 'banner', html: `
+    <div class="rule top"></div><div class="rule bot"></div>
+    <div class="deco l">${ICON}</div><div class="deco r">${ICON}</div>
+    <div class="safe">
+      <div class="seal"><span class="star">&#9733;</span> California · CSLB &nbsp;·&nbsp; Arizona · ROC <span class="star">&#9733;</span></div>
+      <div class="wordmark"><span class="star">&#9733;</span> LICENA</div>
+      <div class="tag">Tu entrenador para el examen de contratista</div>
+      <div class="chips"><span class="chip">Law &amp; Business · 500</span><span class="chip">Trade C-20 · 500</span><span class="chip">Asbestos · 47</span><span class="chip gold">Guía paso a paso</span></div>
+    </div>` },
+  banner_en: { cls: 'banner', html: `
+    <div class="rule top"></div><div class="rule bot"></div>
+    <div class="deco l">${ICON}</div><div class="deco r">${ICON}</div>
+    <div class="safe">
+      <div class="seal"><span class="star">&#9733;</span> California · CSLB &nbsp;·&nbsp; Arizona · ROC <span class="star">&#9733;</span></div>
+      <div class="wordmark"><span class="star">&#9733;</span> LICENA</div>
+      <div class="tag">Contractor License Exam Trainer · HVAC</div>
+      <div class="chips"><span class="chip">Law &amp; Business · 500</span><span class="chip">Trade C-20 · 500</span><span class="chip">Asbestos · 47</span><span class="chip gold">EN · ES · RU</span></div>
+    </div>` },
+  avatar_mono: { cls: 'avatar', html: `
+    <div class="ring"></div><div class="ring2"></div>
+    <div class="mono"><div class="L">L</div></div><div class="starL">&#9733;</div>
+    <div class="under">LICENA</div>` },
+  avatar_word: { cls: 'avatar', html: `
+    <div class="ring"></div><div class="ring2"></div>
+    <div class="word"><div class="star">&#9733;</div><div class="wm">LICENA</div><div class="sub">CSLB · ROC</div></div>` },
+};
+const key = new URLSearchParams(location.search).get('t') || 'banner_es';
+document.body.classList.add(T[key].cls);
+document.querySelector('[data-root]').innerHTML = T[key].html;
+</script>
+</body>
+</html>

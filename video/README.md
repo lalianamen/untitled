@@ -34,3 +34,7 @@ node render.mjs "$PWD/out/licena_promo_es.html" 1920 1080 30 <длительно
 ## Обложки (thumbnails)
 
 `video/thumbs/`: `shorts_thumb_A_pain.jpg` и `shorts_thumb_B_benefit.jpg` (1080×1920, для Shorts / Reels), `youtube_thumb_A_pain.jpg` и `youtube_thumb_B_benefit.jpg` (1280×720, для обычного YouTube). Исходник: `src/thumb.html` (варианты `?v=pain` и `?v=benefit`), рендер: `node src/thumbs.mjs "$PWD/src/thumb.html" thumbs`.
+
+## Оформление канала YouTube
+
+`video/brand/`: `banner_es.jpg` и `banner_en.jpg` (2560×1440, весь текст внутри безопасной зоны 1546×423, которая видна на телефоне), `avatar_mono.png` (монограмма «L» со звездой) и `avatar_word.png` (полный логотип) размером 800×800. Исходник: `src/brand.html` (параметр `?t=banner_es|banner_en|avatar_mono|avatar_word`), рендер: `node src/brand.mjs "$PWD/src/brand.html" brand`.
