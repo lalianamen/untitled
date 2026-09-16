@@ -30,3 +30,7 @@ node render.mjs "$PWD/out/licena_promo_es.html" 1920 1080 30 <длительно
 ```
 
 Длительность печатает `build.py` (поле `total`). Любую комбинацию (например, полная вертикальная) можно собрать той же командой `render.mjs` с другим размером кадра. Тексты сцен правятся в `src/promo_template.html` (атрибуты `data-t-short` и `data-hide` управляют короткой версией), текст диктора — в `src/tts.py`.
+
+## Обложки (thumbnails)
+
+`video/thumbs/`: `shorts_thumb_A_pain.jpg` и `shorts_thumb_B_benefit.jpg` (1080×1920, для Shorts / Reels), `youtube_thumb_A_pain.jpg` и `youtube_thumb_B_benefit.jpg` (1280×720, для обычного YouTube). Исходник: `src/thumb.html` (варианты `?v=pain` и `?v=benefit`), рендер: `node src/thumbs.mjs "$PWD/src/thumb.html" thumbs`.
