@@ -25,7 +25,7 @@ const t0 = Date.now();
 for (let i = 0; i < total; i++) {
   const t = i / fps;
   await page.evaluate(t => window.seek(t), t);
-  const buf = await page.screenshot({ type: 'png', animations: 'disabled', caret: 'hide' });
+  const buf = await page.screenshot({ type: 'jpeg', quality: 95, animations: 'disabled', caret: 'hide' });
   if (!ff.stdin.write(buf)) await new Promise(r => ff.stdin.once('drain', r));
   if (i % (fps * 5) === 0) console.log(`frame ${i}/${total}  t=${t.toFixed(1)}s  ${((Date.now() - t0) / 1000).toFixed(0)}s elapsed`);
 }
