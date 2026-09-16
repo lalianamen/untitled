@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>LICENA · Brand assets (site style)</title>
+<style>
+@font-face{font-family:'Archivo';font-weight:100 900;src:url(fonts/archivo-500.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Sans';font-weight:100 900;src:url(fonts/ibmplexsans-400.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:600;src:url(fonts/plexmono-600.woff2) format('woff2')}
+@font-face{font-family:'IBM Plex Mono';font-weight:500;src:url(fonts/plexmono-500.woff2) format('woff2')}
+:root{
+  --paper:#090C27; --navy:#0E1233; --card:#14193B; --card2:#202750; --line:rgba(255,255,255,.16);
+  --gold:#FFC100; --heat:linear-gradient(115deg,#FCDF00,#FFB300 45%,#FF4E51); --electric:#00E3E4; --ok:#4AEA7D; --bad:#FF4E51;
+  --steel:#B2B9D5; --text:#F4F7FA;
+  --head:'Archivo',system-ui,sans-serif; --sans:'IBM Plex Sans',system-ui,sans-serif; --mono:'IBM Plex Mono',monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:100%;height:100%;overflow:hidden}
+body{background:linear-gradient(180deg,#090C27,#19123D);color:var(--text);font-family:var(--sans);-webkit-font-smoothing:antialiased;position:relative}
+.glow{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,179,0,.22) 0%,rgba(255,78,81,.10) 35%,rgba(255,78,81,0) 65%);pointer-events:none}
+.grid{position:absolute;inset:0;opacity:.05;background-image:linear-gradient(90deg,#fff 1px,transparent 1px),linear-gradient(0deg,#fff 1px,transparent 1px);background-size:96px 96px}
+
+/* brand lockup (mirrors .brand .mk on licena.us) */
+.brand{display:inline-flex;align-items:center;gap:.28em;font-family:var(--head);font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text);line-height:1}
+.brand .mk{display:grid;place-items:center;width:1.32em;height:1.32em;border-radius:.26em;background:var(--heat);color:#090C27;font-weight:900;font-size:.92em;letter-spacing:0}
+.eyebrow{font-family:var(--mono);font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold)}
+.h{font-family:var(--head);font-weight:900;text-transform:uppercase;letter-spacing:-.01em;line-height:1.02}
+.heat{background:var(--heat);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mini{display:flex;gap:.9em;flex-wrap:wrap;color:var(--steel);font-family:var(--sans);font-weight:500}
+.mini span::before{content:"✓ ";color:var(--ok);font-weight:700}
+.btn{display:inline-flex;align-items:center;gap:.4em;background:var(--heat);color:#090C27;font-family:var(--head);font-weight:800;border-radius:.34em;padding:.55em 1.1em;box-shadow:0 14px 40px rgba(255,150,0,.35);letter-spacing:.01em}
+.tag{display:inline-block;font-family:var(--mono);font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-radius:.3em;padding:.45em .8em}
+.tag.bad{background:var(--bad);color:#fff}
+.tag.heat{background:var(--heat);color:#090C27}
+.tag.electric{border:2px solid var(--electric);color:var(--electric);background:rgba(0,227,228,.08)}
+.ticker{position:absolute;left:0;right:0;white-space:nowrap;overflow:hidden;font-family:var(--mono);font-weight:500;letter-spacing:.18em;text-transform:uppercase;color:var(--steel);opacity:.55}
+
+/* ---------- banner 2560×1440 ---------- */
+.banner .glow{width:1800px;height:1800px;right:-500px;bottom:-900px}
+.banner .ticker{font-size:24px}
+.banner .ticker.t1{top:250px}.banner .ticker.t2{bottom:250px}
+.banner .rule{position:absolute;left:0;right:0;height:1px;background:var(--line)}
+.banner .rule.a{top:508px}.banner .rule.b{top:931px}
+.banner .safe{position:absolute;left:50%;top:50%;width:1546px;height:423px;margin:-211px 0 0 -773px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:12px 0}
+.banner .brand{font-size:62px}
+.banner .h{font-size:96px}
+.banner.es .h{font-size:80px}
+.banner .mini{font-size:27px;justify-content:center}
+
+/* ---------- avatar 800×800 ---------- */
+.avatar.mono{background:var(--heat)}
+.avatar.mono .L{position:absolute;inset:0;display:grid;place-items:center;font-family:var(--head);font-weight:900;font-size:600px;line-height:1;color:#090C27;transform:translateY(-12px)}
+.avatar.word{background:linear-gradient(180deg,#0E1233,#19123D)}
+.avatar.word .glow{width:900px;height:900px;left:-50px;top:250px}
+.avatar.word .stack{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:34px}
+.avatar.word .mk{display:grid;place-items:center;width:250px;height:250px;border-radius:52px;background:var(--heat);color:#090C27;font-family:var(--head);font-weight:900;font-size:190px;line-height:1;box-shadow:0 24px 60px rgba(255,150,0,.35)}
+.avatar.word .wm{font-family:var(--head);font-weight:800;font-size:132px;letter-spacing:.06em;text-transform:uppercase;line-height:1}
+.avatar.word .sub{font-family:var(--mono);font-weight:600;font-size:24px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-top:-12px}
+
+/* ---------- thumbnails ---------- */
+.thumb .glow{width:1600px;height:1600px;left:50%;top:60%;margin:-800px 0 0 -800px}
+.thumb .ticker{font-size:24px;bottom:70px}
+.thumb .wrap{position:absolute;inset:0;padding:150px 70px 170px;display:flex;flex-direction:column;justify-content:space-between}
+.thumb .eyebrow{font-size:34px}
+.thumb .h{font-size:138px;margin-top:26px;text-shadow:0 14px 40px rgba(0,0,0,.35)}
+.thumb .tag{font-size:44px;margin-top:44px;transform:rotate(-2.5deg);box-shadow:0 20px 50px rgba(0,0,0,.4);align-self:flex-start}
+.thumb .mini{font-size:32px;margin-top:40px}
+.thumb .foot{display:flex;align-items:center;justify-content:space-between;gap:30px}
+.thumb .brand{font-size:78px}
+.thumb .btn{font-size:40px}
+@media (min-aspect-ratio: 1/1){
+  .thumb .wrap{padding:56px 80px 84px;flex-direction:row;align-items:center;gap:60px}
+  .thumb .col{flex:1}
+  .thumb .side{flex:none;width:420px;height:100%;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end}
+  .thumb .eyebrow{font-size:22px}
+  .thumb .h{font-size:106px;margin-top:14px}
+  .thumb .tag{font-size:28px;margin-top:26px}
+  .thumb .mini{font-size:22px;margin-top:24px}
+  .thumb .brand{font-size:60px}
+  .thumb .btn{font-size:30px}
+  .thumb .ticker{font-size:18px;bottom:14px}
+}
+</style>
+</head>
+<body>
+<div class="grid"></div><div class="glow"></div>
+<div data-root></div>
+<script>
+const TICK = 'LAW &amp; BUSINESS · C-20 HVAC · C-36 PLUMBING · B GENERAL BUILDING · C-33 PAINTING · B-2 REMODELING · C-8 CONCRETE · EPA 608 · OSHA CONSTRUCTION · ARIZONA SRE · C-46 SOLAR · C-39 ROOFING · C-27 LANDSCAPING · C-7 LOW VOLTAGE · C-16 FIRE SPRINKLER · NICET · BACKFLOW · ASBESTOS · C-10 ELECTRICAL · ';
+const tick = (cls) => `<div class="ticker ${cls}">${TICK.repeat(4)}</div>`;
+const BRAND = `<div class="brand"><span class="mk">L</span>LICENA</div>`;
+const banner = (l1, l2, mini) => `
+  <div class="rule a"></div><div class="rule b"></div>${tick('t1')}${tick('t2')}
+  <div class="safe">${BRAND}
+    <div class="h">${l1}<br><span class="heat">${l2}</span></div>
+    <div class="mini">${mini.map(m => `<span>${m}</span>`).join('')}</div>
+  </div>`;
+const thumb = (eyebrow, l1, l2, tagCls, tag, mini, cta) => `
+  ${tick('')}
+  <div class="wrap">
+    <div class="col">
+      <div class="eyebrow">${eyebrow}</div>
+      <div class="h">${l1}<br><span class="heat">${l2}</span></div>
+      <div class="tag ${tagCls}">${tag}</div>
+      <div class="mini">${mini.map(m => `<span>${m}</span>`).join('')}</div>
+    </div>
+    <div class="side"><div class="foot">${BRAND}</div><div class="btn">${cta}</div></div>
+  </div>`;
+const T = {
+  banner_es: { cls: 'banner es', html: banner('Ya sabes el oficio.', 'Ahora consigue la licencia.', ['13,000+ preguntas de práctica', 'Formato de examen real', 'CSLB · Arizona ROC', 'EN / ES / RU']) },
+  banner_en: { cls: 'banner en', html: banner('You know the work.', 'Now get the license.', ['13,000+ practice questions', 'Real exam-style format', 'CSLB · Arizona ROC', 'EN / ES / RU']) },
+  avatar_mono: { cls: 'avatar mono', html: `<div class="L">L</div>` },
+  avatar_word: { cls: 'avatar word', html: `<div class="stack"><div class="mk">L</div><div class="wm">LICENA</div><div class="sub">CSLB · ROC</div></div>` },
+  shorts_A: { cls: 'thumb', html: thumb('CSLB · Arizona ROC · HVAC', '¿Trabajas en HVAC', 'sin licencia?', 'bad', 'Cada trabajo de $1,000+<br>es ilegal', ['Examen real', 'Explicado en ES / EN'], 'Prueba gratis →') },
+  shorts_B: { cls: 'thumb', html: thumb('CSLB · Arizona ROC · HVAC', 'Pasa tu examen', 'a la primera', 'heat', '13,000+ preguntas<br>explicadas', ['Formato de examen real', 'ES / EN / RU'], 'Prueba gratis →') },
+  yt_A: { cls: 'thumb', html: thumb('CSLB · Arizona ROC · HVAC', '¿Trabajas en HVAC', 'sin licencia?', 'bad', 'Cada trabajo de $1,000+ es ilegal', ['Examen real', 'Explicado en ES / EN'], 'Prueba gratis →') },
+  yt_B: { cls: 'thumb', html: thumb('CSLB · Arizona ROC · HVAC', 'Pasa tu examen', 'a la primera', 'heat', '13,000+ preguntas explicadas', ['Formato de examen real', 'ES / EN / RU'], 'Prueba gratis →') },
+};
+const key = new URLSearchParams(location.search).get('t') || 'banner_es';
+T[key].cls.split(' ').forEach(c => document.body.classList.add(c));
+document.querySelector('[data-root]').innerHTML = T[key].html;
+</script>
+</body>
+</html>

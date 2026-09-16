@@ -31,10 +31,13 @@ node render.mjs "$PWD/out/licena_promo_es.html" 1920 1080 30 <длительно
 
 Длительность печатает `build.py` (поле `total`). Любую комбинацию (например, полная вертикальная) можно собрать той же командой `render.mjs` с другим размером кадра. Тексты сцен правятся в `src/promo_template.html` (атрибуты `data-t-short` и `data-hide` управляют короткой версией), текст диктора — в `src/tts.py`.
 
-## Обложки (thumbnails)
+## Обложки и оформление канала (стиль licena.us)
 
-`video/thumbs/`: `shorts_thumb_A_pain.jpg` и `shorts_thumb_B_benefit.jpg` (1080×1920, для Shorts / Reels), `youtube_thumb_A_pain.jpg` и `youtube_thumb_B_benefit.jpg` (1280×720, для обычного YouTube). Исходник: `src/thumb.html` (варианты `?v=pain` и `?v=benefit`), рендер: `node src/thumbs.mjs "$PWD/src/thumb.html" thumbs`.
+Цвета и шрифты взяты с живого сайта: фон #090C27→#19123D, «heat»-градиент #FCDF00→#FFB300→#FF4E51, жёлтый #FFC100, заголовки Archivo 900 капсом, подписи IBM Plex Sans / Mono, логотип «L» в градиентном квадрате.
 
-## Оформление канала YouTube
+- `video/thumbs/`: `shorts_thumb_A_pain.jpg`, `shorts_thumb_B_benefit.jpg` (1080×1920, Shorts / Reels), `youtube_thumb_A_pain.jpg`, `youtube_thumb_B_benefit.jpg` (1280×720).
+- `video/brand/`: `banner_es.jpg`, `banner_en.jpg` (2560×1440, текст внутри безопасной зоны 1546×423), `avatar_mono.png` (буква «L» на градиенте), `avatar_word.png` (логотип + LICENA), 800×800.
 
-`video/brand/`: `banner_es.jpg` и `banner_en.jpg` (2560×1440, весь текст внутри безопасной зоны 1546×423, которая видна на телефоне), `avatar_mono.png` (монограмма «L» со звездой) и `avatar_word.png` (полный логотип) размером 800×800. Исходник: `src/brand.html` (параметр `?t=banner_es|banner_en|avatar_mono|avatar_word`), рендер: `node src/brand.mjs "$PWD/src/brand.html" brand`.
+Исходник всех восьми картинок: `src/brand2.html` (параметр `?t=banner_es|banner_en|avatar_mono|avatar_word|shorts_A|shorts_B|yt_A|yt_B`), рендер: `node src/brand2.mjs "$PWD/src/brand2.html" <папка>`.
+
+Внимание: сами видеоролики пока в старом стиле прототипа (navy/gold, Playfair) и с цифрами из старых страниц (500 + 500 вопросов). Сайт заявляет 13,000+ вопросов, много специальностей, пробный период и подписку, так что перед публикацией стоит пересобрать ролик под стиль и факты сайта.
